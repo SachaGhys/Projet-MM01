@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+    <html lang="fr">
+    <head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Christopher Nolan - Récompenses</title>
+        <link rel="stylesheet" href="../style/style.css">
+    </head>
+
+     <body>
+
+
+        <header class="main-header">
+            <div class="logo-container">
+                <a href="../index.html">
+                    <img src="../image/logotransparant.png" alt="Logo Christopher Nolan" class="logo-img">
+                </a>
+            </div>
+
+            <div class="mobile-header-title">
+                <span>Christopher</span>
+                <span>Nolan</span>
+            </div>
+
+            <div class="burger-menu" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#" class="nav-btn">Galerie -</a>
+                        <ul class="submenu">
+                            <li><a href="img.html">Galerie photo</a></li>
+                            <li><a href="video.html">Galerie vidéo</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="collab.html" class="nav-btn">Collaboration</a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="nav-btn">Carrière -</a>
+                        <ul class="submenu">
+                            <li><a href="bio.html">Biographie</a></li>
+                            <li><a href="movies.html">Filmographie</a></li>
+                            <li><a href="award.html">Récompenses</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="quiz.html" class="nav-btn">Quiz</a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="nav-btn">Contact -</a>
+                        <ul class="submenu">
+                            <li><a href="formulaire.html">Formulaire</a></li>
+                            <li><a href="credits.html">Crédits</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <hr>
+        
+        <h2>Les récompenses majeures de Christopher Nolan</h2>
+
+            <p>
+    Christopher Nolan est reconnu comme l’un des réalisateurs les plus influents du cinéma contemporain.  
+    Ses films, alliant rigueur narrative et complexité visuelle, lui ont valu de <strong>nombreuses distinctions</strong> à travers le monde.  
+    En <em>2024</em>, il remporte notamment ses premiers <strong>Oscars</strong> pour le film <em>Oppenheimer</em>.
+            </p>
+
+            <table border="1" width="90%" align="center">
+                <tr align="center">
+                    <th>Année</th>
+                    <th>Film</th>
+                    <th>Récompense</th>
+                    <th>Organisation</th>
+                </tr>
+                <tr align="center">
+                    <td>2002</td>
+                    <td><em>Memento</em></td>
+                    <td>Nomination – Meilleur scénario original</td>
+                    <td>Oscars</td>
+                </tr>
+                <tr align="center">
+                    <td>2008</td>
+                    <td><em>The Dark Knight</em></td>
+                    <td>Oscar du meilleur acteur (Heath Ledger)</td>
+                    <td>Academy Awards</td>
+                </tr>
+                <tr align="center">
+                    <td>2010</td>
+                    <td><em>Inception</em></td>
+                    <td>4 Oscars techniques (effets visuels, son, mixage...)</td>
+                    <td>Academy Awards</td>
+                </tr>
+                <tr align="center">
+                    <td>2017</td>
+                    <td><em>Dunkerque</em></td>
+                    <td>3 Oscars techniques</td>
+                    <td>Academy Awards</td>
+                </tr>
+                <tr align="center">
+                    <td>2024</td>
+                    <td><em>Oppenheimer</em></td>
+                    <td><strong>Oscar du meilleur film</strong> et <strong>meilleur réalisateur</strong></td>
+                    <td>Academy Awards</td>
+                </tr>
+            </table>
+
+            <p align="center">
+                <img src="../image/oscar.jpg" alt="Trophée Oscar" width="150"><br>
+                <em>Christopher Nolan lors de la cérémonie des Oscars 2024</em>
+            </p>
+
+            <p align="center">
+                Pour plus d'informations, consultez sa page complète sur  
+                <a href="https://fr.wikipedia.org/wiki/Christopher_Nolan" target="_blank">Wikipédia</a>.
+            </p>
+    
+    <hr>
+
+    <footer>
+        <p>Sacha Ghys © 2025  <a href="mailto:sacha.ghys@utt.fr" style="color: #8D9FA6;">sacha.ghys@utt.fr</a></p>
+    </footer>
+
+
+        <!-- Menu Burger -->
+        <script>
+            const burgerMenu = document.getElementById('burger-menu');
+            const navMenu = document.getElementById('nav-menu');
+
+            burgerMenu.addEventListener('click', () => {
+                burgerMenu.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        </script>
+
+        <script>
+            // 1. On sélectionne tous les liens qui ont un sous-menu
+            // (Ceux qui sont dans un li avec la classe .dropdown)
+            const dropdownLinks = document.querySelectorAll('.dropdown > a');
+
+            // 2. Pour chaque lien...
+            dropdownLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Si on est sur un écran tactile ou tablette (moins de 1024px par sécurité)
+                    if (window.innerWidth <= 1024) {
+                        
+                        // Empêche le lien de recharger la page ou de remonter en haut
+                        e.preventDefault();
+
+                        // On récupère le parent (le li class="dropdown")
+                        const parentLi = this.parentElement;
+
+                        // On ferme les autres menus ouverts pour éviter la pagaille
+                        document.querySelectorAll('.dropdown.active').forEach(item => {
+                            if (item !== parentLi) {
+                                item.classList.remove('active');
+                            }
+                        });
+
+                        // On ouvre ou on ferme celui-ci (toggle)
+                        parentLi.classList.toggle('active');
+                    }
+                });
+            });
+
+            // 3. Optionnel : Fermer le menu si on clique ailleurs sur la page
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown')) {
+                    document.querySelectorAll('.dropdown.active').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                }
+            });
+        </script>
+
+
+    
+
+
+    </body>
+</html>

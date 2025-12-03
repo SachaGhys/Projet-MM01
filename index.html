@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Christopher Nolan - Accueil</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+    <body>
+
+        <header class="main-header">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="image/logotransparant.png" alt="Logo Christopher Nolan" class="logo-img">
+                </a>
+            </div>
+
+            <div class="mobile-header-title">
+                <span>Christopher</span>
+                <span>Nolan</span>
+            </div>
+
+            <div class="burger-menu" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#" class="nav-btn">Galerie -</a>
+                        <ul class="submenu">
+                            <li><a href="page/img.html">Galerie photo</a></li>
+                            <li><a href="page/video.html">Galerie vidéo</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="page/collab.html" class="nav-btn">Collaboration</a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="nav-btn">Carrière -</a>
+                        <ul class="submenu">
+                            <li><a href="page/bio.html">Biographie</a></li>
+                            <li><a href="page/movies.html">Filmographie</a></li>
+                            <li><a href="page/award.html">Récompenses</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="page/quiz.html" class="nav-btn">Quiz</a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="nav-btn">Contact -</a>
+                        <ul class="submenu">
+                            <li><a href="page/formulaire.html">Formulaire</a></li>
+                            <li><a href="page/credits.html">Crédits</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+
+
+    <section class="hero-section">
+            
+            <video autoplay muted loop playsinline class="hero-bg-video">
+                <source src="video/video_background.mp4" type="video/mp4">
+                Votre navigateur ne supporte pas la vidéo HTML5.
+            </video>
+
+            <div class="hero-title-box">
+                <h1>Christopher Nolan</h1>
+            </div>
+
+            <div class="conteneur slideshow-container">
+
+                <div class="mySlides fade">
+                    <div class="conteneur-text">
+                        <p><strong>Dernier en date :</strong> Synopsis. En 1942, convaincus que l'Allemagne nazie développe une arme nucléaire, les États-Unis lancent le "Projet Manhattan" pour créer la première bombe atomique.</p>
+                    </div>
+                    <div class="conteneur-img">
+                        <img src="image/cillian_oppenheimer.jpg" alt="Oppenheimer">
+                    </div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="conteneur-text">
+                        <p><strong>Chef d'œuvre :</strong> Inception. Dom Cobb est un voleur expérimenté dans l'art périlleux de l'extraction : sa spécialité consiste à s'approprier les secrets les plus précieux d'un individu.</p>
+                    </div>
+                    <div class="conteneur-img">
+                        <img src="image/inception.jpg" alt="Inception">
+                    </div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="conteneur-text">
+                        <p><strong>Course contre la montre :</strong> Dunkerque. Mai 1940. Encerclés par l'ennemi, 400 000 soldats alliés espèrent un miracle sur les plages. L'opération Dynamo s'engage sur terre, sur mer et dans les airs.</p>
+                    </div>
+                    <div class="conteneur-img">
+                        <img src="image/dunkirk_1920x1080.jpg" alt="dunkirk">
+                    </div>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            
+
+                <div class="dots-container">
+                    <span class="dot" onclick="currentSlide(1)"></span> 
+                    <span class="dot" onclick="currentSlide(2)"></span> 
+                    <span class="dot" onclick="currentSlide(3)"></span> 
+                </div>
+        </div>
+        </section>
+
+        <footer>
+            <p>Sacha Ghys © 2025  <a href="mailto:sacha.ghys@utt.fr" style="color: #8D9FA6;">sacha.ghys@utt.fr</a></p>
+        </footer>
+
+
+
+        <!-- Menu Burger -->
+        <script>
+            const burgerMenu = document.getElementById('burger-menu');
+            const navMenu = document.getElementById('nav-menu');
+
+            burgerMenu.addEventListener('click', () => {
+                burgerMenu.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        </script>
+
+        <script>
+            // 1. On sélectionne tous les liens qui ont un sous-menu
+            // (Ceux qui sont dans un li avec la classe .dropdown)
+            const dropdownLinks = document.querySelectorAll('.dropdown > a');
+
+            // 2. Pour chaque lien...
+            dropdownLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Si on est sur un écran tactile ou tablette (moins de 1024px par sécurité)
+                    if (window.innerWidth <= 1024) {
+                        
+                        // Empêche le lien de recharger la page ou de remonter en haut
+                        e.preventDefault();
+
+                        // On récupère le parent (le li class="dropdown")
+                        const parentLi = this.parentElement;
+
+                        // On ferme les autres menus ouverts pour éviter la pagaille
+                        document.querySelectorAll('.dropdown.active').forEach(item => {
+                            if (item !== parentLi) {
+                                item.classList.remove('active');
+                            }
+                        });
+
+                        // On ouvre ou on ferme celui-ci (toggle)
+                        parentLi.classList.toggle('active');
+                    }
+                });
+            });
+
+            // 3. Optionnel : Fermer le menu si on clique ailleurs sur la page
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown')) {
+                    document.querySelectorAll('.dropdown.active').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                }
+            });
+        </script>
+
+
+        <!-- Slide Show -->
+        <script>
+            let slideIndex = 1;
+            showSlides(slideIndex);
+
+            function plusSlides(n) {
+                showSlides(slideIndex += n);
+            }
+
+            
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function showSlides(n) {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                
+                if (n > slides.length) {slideIndex = 1}    
+                
+                if (n < 1) {slideIndex = slides.length}
+                
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                    slides[i].classList.remove("active-slide"); 
+                }
+                
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active-dot", "");
+                }
+                
+                slides[slideIndex-1].style.display = "flex";  
+                slides[slideIndex-1].classList.add("active-slide"); 
+                dots[slideIndex-1].className += " active-dot";
+            }
+        </script>
+
+
+
+
+    </body>
+</html>
+

@@ -1,0 +1,595 @@
+@charset "utf-8";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+    font-family: 'Cinzel Decorative';
+    src: url('../font/CinzelDecorative-Regular.woff2') format('woff2'),
+        url('../font/CinzelDecorative-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    src: url('../font/CormorantGaramond-Regular.woff2') format('woff2'),
+        url('../font/CormorantGaramond-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Lora';
+    src: url('../font/Lora-Regular.woff2') format('woff2'),
+        url('../font/Lora-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+/* --- 2. RESET & BASE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Important pour que les tailles incluent les bordures */
+}
+
+body {
+    background-color: #E4F2F1; /* Couleur secondaire claire (Fond de page) */
+    color: #3F5559;            /* Couleur texte principal */
+    font-family: 'Lora', serif; /* Police par défaut pour le texte */
+    line-height: 1.6;
+    min-height: 100vh;;     /* Force le corps à faire au moins 100% de la hauteur de l'écran */
+    display: flex;          /* Active le mode Flexbox */
+    flex-direction: column;
+}
+
+/* --- 3. TYPOGRAPHIE (Gros titres, etc.) --- */
+h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: 400; /* On force 400 car c'est la seule version qu'on a */
+    color: #032340;
+    text-align: center;
+    margin-top: 100px;
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300; /* Light */
+    color: #032340;   /* Bleu Nuit */
+    font-size: 1.8rem;
+    border-bottom: 1px solid #8D9FA6; /* Ligne de séparation */
+    padding-bottom: 10px;
+    margin: 20px auto;
+    width: 80%;
+}
+
+p {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    padding: 0 20px;
+    max-width: 800px; /* Pour pas que les lignes soient trop longues */
+    margin: 0 auto 20px auto;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* --- 3. HEADER & NAVIGATION --- */
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 3000;
+    background-color: #3F5559;
+    padding: 5px 40px;
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+.logo-container {
+    flex-shrink: 0; /* Empêche le logo de s'écraser */
+    margin-right: 40px; /* Espace entre le logo et le début du menu */
+}
+.logo-img {
+    /* On augmente la taille comme tu voulais */
+    max-height: 100px; 
+    width: auto;
+    display: block;
+
+}
+
+.nav-menu {
+    flex-grow: 1;
+    z-index: 3000;
+}
+
+.nav-menu > ul {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    width: 100%; 
+    margin: 0;
+    padding: 0; 
+}
+
+/* BOUTONS FORME FEUILLE */
+.nav-btn {
+    display: block;
+    background-color: #F0F0F0;
+    position: relative;
+    color: #000;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 10px 25px;
+    border-radius: 15px 0 15px 0; /* Forme feuille */
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.nav-btn:hover {
+    background-color: #C5D7D9;
+    transform: translateY(-2px);
+}
+
+/* SOUS-MENUS */
+.dropdown {
+    position: relative;
+    
+}
+
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #3F5559;
+    padding: 10px 0;
+    border-radius: 0 0 15px 15px;
+    min-width: 200px;
+    z-index: 1000;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.submenu li {
+    width: 100%;
+}
+
+.submenu li a {
+    color: #F0F0F0;
+    font-family: 'Lora', serif;
+    display: block;
+    padding: 5px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+}
+
+.submenu li a:hover {
+    color: #C5D7D9;
+    padding-left: 15px;
+    transition: 0.2s;
+}
+
+.dropdown:hover .submenu {
+    display: flex;
+}
+
+
+/* --- 4. HERO SECTION --- */
+
+.hero-section {
+    flex-grow:1;
+    position: relative;
+    width: 100%;
+    min-height: 85vh;        
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden; /* Important : coupe la vidéo si elle dépasse */
+}
+
+.hero-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* C'est magique : ça remplit tout l'espace sans déformer l'image */
+    z-index: -1; /* Ça met la vidéo DERRIÈRE le texte */
+}
+
+.hero-title-box {
+    margin-top: 150px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    padding: 20px 60px;
+    border-radius: 10px;
+}
+
+.hero-title-box h1 {
+    margin: 0;
+    color: #C5D7D9;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 3rem;
+    text-transform: capitalize;
+}
+
+/* --- LE CONTENEUR (MODIFIÉ ICI) --- */
+.conteneur {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    height: 150px;
+    background-color: rgba(117, 117, 117, 0.8);
+    display: flex;
+    align-items: center;
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+    margin-bottom: 0;
+    margin-top: auto;
+}
+
+.conteneur-text {
+    flex: 2;
+    padding: 30px 5px 5px 25px;
+    font-family: 'Lora', serif;
+    color: #E4F2F1;
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+.conteneur-img {
+    height: 90%;
+    padding-right: 50px;
+}
+
+.conteneur-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: #000;
+    color: #555;
+    text-align: center;
+    padding: 10px 0;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.5rem;
+    margin-top: -1px;
+}
+
+footer p {
+    margin: 2px 0; /* Juste un tout petit espace entre les deux lignes de texte */
+    padding: 0;    /* On s'assure qu'il n'y a pas de gras superflu */
+    max-width: 100%; /* On enlève la limite de largeur du p général */
+}
+/* --- FOOTER --- */
+
+
+
+/* --- Slide --- */
+.mySlides {
+    display: none; 
+    height: 100%;  
+    width: 100%;
+    align-items: center; 
+}
+
+/* --- BOUTONS SUIVANT / PRÉCÉDENT et slideshow --- */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(0,0,0,0.3); /* Un peu sombre pour qu'on les voit */
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px; /* Un peu d'espace entre les points */
+    background-color: #bbb; /* Gris clair par défaut */
+    border-radius: 50%; /* Rond */
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    cursor: pointer; /* Pour montrer qu'on peut cliquer */
+}
+
+.active-dot {
+    background-color: #032340; /* Bleu nuit */
+    border: 1px solid #FFF; /* Petit contour blanc pour le style */
+}
+
+/* --- BOUTONS SUIVANT / PRÉCÉDENT et slideshow --- */
+
+
+.dots-container {
+    position: absolute;
+    bottom: 10px;      /* Les dots se placent en bas du conteneur */
+    width: 100%;
+    text-align: center;
+    z-index: 20;
+}
+
+
+
+/* --- 6. RESPONSIVE --- */
+
+/* cacher le titre en format ordi et tablette */
+.mobile-header-title {
+    display: none; 
+}
+
+.burger-menu {
+    display: none; /* Caché par défaut */
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    position: relative;
+    z-index: 4005; /* Toujours au-dessus du menu ouvert */
+}
+
+.burger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #C5D7D9; /* Couleur claire */
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+    border-radius: 2px;
+}
+
+
+/* TABLETTE - 768px */
+@media (max-width: 768px) {
+    .nav-btn {
+        font-size: 1rem; /* Réduit un peu la taille */
+        padding: 10px 15px; /* Réduit le padding */
+    }
+
+    .nav-menu > ul {
+        gap: 5px; /* On serre un peu les boutons */
+    }
+
+    .main-header {
+        padding: 5px 20px;
+    }
+    
+    
+    .conteneur {
+        width: 100%; /* Prend toute la largeur comme demandé */
+        border-radius: 0;
+    }
+
+    .dropdown.active .submenu {
+    display: flex;
+    }
+} 
+
+/* =========================================
+   FORMAT SMARTPHONE (Max 425px)
+   ========================================= */
+@media (max-width:426px) {
+
+    /* --- 1. HEADER & NAVIGATION --- */
+    .main-header {
+        padding: 0 15px; /* Un peu moins de marge sur les côtés */
+        height: 80px;    /* Header plus fin sur mobile */
+        justify-content: space-between; /* Logo à gauche, Burger à droite */
+    }
+
+    /* Le Logo */
+    .logo-container {
+        margin: 0;
+        z-index: 4001; /* Pour qu'il reste cliquable même si menu ouvert (optionnel) */
+    }
+    
+    .logo-img {
+        max-height: 80px; /* Logo plus petit */
+    }
+
+    /* Le Titre "Christopher Nolan" au milieu */
+    .mobile-header-title {
+        display: flex; /* On l'affiche ! */
+        flex-direction: column;
+        align-items: center;
+        
+        /* Centrage absolu */
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        
+        font-family: 'Cinzel Decorative', serif;
+        color: #C5D7D9;
+        font-weight: bold;
+        font-size: 1.5rem;
+        line-height: 1.1;
+        text-align: center;
+    }
+
+    /* Le Menu Burger */
+    .burger-menu {
+        display: block; /* On l'affiche */
+        z-index: 5000; /* Au-dessus de tout le reste */
+    }
+
+    /* Le Panneau de Menu (Caché par défaut) */
+    .nav-menu {
+        position: fixed;
+        top: 80px; /* Hauteur du header mobile */
+        left: -100%; /* Caché à gauche */
+        width: 100%;
+        height: calc(100vh - 80px);
+        background-color: #3F5559;
+        flex-direction: column;
+        transition: 0.4s ease-in-out;
+        z-index: 3900;
+        padding-top: 20px;
+        overflow-y: auto; /* Scroll si menu trop long */
+    }
+
+    .nav-menu.active {
+        left: 0; /* Il apparaît */
+    }
+
+    .nav-menu > ul {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 15px;
+    }
+
+    /* Les liens du menu (plus gros pour le doigt) */
+    .nav-btn {
+        width: 100%;
+        text-align: center;
+        padding: 15px;
+        font-size: 1.1rem;
+        background-color: transparent; /* Fond transparent sur mobile pour alléger */
+        color: #F0F0F0;
+        box-shadow: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        border-radius: 0;
+    }
+    
+    .nav-btn:hover {
+        background-color: rgba(0,0,0,0.2);
+        transform: none;
+    }
+
+    /* Dropdown Mobile : Clic pour ouvrir (statique) */
+    .dropdown:hover .submenu, .dropdown.active .submenu {
+        position: static;
+        width: 100%;
+        transform: none;
+        background-color: rgba(0,0,0,0.2);
+        box-shadow: none;
+        display: flex; /* Si tu utilises le script JS de clic, ça marchera */
+    }
+
+    /* --- 2. HERO SECTION & CONTENU --- */
+    .hero-section {
+        /* On retire le flex centré pour gérer les marges manuellement */
+        display: block; 
+        padding-top: 20px; /* Un peu d'espace sous le header */
+        min-height: auto; /* La hauteur s'adapte au contenu */
+    }
+
+    /* On cache le gros titre H1 car on l'a mis dans le header */
+    .hero-title-box {
+        display: none; 
+    }
+
+    /* --- 3. LE CONTENEUR (SLIDESHOW MOBILE) --- */
+    .conteneur {
+        /* On le transforme en bloc simple */
+        display: block; 
+        width: 90%; /* Marges sur les côtés */
+        height: auto; /* Hauteur libre selon le texte */
+        min-height: 450px; /* Sécurité */
+        
+        /* Positionnement */
+        margin: 40px auto; /* Centré horizontalement + marges haut/bas */
+        
+        background-color: rgba(117, 117, 117, 0.8); /* Transparence demandée */
+        border-radius: 15px; /* Arrondi partout */
+    }
+
+    /* Les Slides */
+    .mySlides {
+        flex-direction: column-reverse; /* Image en HAUT, Texte en BAS */
+        height: auto;
+    }
+    
+    /* Force l'affichage en flex quand actif (important pour le column-reverse) */
+    .mySlides.active-slide {
+        display: flex !important; 
+    }
+
+    /* L'Image */
+    .conteneur-img {
+        width: 100%;
+        height: 200px; /* Hauteur fixe pour l'image */
+        padding: 0;
+    }
+
+    .conteneur-img img {
+        border-radius: 15px 15px 0 0; /* Arrondi haut seulement */
+    }
+
+    /* Le Texte */
+    .conteneur-text {
+        width: 100%;
+        padding: 5px;
+        font-size: 0.95rem;
+        padding-bottom: 20px; 
+    }
+
+    /* --- 4. NAVIGATION SLIDESHOW --- */
+    /* Les flèches au milieu de l'image */
+    .prev, .next {
+        top: 100px; /* Moitié de la hauteur de l'image (200px / 2) */
+        padding: 10px;
+        background-color: rgba(0,0,0,0.5);
+    }
+    
+    .prev { left: 0; border-radius: 0 5px 5px 0; }
+    .next { right: 0; border-radius: 5px 0 0 5px; }
+
+    /* Les points en bas du conteneur */
+    .dots-container {
+        position: absolute;
+        bottom: 15px;
+        left: 0;
+        width: 100%;
+    }
+    
+    /* --- 5. FOOTER --- */
+    footer {
+        font-size: 1rem;
+        padding: 15px 0;
+    }
+}

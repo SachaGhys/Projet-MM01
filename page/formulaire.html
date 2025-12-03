@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+    <html lang="fr">
+    <head>
+		<meta charset="utf-8">
+        <title>Christopher Nolan - Formulaire</title>
+        <link rel="stylesheet" href="../style/style.css">
+    </head>
+
+    
+     <body>
+        <header class="main-header">
+            <div class="logo-container">
+                <a href="../index.html">
+                    <img src="../image/logotransparant.png" alt="Logo Christopher Nolan" class="logo-img">
+                </a>
+            </div>
+
+            <div class="mobile-header-title">
+                <span>Christopher</span>
+                <span>Nolan</span>
+            </div>
+
+            <div class="burger-menu" id="burger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li class="dropdown">
+                        <a href="#" class="nav-btn">Galerie -</a>
+                        <ul class="submenu">
+                            <li><a href="img.html">Galerie photo</a></li>
+                            <li><a href="video.html">Galerie vidéo</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="collab.html" class="nav-btn">Collaboration</a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="nav-btn">Carrière -</a>
+                        <ul class="submenu">
+                            <li><a href="bio.html">Biographie</a></li>
+                            <li><a href="movies.html">Filmographie</a></li>
+                            <li><a href="award.html">Récompenses</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="quiz.html" class="nav-btn">Quiz</a></li>
+
+                    <li class="dropdown">
+                        <a href="#" class="nav-btn">Contact -</a>
+                        <ul class="submenu">
+                            <li><a href="formulaire.html">Formulaire</a></li>
+                            <li><a href="credits.html">Crédits</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+
+
+        <hr>
+
+        <h2 align="center">Contactez-moi</h2>
+            <p>Vous pouvez me laisser un message grâce au formulaire ci-dessous :</p>
+
+            <form action="#" method="post">
+                <p>
+                    <label for="nom">Nom :</label><br>
+                    <input type="text" id="nom" name="nom" required>
+                </p>
+
+                <p>
+                    <label for="email">Adresse e-mail :</label><br>
+                    <input type="email" id="email" name="email" required>
+                </p>
+
+                <p>
+                    <label for="commentaire">Commentaire :</label><br>
+                    <textarea id="commentaire" name="commentaire" rows="5" cols="40" required></textarea>
+                </p>
+
+                <p>
+                    <input type="submit" value="Envoyer">
+                    <input type="reset" value="Effacer">
+                </p>
+            </form>
+
+      
+
+        <hr>
+
+        <footer>
+            <p>Sacha Ghys © 2025  <a href="mailto:sacha.ghys@utt.fr" style="color: #8D9FA6;">sacha.ghys@utt.fr</a></p>
+        </footer>
+
+        <!-- Menu Burger -->
+        <script>
+            const burgerMenu = document.getElementById('burger-menu');
+            const navMenu = document.getElementById('nav-menu');
+
+            burgerMenu.addEventListener('click', () => {
+                burgerMenu.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+        </script>
+
+        <script>
+            // 1. On sélectionne tous les liens qui ont un sous-menu
+            // (Ceux qui sont dans un li avec la classe .dropdown)
+            const dropdownLinks = document.querySelectorAll('.dropdown > a');
+
+            // 2. Pour chaque lien...
+            dropdownLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Si on est sur un écran tactile ou tablette (moins de 1024px par sécurité)
+                    if (window.innerWidth <= 1024) {
+                        
+                        // Empêche le lien de recharger la page ou de remonter en haut
+                        e.preventDefault();
+
+                        // On récupère le parent (le li class="dropdown")
+                        const parentLi = this.parentElement;
+
+                        // On ferme les autres menus ouverts pour éviter la pagaille
+                        document.querySelectorAll('.dropdown.active').forEach(item => {
+                            if (item !== parentLi) {
+                                item.classList.remove('active');
+                            }
+                        });
+
+                        // On ouvre ou on ferme celui-ci (toggle)
+                        parentLi.classList.toggle('active');
+                    }
+                });
+            });
+
+            // 3. Optionnel : Fermer le menu si on clique ailleurs sur la page
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.dropdown')) {
+                    document.querySelectorAll('.dropdown.active').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                }
+            });
+        </script>        
+
+
+    </body>
+</html>
