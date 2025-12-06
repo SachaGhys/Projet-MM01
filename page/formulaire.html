@@ -6,6 +6,7 @@
         <meta name="author" content="Sacha Ghys">
         <meta name="keywords" content="Christopher Nolan, réalisateur, cinéma, Interstellar, The Dark Knight, Inception, Oppenheimer">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="../image/icone.png">
         <title>Christopher Nolan - Formulaire</title>
         <link rel="stylesheet" href="../style/style.css">
     </head>
@@ -69,33 +70,30 @@
         <hr>
 
         <h2 align="center">Contactez-moi</h2>
-            <p>Vous pouvez me laisser un message grâce au formulaire ci-dessous :</p>
 
-            <form action="#" method="post">
-                <p>
-                    <label for="nom">Nom :</label><br>
-                    <input type="text" id="nom" name="nom" required>
-                </p>
+        <div class="formulaire">
+            <form action="action_page.php">
 
-                <p>
-                    <label for="email">Adresse e-mail :</label><br>
-                    <input type="email" id="email" name="email" required>
-                </p>
+                <label for="fname">Nom</label>
+                <input type="text" id="fname" name="Nom" placeholder="Votre Nom..">
 
-                <p>
-                    <label for="commentaire">Commentaire :</label><br>
-                    <textarea id="commentaire" name="commentaire" rows="5" cols="40" required></textarea>
-                </p>
+                <label for="lname">Prénom</label>
+                <input type="text" id="lname" name="Prénom" placeholder="Votre Prénom..">
 
-                <p>
-                    <input type="submit" value="Envoyer">
-                    <input type="reset" value="Effacer">
-                </p>
+                <label for="country">Votre situation</label>
+                <select id="country" name="country">
+                <option value="australia">Étudiant</option>
+                <option value="canada">Professeur</option>
+                <option value="usa">Autre</option>
+                </select>
+
+                <label for="subject">Question(s)</label>
+                <textarea id="subject" name="subject" placeholder="Votre question" style="height:200px"></textarea>
+
+                <input type="submit" value="Submit">
+
             </form>
-
-      
-
-        <hr>
+            </div>
 
         <footer>
             <p>Sacha Ghys © 2025  <a href="mailto:sacha.ghys@utt.fr" style="color: #8D9FA6;">sacha.ghys@utt.fr</a></p>
