@@ -2,6 +2,10 @@
     <html lang="fr">
     <head>
 		<meta charset="utf-8">
+        <meta name="description" content="Site étudiant consacré à l'artiste et réalisateur Christopher Nolan, présentant sa biographie, ses œuvres, ses récompenses, sa filmographie et bien d'autres encore.">
+        <meta name="author" content="Sacha Ghys">
+        <meta name="keywords" content="Christopher Nolan, réalisateur, cinéma, Interstellar, The Dark Knight, Inception, Oppenheimer">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Christopher Nolan - Formulaire</title>
         <link rel="stylesheet" href="../style/style.css">
     </head>
@@ -97,57 +101,7 @@
             <p>Sacha Ghys © 2025  <a href="mailto:sacha.ghys@utt.fr" style="color: #8D9FA6;">sacha.ghys@utt.fr</a></p>
         </footer>
 
-        <!-- Menu Burger -->
-        <script>
-            const burgerMenu = document.getElementById('burger-menu');
-            const navMenu = document.getElementById('nav-menu');
-
-            burgerMenu.addEventListener('click', () => {
-                burgerMenu.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-        </script>
-
-        <script>
-            // 1. On sélectionne tous les liens qui ont un sous-menu
-            // (Ceux qui sont dans un li avec la classe .dropdown)
-            const dropdownLinks = document.querySelectorAll('.dropdown > a');
-
-            // 2. Pour chaque lien...
-            dropdownLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    // Si on est sur un écran tactile ou tablette (moins de 1024px par sécurité)
-                    if (window.innerWidth <= 1024) {
-                        
-                        // Empêche le lien de recharger la page ou de remonter en haut
-                        e.preventDefault();
-
-                        // On récupère le parent (le li class="dropdown")
-                        const parentLi = this.parentElement;
-
-                        // On ferme les autres menus ouverts pour éviter la pagaille
-                        document.querySelectorAll('.dropdown.active').forEach(item => {
-                            if (item !== parentLi) {
-                                item.classList.remove('active');
-                            }
-                        });
-
-                        // On ouvre ou on ferme celui-ci (toggle)
-                        parentLi.classList.toggle('active');
-                    }
-                });
-            });
-
-            // 3. Optionnel : Fermer le menu si on clique ailleurs sur la page
-            document.addEventListener('click', function(e) {
-                if (!e.target.closest('.dropdown')) {
-                    document.querySelectorAll('.dropdown.active').forEach(item => {
-                        item.classList.remove('active');
-                    });
-                }
-            });
-        </script>        
-
+        <script src="../java/script.js"></script>
 
     </body>
 </html>

@@ -50,6 +50,7 @@ body {
     min-height: 100vh;;     /* Force le corps à faire au moins 100% de la hauteur de l'écran */
     display: flex;          /* Active le mode Flexbox */
     flex-direction: column;
+
 }
 
 /* --- 3. TYPOGRAPHIE (Gros titres, etc.) --- */
@@ -64,20 +65,21 @@ h1 {
 
 h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 300; /* Light */
-    color: #032340;   /* Bleu Nuit */
+    font-weight: 300; 
+    color: #032340;   
     font-size: 1.8rem;
-    border-bottom: 1px solid #8D9FA6; /* Ligne de séparation */
+    border-bottom: 1px solid #8D9FA6; 
     padding-bottom: 10px;
     margin: 20px auto;
     width: 80%;
 }
 
 p {
+    color: #E4F2F1; 
     font-family: 'Lora', serif;
     font-size: 1.1rem;
     padding: 0 20px;
-    max-width: 800px; /* Pour pas que les lignes soient trop longues */
+    max-width: 800px; 
     margin: 0 auto 20px auto;
 }
 
@@ -89,7 +91,7 @@ a {
     text-decoration: none;
 }
 
-/* --- 3. HEADER & NAVIGATION --- */
+/* header et navigation */
 .main-header {
     position: sticky;
     top: 0;
@@ -103,10 +105,10 @@ a {
 
 .logo-container {
     flex-shrink: 0; /* Empêche le logo de s'écraser */
-    margin-right: 40px; /* Espace entre le logo et le début du menu */
+    margin-right: 5vh; 
 }
 .logo-img {
-    /* On augmente la taille comme tu voulais */
+
     max-height: 100px; 
     width: auto;
     display: block;
@@ -127,7 +129,6 @@ a {
     padding: 0; 
 }
 
-/* BOUTONS FORME FEUILLE */
 .nav-btn {
     display: block;
     background-color: #F0F0F0;
@@ -147,12 +148,10 @@ a {
     transform: translateY(-2px);
 }
 
-/* SOUS-MENUS */
 .dropdown {
     position: relative;
     
 }
-
 
 .submenu {
     display: none;
@@ -193,9 +192,9 @@ a {
 }
 
 
-/* --- 4. HERO SECTION --- */
+/* contenu */
 
-.hero-section {
+.contenu {
     flex-grow:1;
     position: relative;
     width: 100%;
@@ -207,7 +206,7 @@ a {
     overflow: hidden; /* Important : coupe la vidéo si elle dépasse */
 }
 
-.hero-bg-video {
+.contenu-bg-video {
     position: absolute;
     top: 0;
     left: 0;
@@ -217,7 +216,7 @@ a {
     z-index: -1; /* Ça met la vidéo DERRIÈRE le texte */
 }
 
-.hero-title-box {
+.contenu-title-box {
     margin-top: 150px;
     background-color: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
@@ -225,7 +224,7 @@ a {
     border-radius: 10px;
 }
 
-.hero-title-box h1 {
+.contenu-title-box h1 {
     margin: 0;
     color: #C5D7D9;
     font-family: 'Cinzel Decorative', serif;
@@ -272,6 +271,107 @@ a {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+
+.timeline {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color:#3F5559;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+
+
+/* Container around content */
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: #3F5559;
+  border: 4px solid #8D9FA6;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid #3F5559;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent #3F5559;
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid #3F5559;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent #3F5559 transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+left: -16px;
+}
+
+/* The actual content */
+.content {
+text-align: left;
+padding-bottom: 2vh;
+background-color: #8D9FA6;
+position: relative;
+border-radius: 6px;
+}
+
+.content h2 {
+    text-align: center;
+    font-size: 4em;
+}
+
+
+
 
 /* --- FOOTER --- */
 footer {
@@ -409,15 +509,14 @@ footer p {
     }
 } 
 
-/* =========================================
-   FORMAT SMARTPHONE (Max 425px)
-   ========================================= */
+
 @media (max-width:426px) {
+    
 
     /* --- 1. HEADER & NAVIGATION --- */
     .main-header {
         padding: 0 15px; /* Un peu moins de marge sur les côtés */
-        height: 80px;    /* Header plus fin sur mobile */
+        height: 15vh;    /* Header plus fin sur mobile */
         justify-content: space-between; /* Logo à gauche, Burger à droite */
     }
 
@@ -510,16 +609,18 @@ footer p {
         display: flex; /* Si tu utilises le script JS de clic, ça marchera */
     }
 
-    /* --- 2. HERO SECTION & CONTENU --- */
-    .hero-section {
-        /* On retire le flex centré pour gérer les marges manuellement */
+/* contenu */
+    .contenu {
+        position: relative;
+        height: 85vh;
         display: block; 
-        padding-top: 20px; /* Un peu d'espace sous le header */
+        padding-top: 5vh;
+        padding-bottom: 0; 
         min-height: auto; /* La hauteur s'adapte au contenu */
     }
 
     /* On cache le gros titre H1 car on l'a mis dans le header */
-    .hero-title-box {
+    .contenu-title-box {
         display: none; 
     }
 
@@ -589,7 +690,11 @@ footer p {
     
     /* --- 5. FOOTER --- */
     footer {
-        font-size: 1rem;
-        padding: 15px 0;
+        height: 5vh;
+        padding-bottom: 5vh;
+    }
+
+    footer p{
+        font-size: 0.5em;
     }
 }
