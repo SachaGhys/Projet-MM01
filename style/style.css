@@ -462,13 +462,16 @@ padding: 5vh;
 }
 
 .collab-master {
+    width: 70%;
+    height: auto;
+    margin: auto;
     margin-bottom: 5vh;
-    padding: 3vh 5vh;
     background-color: #3F5559; 
     color: #E4F2F1;
     text-align: center;
     overflow: hidden;
-    border-radius: 1vh 1vh 0 0; /
+    border-radius: 1vh 1vh 1vh 1vh; 
+    box-shadow: 1vh 1vh 1vh rgba(0,0,0,0.4);
 }
 .collab-master h2 {
     color: #E4F2F1;
@@ -476,23 +479,24 @@ padding: 5vh;
 }
 
 .collab-master img {
-    height: 100%;
-    width: auto;
-    max-height: 25vh; 
-    object-fit: cover;
+    width: 70%;
+    height: auto;
     margin-top: 2vh;
+    margin-bottom: 2vh;
     border-radius: 15px;
 }
 
 .collab-detail {
     background-color: #8D9FA6;
     border-radius: 1vh;
-    box-shadow: 0 0.5vh 1vh rgba(0,0,0,0.1);
+    box-shadow: 1vh 1vh 1vh rgba(0,0,0,0.4);
     overflow: hidden;
     text-align: center;
+
 }
 
 .collab-detail img {
+    margin-top: 2vh;
     border-radius: 15px;
     height: 15vh; 
     object-fit: cover;
