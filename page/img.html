@@ -71,40 +71,89 @@
 
          <p>Voici quelques images de Christopher Nolan et de ses films célèbres :</p>
 
-        <figure align="center"> 
-            <img src="../image/dark_knight_affiche_1920x1080.jpg" alt="Affiche The Dark Knight" width="100%"><br>
-            <figcaption>The Dark Knight</figcaption>
-        </figure>
 
-        <figure align="center">
-            <img src="../image/inception_affiche_1920x1080.jpg" alt="Affiche Inception" width="100%"><br>
-            <figcaption>Inception</figcaption>
-        </figure>
+    <main class="gallery-page-content">
+        <h1 class="page-title">Galerie Photo : Moments Clés</h1>
+        
+        <p class="intro-text">
+            Cliquez (ou tapotez) sur les images pour afficher leur description. Les scènes sensibles sont floutées (Anti-Spoil) et ne se révéleront qu'après une action délibérée de votre part.
+        </p>
 
-        <figure align="center">
-            <img src="../image/interstellar_affiche_1920x1080.jpg" alt="Affiche Interstellar" width="100%"><br>
-            <figcaption>Interstellar</figcaption>
-        </figure>
+        <div class="photo-gallery">
+            
+            <div class="photo-column">
+                <div class="gallery-item">
+                    <div class="gallery-caption-box"><p class="caption-title">Tournage Dunkerque (2017)</p><p class="caption-desc">Nolan filmant sur la plage.</p></div>
+                    <img src="../image/nolan_staff.jpg" alt="Christopher Nolan en tournage">
+                </div>
+                <div class="gallery-item spoiler-blur" onclick="toggleSpoiler(this)">
+                    <div class="gallery-caption-box"><p class="caption-title">Interstellar : La vague géante</p><p class="caption-desc">Atterrissage sur la planète de Miller.</p></div>
+                    <img src="../image/wave.jpg" alt="Vague Interstellar">
+                </div>
+                <div class="gallery-item spoiler-blur" onclick="toggleSpoiler(this)">
+                    <div class="gallery-caption-box"><p class="caption-title">Le Prestige : Le dernier tour</p><p class="caption-desc">Révélation du tour de magie final de Borden.</p></div>
+                    <img src="../image/prestige_trick.jpg" alt="Tour de magie Prestige">
+                </div>
+            </div>
 
-        <figure align="center"
-            <img src="../image/dunkirk_1920x1080.jpg" alt="Affiche Dunkerque" width="100%"><br>
-            <figcaption>Dunkerque</figcaption>
-        </figure>
+            <div class="photo-column">
+                <div class="gallery-item">
+                    <div class="gallery-caption-box"><p class="caption-title">Cillian Murphy : Portrait</p><p class="caption-desc">Portrait de l'acteur fétiche avant la prise.</p></div>
+                    <img src="../image/nolan_murphy.jpg" alt="Gros plan Cillian Murphy">
+                </div>
+                <div class="gallery-item spoiler-blur" onclick="toggleSpoiler(this)">
+                    <div class="gallery-caption-box"><p class="caption-title">Oppenheimer : Test Trinity</p><p class="caption-desc">Le moment culminant de l'expérience.</p></div>
+                    <img src="../image/bomb.jpg" alt="Essai nucléaire Oppenheimer">
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-caption-box"><p class="caption-title">Technique : La caméra IMAX</p><p class="caption-desc">L'outil emblématique de l'esthétique Nolan.</p></div>
+                    <img src="../image/nolan_caméra.jpg" alt="Caméra IMAX">
+                </div>
+            </div>
 
-        <figure align="center">
-            <img src="../image/oppenheimer_affiche_1920x1080.jpg" alt="Affiche Oppenheimer" width="100%"><br>
-            <figcaption>Oppenheimer</figcaption>
-        </figure>
+            <div class="photo-column">
+                <div class="gallery-item">
+                    <div class="gallery-caption-box"><p class="caption-title">Michael Caine, coulisses</p><p class="caption-desc">L'acteur jouant souvent le rôle de mentor/Alfred.</p></div>
+                    <img src="../image/alfred.jpg" alt="Michael Caine sur le plateau">
+                </div>
+                <div class="gallery-item spoiler-blur" onclick="toggleSpoiler(this)">
+                    <div class="gallery-caption-box"><p class="caption-title">Inception : L'escalier paradoxal</p><p class="caption-desc">Une scène iconique de l'architecture du rêve.</p></div>
+                    <img src="../image/inception_room.jpg" alt="Scène d'Inception">
+                </div>
+                <div class="gallery-item spoiler-blur" onclick="toggleSpoiler(this)">
+                    <div class="gallery-caption-box"><p class="caption-title">Dunkerque : Évacuation</p><p class="caption-desc">Des civils en mer venant sauver les soldats.</p></div>
+                    <img src="../image/dunkirk_boat.jpg" alt="Bateaux Dunkerque">
+                </div>
+                <div class="gallery-item spoiler-blur" onclick="toggleSpoiler(this)">
+                    <div class="gallery-caption-box"><p class="caption-title">Batman Begins : La peur</p><p class="caption-desc">Scène de la confrontation finale.</p></div>
+                    <img src="../image/batman_begins.jpg" alt="Scène de Batman Begins">
+                </div>
+            </div>
 
+            <div class="photo-column">
+                <div class="gallery-item">
+                    <div class="gallery-caption-box"><p class="caption-title">Derrière la scène</p><p class="caption-desc">L'équipe technique en pleine préparation.</p></div>
+                    <img src="../image/nolan_studio.jpg" alt="Équipe technique en action">
+                </div>
+                <div class="gallery-item spoiler-blur" onclick="toggleSpoiler(this)">
+                    <div class="gallery-caption-box"><p class="caption-title">The Dark Knight : Le Joker</p><p class="caption-desc">Scène de l'explosion de l'hôpital.</p></div>
+                    <img src="../image/joker.jpg" alt="Le Joker">
+                </div>
+                <div class="gallery-item spoiler-blur" onclick="toggleSpoiler(this)">
+                    <div class="gallery-caption-box"><p class="caption-title">Tenet : Inversion</p><p class="caption-desc">Scène où l'inversion temporelle est visible.</p></div>
+                    <img src="../image/tenet_reverse.jpg" alt="Scène d'inversion Tenet">
+                </div>
+            </div>
 
-        <hr>
+        </div>
+    </main>
 
         <footer>
             <p>Sacha Ghys © 2025  <a href="mailto:sacha.ghys@utt.fr" style="color: #8D9FA6;">sacha.ghys@utt.fr</a></p>
         </footer>
 
 
-        <script src="../java/script.js"></script>
+        <script src="../js/script.js"></script>
 
     </body>
 </html>

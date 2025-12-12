@@ -492,7 +492,8 @@ padding: 5vh;
     box-shadow: 1vh 1vh 1vh rgba(0,0,0,0.4);
     overflow: hidden;
     text-align: center;
-
+    transition: all 0.3s ease-in-out;
+    will-change: transform, box-shadow;
 }
 
 .collab-detail img {
@@ -502,6 +503,154 @@ padding: 5vh;
     object-fit: cover;
 }
 
+.collab-detail:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 1.2vh 1.2vh 1.2vh rgba(0, 0, 0, 0.5);
+}
+
+#audio-control-btn {
+    /* ... (vos styles fixed, bottom, right) ... */
+    width: 50px; /* Taille fixe */
+    height: 50px;
+    padding: 0;
+    border-radius: 50%; /* Bouton rond */
+    position: fixed; /* Rend l'élément fixe par rapport à la fenêtre */
+    bottom: 20px;    /* 20px du bas de l'écran */
+    right: 20px;     /* 20px de la droite de l'écran */
+    z-index: 5500;
+    box-shadow: 0.6vh 0.6vh 0.6vh rgba(0, 0, 0, 0.4);
+}
+#audio-icon {
+    font-size: 1.2em; /* Taille de l'icône */
+}
+
+
+.gallery-page-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.intro-text {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: #3F5559; 
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* --- MISE EN PAGE GRILLE --- */
+.photo-gallery {
+    /* Utilisation de Flexbox pour créer des colonnes */
+    display: flex;
+    flex-wrap: wrap; /* Permet aux colonnes de passer à la ligne si besoin */
+    padding: 0 4px; /* Espace de chaque côté du conteneur */
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.photo-column {
+    /* Par défaut, 4 colonnes (25%) sur grand écran. 
+       Nous allons utiliser des media queries pour ajuster cette largeur. */
+    flex: 25%; 
+    max-width: 25%;
+    padding: 0 4px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin-top: 8px; /* Espace entre les images dans la colonne */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    
+    /* TRES IMPORTANT : L'image doit prendre 100% de la largeur du conteneur parent (.photo-column) */
+    width: 100%;
+    height: auto; 
+}
+
+.gallery-item img {
+    /* L'image s'adapte à sa hauteur naturelle */
+    width: 100%;
+    height: auto; 
+    display: block;
+    transition: filter 0.4s ease;
+}
+/* --- EFFET ANTI-SPOIL (FLOU) --- */
+
+.spoiler-blur {
+    /* Le conteneur flou par défaut */
+    background-color: #032340; /* Pour cacher les bords */
+}
+
+.spoiler-blur img {
+    filter: blur(8px); 
+}
+
+.spoiler-blur::after {
+    /* Étiquette "Attention Spoil" */
+    content: "ATTENTION SPOIL : Cliquer pour découvrir";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(3, 35, 64, 0.85);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-family: 'Cinzel Decorative', serif;
+    font-weight: bold;
+    z-index: 10;
+    font-size: 1.5vh;
+}
+
+/* État Révélé (Ajouté par JS) */
+.revealed img {
+    filter: none; 
+}
+
+.revealed::after {
+    display: none; 
+}
+
+/* --- DESCRIPTION QUI APPARAIT AU SURVOL --- */
+
+.gallery-caption-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    transform: translateY(100%); /* Caché en bas par défaut */
+    transition: transform 0.3s ease;
+    z-index: 1000; 
+}
+
+.gallery-item:not(.spoiler-blur):hover .gallery-caption-box {
+    transform: translateY(0);
+}
+
+.spoiler-blur.revealed:hover .gallery-caption-box {
+    transform: translateY(0); 
+}
+
+.caption-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.caption-desc {
+    font-size: 0.9rem;
+    color: #C5D7D9;
+    margin: 5px 0 0 0;
+    padding: 0;
+}
 
 
 /* footer */
