@@ -90,7 +90,67 @@ a {
     text-decoration: none;
 }
 
+#page-loader {
+    position: fixed; /* Reste fixe même si on scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #3F5559; /* Couleur sombre de Nolan (Bleu nuit) */
+    z-index: 9999; /* Toujours au-dessus de tout le contenu */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out; /* Pour une disparition douce */
+}
 
+/* État 'hidden' (géré par JS) pour masquer le loader */
+#page-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none; /* Empêche les clics fantômes sur le contenu */
+}
+
+.loader-bobine {
+    width: 80px;
+    height: 80px;
+    border: 8px solid #E4F2F1; /* Contour de la bobine (Couleur claire) */
+    border-radius: 50%; /* Forme circulaire */
+    border-top-color: transparent; /* Crée l'effet de vide de la bobine */
+    position: relative;
+    
+    /* Animation de rotation */
+    animation: spin 1.2s linear infinite;
+    margin-bottom: 20px;
+}
+
+/* Le petit trou central de la bobine */
+.loader-hole {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background-color: #E4F2F1;
+    border-radius: 50%;
+}
+
+/* Texte de chargement */
+#page-loader p {
+    color: #E4F2F1; 
+    font-family: 'Lora', serif;
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
+}
+
+/* Animation page de chargement */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
 /* header et navigation */
 .main-header {
@@ -647,7 +707,7 @@ padding: 5vh;
     margin: auto;
     padding-top: 3vh;
     padding-bottom: 7vh;
-    max-width: 95%;
+    width: 90%;
 }
 
 /* Conteneur principal qui place les vidéos les unes sous les autres */
@@ -814,6 +874,34 @@ footer p {
     z-index: 20;
 }
 
+
+.section-background {
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.parallax {
+  background-image: url("../image/inception_back.jpg"); 
+}
+.parallax1 {
+  background-image: url("../image/inter_back.jpg");
+}
+.parallax2 {
+  background-image: url("../image/oppen_back.jpg");
+}
+.parallax3 {
+  background-image: url("../image/batman_back.jpg");
+}
+.text-bloc p {
+  margin: 75px;
+  font-size: 22px;
+}
 
 
 /* --- 6. RESPONSIVE --- */

@@ -212,3 +212,21 @@ function toggleVideoSpoiler(element) {
     element.classList.toggle('revealed');
 }
 
+// Gère l'affichage/disparition du Loader au chargement de la page
+document.addEventListener('DOMContentLoaded', () => {
+    // Vérifie si l'élément loader existe (s'applique uniquement à index.html)
+    const loader = document.getElementById('page-loader');
+
+    if (loader) {
+        // La fonction load est lancée lorsque TOUS les actifs sont prêts (images, iframes, etc.)
+        window.addEventListener('load', () => {
+            // Ajoute la classe 'hidden' pour déclencher la transition CSS (opacité à 0)
+            loader.classList.add('hidden');
+            
+            // OPTIONNEL : Retire l'élément du DOM après la transition
+            setTimeout(() => {
+                loader.remove(); 
+            }, 600); // Temps légèrement supérieur à la transition CSS (0.5s)
+        });
+    }
+});
