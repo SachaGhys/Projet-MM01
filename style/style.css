@@ -90,15 +90,7 @@ a {
     text-decoration: none;
 }
 
-#loader {
-  width:260px;
-  height:143px;
-  overflow:visible;
-}
 
-#preloader{
-  overflow:visible;
-}
 
 /* header et navigation */
 .main-header {
