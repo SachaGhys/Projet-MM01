@@ -59,7 +59,7 @@ h1 {
     font-weight: 400; /* On force 400 car c'est la seule version qu'on a */
     color: #032340;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 5vh;
     font-size: 2.5rem;
 }
 
@@ -90,7 +90,15 @@ a {
     text-decoration: none;
 }
 
+#loader {
+  width:260px;
+  height:143px;
+  overflow:visible;
+}
 
+#preloader{
+  overflow:visible;
+}
 
 /* header et navigation */
 .main-header {
@@ -525,62 +533,50 @@ padding: 5vh;
 }
 
 
+/* galerie photo */
 .gallery-page-content {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 40px 20px;
+    padding: 0 2vh 5vh 2vh;
 }
 
 .intro-text {
-    max-width: 800px;
-    margin: 0 auto 30px auto;
+    max-width: 150vh;
+    margin: auto; 
     color: #3F5559; 
     font-size: 1.1rem;
     text-align: center;
+    padding-bottom: 8vh;
 }
 
-/* --- MISE EN PAGE GRILLE --- */
+/* --- MISE EN PAGE GRILLE 3xN --- */
 .photo-gallery {
-    /* Utilisation de Flexbox pour créer des colonnes */
-    display: flex;
-    flex-wrap: wrap; /* Permet aux colonnes de passer à la ligne si besoin */
-    padding: 0 4px; /* Espace de chaque côté du conteneur */
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.photo-column {
-    /* Par défaut, 4 colonnes (25%) sur grand écran. 
-       Nous allons utiliser des media queries pour ajuster cette largeur. */
-    flex: 25%; 
-    max-width: 25%;
-    padding: 0 4px;
+    display: grid;
+    /* 3 colonnes égales (3xN) */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 3vh;
 }
 
 .gallery-item {
     position: relative;
+    border-radius: 2vh;
     overflow: hidden;
+    box-shadow: 1.5vh 1.5vh 1.5vh rgba(0,0,0,0.4);
     cursor: pointer;
-    margin-top: 8px; /* Espace entre les images dans la colonne */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    
-    /* TRES IMPORTANT : L'image doit prendre 100% de la largeur du conteneur parent (.photo-column) */
-    width: 100%;
-    height: auto; 
+    background-color: #fff;
+    /* Force une hauteur uniforme pour toutes les images */
+    height: 35vh; 
 }
 
 .gallery-item img {
-    /* L'image s'adapte à sa hauteur naturelle */
     width: 100%;
-    height: auto; 
+    height: 100%;
+    object-fit: cover; /* Assure que toutes les images remplissent la zone */
     display: block;
     transition: filter 0.4s ease;
 }
-/* --- EFFET ANTI-SPOIL (FLOU) --- */
 
+/* --- flou pour l'anti spoil --- */
 .spoiler-blur {
-    /* Le conteneur flou par défaut */
+    text-align: center;
     background-color: #032340; /* Pour cacher les bords */
 }
 
@@ -596,11 +592,10 @@ padding: 5vh;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    background-color: rgba(3, 35, 64, 0.85);
-    padding: 10px 15px;
-    border-radius: 5px;
+    background-color: #032340D9;
+    padding: 1vh 1vh;
+    border-radius: 2vh;
     font-family: 'Cinzel Decorative', serif;
-    font-weight: bold;
     z-index: 10;
     font-size: 1.5vh;
 }
@@ -614,7 +609,7 @@ padding: 5vh;
     display: none; 
 }
 
-/* --- DESCRIPTION QUI APPARAIT AU SURVOL --- */
+/* --- DESCRIPTION QUI APPARAIT AU SURVOL (LOGIQUE FINALE) --- */
 
 .gallery-caption-box {
     position: absolute;
@@ -624,18 +619,21 @@ padding: 5vh;
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.75);
     color: white;
-    transform: translateY(100%); /* Caché en bas par défaut */
+    transform: translateY(100%); /* Caché en bas par défaut pour TOUTES les images */
     transition: transform 0.3s ease;
     z-index: 1000; 
 }
 
+/* Règle 1 : Description visible au survol UNIQUEMENT pour les images NON-SPOIL */
 .gallery-item:not(.spoiler-blur):hover .gallery-caption-box {
     transform: translateY(0);
 }
 
+/* Règle 2 : Description visible au survol UNIQUEMENT après avoir cliqué sur l'image SPOIL */
 .spoiler-blur.revealed:hover .gallery-caption-box {
     transform: translateY(0); 
 }
+
 
 .caption-title {
     font-family: 'Cormorant Garamond', serif;
@@ -651,6 +649,96 @@ padding: 5vh;
     margin: 5px 0 0 0;
     padding: 0;
 }
+
+/* galerie vidéo */
+.video-page-content {
+    margin: auto;
+    padding-top: 3vh;
+    padding-bottom: 7vh;
+    max-width: 95%;
+}
+
+/* Conteneur principal qui place les vidéos les unes sous les autres */
+.video-gallery-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10vh; /* Espace vertical entre chaque vidéo */
+
+}
+
+.video-item {
+    position: relative;
+    box-shadow: 1vh 1vh 1vh rgba(0,0,0,0.15);
+    border-radius: 2vh;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+/* Conteneur pour maintenir le ratio 16:9 des iframes (essentiel) */
+.video-iframe-container {
+    position: relative;
+    width: 100%;
+    /* Ratio 16:9 (9 / 16 * 100) */
+    padding-top: 56.25%; 
+}
+
+.video-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    transition: filter 0.4s ease;
+}
+
+.video-description {
+    text-align: center;
+    color: #032340;
+    font-size: 1.1rem;
+    padding: 15px 10px;
+    margin: 0;
+    background-color: #C5D7D9; /* Couleur de fond pour la description */
+}
+
+/* --- SYSTÈME ANTI-SPOIL VIDÉO --- */
+
+
+
+.video-item.spoiler-blur iframe {
+    /* Application du flou sur l'iframe lui-même */
+    filter: blur(10px); 
+    cursor: default;
+}
+
+.video-item.spoiler-blur::after {
+    /* Banderole d'avertissement au centre du conteneur 16:9 */
+    content: "ATTENTION SPOIL VIDÉO : Cliquer pour voir";
+    position: absolute;
+    width: 30%;
+    height: 30%; /* Couvre toute la zone de la vidéo */
+    background-color: #03234066;
+    color: white;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+    cursor: pointer;
+}
+
+/* État Révélé (Ajouté par JS) */
+.video-item.revealed iframe {
+    filter: none; /* Supprime le flou */
+}
+
+.video-item.revealed::after {
+    display: none; /* Cache la banderole d'avertissement */
+}
+
+
 
 
 /* footer */
@@ -787,7 +875,33 @@ footer p {
     .dropdown.active .submenu {
     display: flex;
     }
-} 
+
+    .photo-gallery {
+        /* On passe à 2 colonnes égales */
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 2vh; /* Réduction légère du gap sur tablette */
+    }
+    .gallery-item {
+        height: 30vh; /* Ajustement de hauteur pour les tablettes */
+    }
+
+    .gallery-item:not(.spoiler-blur):hover .gallery-caption-box {
+        transform: translateY(100%); /* désactive hover */
+    }
+
+    .gallery-item:hover .gallery-caption-box {
+        transform: translateY(100%) !important; /* Force la désactivation du hover CSS */
+    }
+    
+    /* La description est affichée uniquement via l'état JS ".caption-visible" */
+    .gallery-item.caption-visible .gallery-caption-box {
+        transform: translateY(0) !important; 
+    }
+
+    .video-page-content {
+        max-width: 90%;
+    }
+}
 
 
 @media (max-width:426px) {
@@ -977,4 +1091,15 @@ footer p {
     footer p{
         font-size: 0.5em;
     }
+
+.photo-gallery {
+        /* On passe à 1 colonne */
+        grid-template-columns: 1fr; 
+        gap: 1.5vh; /* Réduction du gap sur mobile */
+        padding: 0 1vh; /* Réduction du padding horizontal si nécessaire */
+    }
+    .gallery-item {
+        height: 25vh; /* Hauteur plus réduite pour les petits écrans */
+    }
+
 }

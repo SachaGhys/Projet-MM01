@@ -139,6 +139,133 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
-function toggleSpoiler(element) {
+function toggleGalleryState(element) {
+    
+    // Détection si nous sommes dans une zone considérée comme Mobile/Tablette (<= 1024px)
+    // C'est le meilleur compromis pour synchroniser votre CSS responsive et le JS.
+    const isMobileOrTabletView = window.matchMedia('(max-width: 1024px)').matches;
+    const isSpoiler = element.classList.contains('spoiler-blur');
+
+    // --- CAS 1 : MODE DESKTOP (Écran > 1024px, la vue par défaut) ---
+    if (!isMobileOrTabletView) {
+        
+        // Sur PC, le clic doit UNIQUEMENT gérer l'anti-spoil (flou)
+        if (isSpoiler) {
+            // Bascule simplement la classe 'revealed' (enlève le flou).
+            // Le CSS :hover gère la description (qui doit être active en dehors des media queries).
             element.classList.toggle('revealed');
         }
+        return; // Le travail est fait, on quitte la fonction.
+    }
+
+    // --- CAS 2 : MODE MOBILE/TABLETTE (Écran <= 1024px, Logique Complexe) ---
+
+    // Récupère l'état actuel de l'élément (initialisé à 0 si non défini)
+    let clickCount = parseInt(element.getAttribute('data-click-count')) || 0;
+    
+    // Incrémente le compteur
+    clickCount++; 
+
+    // --- LOGIQUE D'ÉTAT ---
+
+    let maxClicks = isSpoiler ? 3 : 2; // Spoil = 3 étapes, Non-Spoil = 2 étapes
+    
+    // Réinitialise le compteur si le cycle est terminé
+    if (clickCount > maxClicks) {
+        clickCount = 1; 
+    }
+    
+    // Définit le nouvel état
+    element.setAttribute('data-click-count', clickCount);
+
+    // --- APPLICATION DE L'ÉTAT ACTUEL (Nettoyage et Ajout) ---
+    
+    // Nettoyage avant application :
+    element.classList.remove('revealed'); 
+    element.classList.remove('caption-visible'); 
+
+    if (isSpoiler) {
+        // --- CAS SPOIL : 1=Flou, 2=Description, 3=Reset ---
+        if (clickCount === 1) {
+            element.classList.add('revealed'); // Enlève le flou (image visible)
+        } else if (clickCount === 2) {
+            element.classList.add('revealed'); // Maintient l'image visible
+            element.classList.add('caption-visible'); // Affiche la description
+        } else if (clickCount === 3) {
+            // Reset (on laisse les classes enlevées ci-dessus)
+            element.setAttribute('data-click-count', 0); // Prêt pour Clic 1
+        }
+        
+    } else {
+        // --- CAS NON-SPOIL : 1=Description, 2=Reset ---
+        
+        if (clickCount === 1) {
+            element.classList.add('caption-visible'); // Affiche la description
+        } else if (clickCount === 2) {
+            // Reset
+            element.setAttribute('data-click-count', 0); // Prêt pour Clic 1
+        }
+    }
+}
+
+function toggleVideoSpoiler(element) {
+    element.classList.toggle('revealed');
+}
+
+TweenMax.set(container, {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  xPercent: -50,
+  yPercent: -50
+});
+
+TweenMax.set($("#mask"), {scaleX:0});
+
+resetAll = function() {
+	$("#percentTxt").text("LOADING 0%");
+  loadTL.pause(0);
+  doneTL.pause(0);
+  introTL.play(0);
+}
+
+// +++++ done loading +++++
+var doneTL = new TimelineMax();
+doneTL.pause();
+
+doneTL.add( TweenMax.to($("#film"), 1, {x:200, ease:Power1.easeIn}), "start" );
+doneTL.add( TweenMax.to($("#reel"), 1, {rotation:-200, ease:Power1.easeIn}), "start" );
+doneTL.add( TweenMax.to($("#txtHolder"), 1, {autoAlpha:0, transformOrigin:"50% 50%", ease:Power1.easeIn}), "start" );
+doneTL.add( TweenMax.to($("#reel"), .25, {scale:0, ease:Back.easeIn}), "reel" );
+doneTL.addCallback(resetAll, "restart+=1");
+
+
+playDone = function(){
+  doneTL.play();
+}
+
+// +++++ changes loaded % +++++
+updatePercent = function () {
+	$("#percentTxt").text("LOADING " + Math.round(loadTL.progress()*100) + "%");
+}
+
+// +++++ loading progress +++++
+var loadTL = new TimelineMax({onComplete:playDone});
+loadTL.pause();
+
+loadTL.add( TweenMax.to($("#mask"), 5, {scaleX:1, ease:Power1.easeOut}), "start" );
+loadTL.add( TweenMax.to($("#reel"), 5, {rotation:360, transformOrigin:"50% 50%", ease:Power1.easeOut}), "start" );
+loadTL.add( TweenMax.to($("#reel"), 5, {x:172, transformOrigin:"50% 50%", ease:Power1.easeOut, onUpdate:updatePercent}), "start" );
+
+// +++++ intro aniamtion +++++
+playLoder = function(){
+	console.log("playing");
+	loadTL.play();
+}
+
+var introTL = new TimelineMax({onComplete:playLoder});
+
+introTL.add( TweenMax.from($("#reel"), 1, {y:-300, ease:Bounce.easeOut}), "start" );
+introTL.add( TweenMax.from($("#percentTxt"), 1.5, {autoAlpha:0, ease:Power1.easeOut}), "start" );
+
+//playLoder();
