@@ -1,11 +1,6 @@
 @charset "utf-8";
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+/* Police utilisée pour les gros titres */
 @font-face {
     font-family: 'Cinzel Decorative';
     src: url('../font/CinzelDecorative-Regular.woff2') format('woff2'),
@@ -15,6 +10,7 @@
     font-display: swap;
 }
 
+/* Police utilisée pour les petits titres */
 @font-face {
     font-family: 'Cormorant Garamond';
     src: url('../font/CormorantGaramond-Regular.woff2') format('woff2'),
@@ -24,6 +20,7 @@
     font-display: swap;
 }
 
+/* Police utilisée pour le texte */
 @font-face {
     font-family: 'Lora';
     src: url('../font/Lora-Regular.woff2') format('woff2'),
@@ -33,9 +30,7 @@
     font-display: swap;
 }
 
-
-
-/* --- 2. RESET & BASE --- */
+/* --- reset et base --- */
 * {
     margin: 0;
     padding: 0;
@@ -49,20 +44,20 @@ body {
     line-height: 1.6;
     min-height: 100vh;;     /* Force le corps à faire au moins 100% de la hauteur de l'écran */
     display: flex;          /* Active le mode Flexbox */
-    flex-direction: column;
-
+    flex-direction: column; /* Empile les éléments (Header, Main, Footer) verticalement. */
 }
 
-/* --- 3. TYPOGRAPHIE (Gros titres, etc.) --- */
+/* Typographie (Gros titres, etc.) */
 h1 {
     font-family: 'Cinzel Decorative', serif;
     font-weight: 400; /* On force 400 car c'est la seule version qu'on a */
-    color: #032340;
+    color: #032340; 
     text-align: center;
     margin-top: 5vh;
     font-size: 2.5rem;
 }
 
+/* Typographie (Petits titres, etc.) */
 h2 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 300; 
@@ -74,6 +69,7 @@ h2 {
     width: 80%;
 }
 
+/* Typographie (Texte, etc.) */
 p {
     color: #E4F2F1; 
     font-family: 'Lora', serif;
@@ -82,26 +78,29 @@ p {
     padding-left: 1vh; 
 }
 
+/* Style des listes */
 ul {
     list-style: none;
 }
 
+/* Pas de soulignement des liens */
 a {
     text-decoration: none;
 }
 
+/* loader des pages volumineuse */
 #page-loader {
     position: fixed; /* Reste fixe même si on scroll */
-    top: 0;
+    top: 0; 
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #3F5559; /* Couleur sombre de Nolan (Bleu nuit) */
+    background-color: #3F5559; /* Couleur sombre de la charte graphique */
     z-index: 9999; /* Toujours au-dessus de tout le contenu */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Activation mode flexbox */
+    flex-direction: column; 
+    justify-content: center; /* on centre horizontalement */
+    align-items: center; /* on centre verticalement */
     transition: opacity 0.5s ease-out, visibility 0.5s ease-out; /* Pour une disparition douce */
 }
 
@@ -250,10 +249,10 @@ a {
 .dropdown:hover .submenu {
     display: flex;
 }
+/* fin navigation */
 
 
 /* contenu */
-
 .contenu {
     flex-grow:1;
     position: relative;
@@ -273,7 +272,7 @@ a {
     width: 100%;
     height: 100%;
     object-fit: cover; 
-    z-index: -1; 
+    z-index: -1; /* Doit être en arrière plan */
 }
 
 .contenu-title-box {
@@ -474,9 +473,8 @@ border-radius: 6px;
     font-size: 4em;
 }
 
+
 /* formulaire */
-
-
 input[type=text], select, textarea {
 width: 100%; 
 padding: 12px;  
@@ -536,6 +534,7 @@ padding: 5vh;
 .collab-master h2 {
     color: #E4F2F1;
     border-bottom: none;
+    margin-bottom: 0;
 }
 
 .collab-master img {
@@ -568,6 +567,7 @@ padding: 5vh;
     box-shadow: 1.2vh 1.2vh 1.2vh rgba(0, 0, 0, 0.5);
 }
 
+/* Gestion de l'audio page collaboration */
 #audio-control-btn {
     /* ... (vos styles fixed, bottom, right) ... */
     width: 50px; /* Taille fixe */
@@ -580,6 +580,7 @@ padding: 5vh;
     z-index: 5500;
     box-shadow: 0.6vh 0.6vh 0.6vh rgba(0, 0, 0, 0.4);
 }
+
 #audio-icon {
     font-size: 1.2em; /* Taille de l'icône */
 }
@@ -1318,8 +1319,16 @@ footer p {
     .quiz-page-content {
     width: 90%;
     }
-}
 
+    .collab-master h2 {
+        font-size: 3rem;
+    }
+
+    .collab-detail p{
+        font-size: 0.9rem;
+    }
+    
+}
 
 @media (max-width:426px) {
     
@@ -1544,5 +1553,17 @@ footer p {
 
     #score-display {
         font-size: 1rem;
+    }
+
+    .collab-grid { 
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .collab-master h2 {
+        font-size: 2rem;
+    }
+
+    .collab-detail p{
+        font-size: 0.8rem;
     }
 }
