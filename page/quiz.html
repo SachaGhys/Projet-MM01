@@ -66,50 +66,89 @@
         </header>
 
 
+<main class="quiz-page-content">
+    <h1>Le Défi de la Connaissance Nolanienne</h1>
+    
+    <p class="intro-text">
+        Testez vos connaissances sur l'œuvre de Christopher Nolan ! Répondez aux 5 questions pour déterminer si vous êtes un simple spectateur ou un véritable initié.
+    </p>
 
-        <hr>
+    <form id="nolan-quiz">
 
-         <p>Testez vos connaissances sur Christopher Nolan !</p>
+        <div class="quiz-card" id="q1">
+            <h2>DÉFI 01 : Le Protagoniste Flou</h2>
+            <p class="question-text">Quel film de Nolan met en scène un protagoniste atteint d'amnésie antérograde, l'obligeant à s'appuyer sur des notes manuscrites et des tatouages ?</p>
+            <div class="answers-container">
+                <input type="radio" name="q1" id="q1a" value="a"><label for="q1a"><span>The Prestige</span></label>
+                <input type="radio" name="q1" id="q1b" value="b"><label for="q1b"><span>Memento</span></label>
+                <input type="radio" name="q1" id="q1c" value="c"><label for="q1c"><span>Insomnia</span></label>
+                <input type="radio" name="q1" id="q1d" value="d"><label for="q1d"><span>Interstellar</span></label>
+            </div>
+            <button type="button" class="check-btn" data-next="q2">Confirmer la réponse</button>
+            <button type="button" class="continue-btn hidden" data-next="q2">Passer au Défi 02</button>
+        </div>
 
-    <form action="#" method="get">
-        <fieldset>
-            <legend>1. Quel est le premier long-métrage de Christopher Nolan ?</legend>
-            <input type="radio" id="following" name="q1" value="Following" required>
-            <label for="following">Following</label><br>
-            <input type="radio" id="memento" name="q1" value="Memento">
-            <label for="memento">Memento</label><br>
-            <input type="radio" id="insomnia" name="q1" value="Insomnia">
-            <label for="insomnia">Insomnia</label>
-        </fieldset>
+        <div class="quiz-card hidden" id="q2">
+            <h2>DÉFI 02 : L'Érosion du Temps</h2>
+            <p class="question-text">Dans <i>Interstellar</i>, à cause de la proximité du trou noir Gargantua, combien d'années terrestres équivaut approximativement une heure sur la planète de Miller ?</p>
+            <div class="answers-container">
+                <input type="radio" name="q2" id="q2a" value="a"><label for="q2a"><span>7 jours</span></label>
+                <input type="radio" name="q2" id="q2b" value="b"><label for="q2b"><span>7 mois</span></label>
+                <input type="radio" name="q2" id="q2c" value="c"><label for="q2c"><span>7 ans</span></label>
+                <input type="radio" name="q2" id="q2d" value="d"><label for="q2d"><span>70 ans</span></label>
+            </div>
+            <button type="button" class="check-btn" data-next="q3">Confirmer la réponse</button>
+            <button type="button" class="continue-btn hidden" data-next="q3">Passer au Défi 03</button>
+        </div>
+        
+        <div class="quiz-card hidden" id="q3">
+            <h2>DÉFI 03 : L'Agent du Chaos</h2>
+            <p class="question-text">Quel acteur a remporté un Oscar (posthume) pour son interprétation du Joker dans <i>The Dark Knight</i> ?</p>
+            <div class="answers-container">
+                <input type="radio" name="q3" id="q3a" value="a"><label for="q3a"><span>Jared Leto</span></label>
+                <input type="radio" name="q3" id="q3b" value="b"><label for="q3b"><span>Jack Nicholson</span></label>
+                <input type="radio" name="q3" id="q3c" value="c"><label for="q3c"><span>Heath Ledger</span></label>
+                <input type="radio" name="q3" id="q3d" value="d"><label for="q3d"><span>Joaquin Phoenix</span></label>
+            </div>
+            <button type="button" class="check-btn" data-next="q4">Confirmer la réponse</button>
+            <button type="button" class="continue-btn hidden" data-next="q4">Passer au Défi 04</button>
+        </div>
 
-        <fieldset>
-            <legend>2. Avec quel compositeur travaille-t-il régulièrement ?</legend>
-            <input type="radio" id="zimmer" name="q2" value="Hans Zimmer" required>
-            <label for="zimmer">Hans Zimmer</label><br>
-            <input type="radio" id="john" name="q2" value="John Williams">
-            <label for="john">John Williams</label><br>
-            <input type="radio" id="hans" name="q2" value="James Horner">
-            <label for="hans">James Horner</label>
-        </fieldset>
+        <div class="quiz-card hidden" id="q4">
+            <h2>DÉFI 04 : L'Idée Semée</h2>
+            <p class="question-text">Dans *Inception*, quel est le terme utilisé pour désigner l'implantation d'une idée dans le subconscient d'une cible ?</p>
+            <div class="answers-container">
+                <input type="radio" name="q4" id="q4a" value="a"><label for="q4a"><span>L'Extraction</span></label>
+                <input type="radio" name="q4" id="q4b" value="b"><label for="q4b"><span>Le Limbo</span></label>
+                <input type="radio" name="q4" id="q4c" value="c"><label for="q4c"><span>La Projection</span></label>
+                <input type="radio" name="q4" id="q4d" value="d"><label for="q4d"><span>L'Inception</span></label>
+            </div>
+            <button type="button" class="check-btn" data-next="q5">Confirmer la réponse</button>
+            <button type="button" class="continue-btn hidden" data-next="q5">Passer au Défi 05</button>
+        </div>
 
-        <fieldset>
-            <legend>3. Quel film de Nolan traite de l’exploration de l'espace ?</legend>
-            <input type="radio" id="inception" name="q3" value="Inception" required>
-            <label for="inception">Inception</label><br>
-            <input type="radio" id="interstellar" name="q3" value="Interstellar">
-            <label for="interstellar">Interstellar</label><br>
-            <input type="radio" id="dunkirk" name="q3" value="Dunkirk">
-            <label for="dunkirk">Dunkerque</label>
-        </fieldset>
+        <div class="quiz-card hidden" id="q5">
+            <h2>DÉFI 05 : La Vision du Réalisateur</h2>
+            <p class="question-text">Quel format de pellicule grand format Christopher Nolan privilégie-t-il souvent pour le tournage des scènes d'action majeures et des vues panoramiques ?</p>
+            <div class="answers-container">
+                <input type="radio" name="q5" id="q5a" value="a"><label for="q5a"><span>35mm anamorphique</span></label>
+                <input type="radio" name="q5" id="q5b" value="b"><label for="q5b"><span>IMAX (70mm)</span></label>
+                <input type="radio" name="q5" id="q5c" value="c"><label for="q5c"><span>Super 8</span></label>
+                <input type="radio" name="q5" id="q5d" value="d"><label for="q5d"><span>Caméra numérique 8K</span></label>
+            </div>
+            <button type="button" class="check-btn" data-next="results">Confirmer la réponse</button>
+            <button type="button" class="continue-btn hidden" data-next="results">Afficher le Résultat</button>
+        </div>
+        
+        <div class="quiz-card result-box hidden" id="results">
+            <h2>RÉSULTAT DU DÉFI</h2>
+            <div id="score-display">Votre score est de 0/5.</div>
+            <p id="grade-message"></p>
+            <button type="button" id="restart-quiz-btn" onclick="location.reload()">Recommencer le Quiz</button>
+        </div>
 
-        <p>
-            <input type="submit" value="Envoyer">
-            <input type="reset" value="Effacer">
-        </p>
     </form>
-
-
-        <hr>
+</main>
 
         <footer>
             <p>Sacha Ghys © 2025  <a href="mailto:sacha.ghys@utt.fr" style="color: #8D9FA6;">sacha.ghys@utt.fr</a></p>

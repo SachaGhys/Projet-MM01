@@ -874,10 +874,9 @@ footer p {
     z-index: 20;
 }
 
-
 .section-background {
   background-attachment: fixed;
-  background-position: center;
+  background-position: top center;
   background-size: cover;
   height: 100vh;
   width: 100%;
@@ -886,6 +885,14 @@ footer p {
   justify-content: center;
   align-items: center;
 }
+
+.section-background h1 {
+    background-color: #3F555966;
+    border-radius: 2vh;
+    padding: 1vh 1vh 1vh 1vh;
+    color: #C5D7D9;
+}
+
 .parallax {
   background-image: url("../image/inception_back.jpg"); 
 }
@@ -898,14 +905,336 @@ footer p {
 .parallax3 {
   background-image: url("../image/batman_back.jpg");
 }
+.text-bloc {
+    background-color: #3F5559;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    padding: 2vh 1vh 2vh 1vh;
+}
 .text-bloc p {
-  margin: 75px;
-  font-size: 22px;
+  font-size: 1.7em;
+}
+
+/* page de récompense */
+.award-page-content {
+    width: 90%;
+    height: auto;
+    margin: auto;
+    padding: 1vh;
+}
+
+.award-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh; 
+}
+
+.award-item {
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px #03234066;
+    overflow: hidden;
+    background-color: #C5D7D9; /* Fond de la carte */
+    padding: 20px;
+    transition: all 0.3s ease;
 }
 
 
-/* --- 6. RESPONSIVE --- */
+/* --- CONTENU FLOU (La carte elle-même) --- */
 
+/* Applique le flou à tout le contenu sauf l'indice */
+.award-item.spoiler-blur::before {
+    /* Cache TOUT le contenu lisible (titre, description, image) */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #3F5559D9; /* Bleu nuit opaque */
+    z-index: 15; /* Au-dessus de l'indice (z-index 10) */
+    transition: opacity 0.4s ease;
+    cursor: pointer;
+}
+
+.award-item.spoiler-blur .award-content {
+    filter: blur(8px);
+    transition: filter 0.4s ease;
+}
+
+.award-item.revealed::before {
+    display: none;
+}
+
+
+.award-item.spoiler-blur::after {
+    /* Ceci annule l'étiquette 'ATTENTION SPOIL : Cliquer pour découvrir' 
+       qui est définie de manière trop générale dans la section Galerie Photo. */
+    content: none;
+    display: none;
+}
+
+
+/* --- INDICE TEXTUEL --- */
+
+.award-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
+    z-index: 20; 
+}
+
+.hint-text {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.3rem;
+    color: #E4F2F1; /* Texte de l'indice très clair */
+    padding: 10px;
+    border: 2px solid #E4F2F1;
+    border-radius: 5px;
+}
+
+/* --- CONTENU RÉVÉLÉ --- */
+
+.award-content {
+    /* Le conteneur du titre/description/image */
+    transition: filter 0.5s ease, opacity 0.5s ease;
+}
+
+.award-content img {
+    display: block; 
+    width: 40%; 
+    height: auto;
+    float: none; 
+    margin: 20px auto 0 auto; 
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.award-title {
+    font-family: 'Cormorant Garamond', serif;
+    color: #032340;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.award-context {
+    color: #3F5559;
+    font-size: 1.1rem;
+    text-align: justify;
+    padding: 0; 
+}
+
+/* --- ÉTAT RÉVÉLÉ --- */
+
+/* 1. Lève le flou et rend visible le contenu */
+.award-item.revealed .award-content {
+    filter: none;
+}
+
+/* 2. Cache l'indice */
+.award-item.revealed .award-hint {
+    display: none;
+}
+
+/* 3. Ramène la carte à son état de couleur normal */
+.award-item.revealed {
+    background-color: #E4F2F1;
+    color: #3F5559;
+}
+
+/* 4. Pour s'assurer que le texte dans l'état révélé est bien visible */
+.award-item.revealed .award-title, 
+.award-item.revealed .award-context {
+    color: #032340; /* Texte bien sombre sur fond clair */
+}
+
+/* page de quiz */
+.quiz-page-content {
+    width: 65%;
+    margin: auto;
+    padding-bottom: 5vh;
+}
+
+.quiz-card {
+    background-color: #3F5559; /* Couleur de fond sombre et élégante */
+    color: #E4F2F1;
+    padding: 2vh;
+    border-radius: 2vh;
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.5);
+    border-left: 1vh solid #032340; /* Touche de couleur Nolan (Bleu nuit) */
+    transition: opacity 0.5s ease;
+}
+
+.quiz-card h2 {
+    font-family: 'Cinzel Decorative', serif;
+    color: #C5D7D9;
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #C5D7D9;
+    width: 100%;
+}
+
+.question-text {
+    font-size: 1.1rem;
+    margin-bottom: 2vh;
+    color: #E4F2F1;
+    padding: 0;
+}
+
+.answers-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+    margin-bottom: 3vh;
+    position: relative; 
+}
+
+/* 1. Style de base des options de réponse (le LABEL) */
+.answers-container label {
+    display: block;
+    padding: 1.5vh;
+    background-color: rgba(197, 215, 217, 0.1); /* Fond légèrement transparent */
+    border-radius: 1.5vh;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
+    font-family: 'Lora', serif;
+    color: #E4F2F1;
+    font-size: 1rem;
+    border: 1px solid transparent;
+    width: 100%; 
+}
+
+/* Masquer les boutons radio d'origine (visuellement) */
+.answers-container input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0px; 
+    height: 0px;
+}
+
+/* Style appliqué au LABEL LORSQUE l'INPUT FRÈRE est COCHÉ (SÉLECTION VISUELLE) */
+.answers-container input[type="radio"]:checked + label {
+    background-color: #8D9FA6; /* Couleur forte lors de la sélection (état temporaire avant validation) */
+    color: #032340; 
+    font-weight: bold;
+    border: 0.3vh solid #032340; 
+}
+
+/* Hover sur les options */
+.answers-container label:hover {
+    background-color: rgba(197, 215, 217, 0.2);
+    border-color: #C5D7D9;
+}
+
+/* Couleur verte pour les bonnes réponses (surligné en vert) */
+.answers-container label.correct {
+    background-color: #4CAF50 !important; /* Vert */
+    color: white !important;
+    border-color: #388E3C !important;
+    font-weight: bold;
+}
+
+/* Couleur rouge pour les mauvaises réponses sélectionnées par l'utilisateur (surligné en rouge) */
+.answers-container label.incorrect {
+    background-color: #F44336 !important; /* Rouge */
+    color: white !important;
+    border-color: #D32F2F !important;
+    font-weight: bold;
+}
+
+/* Boutons de navigation/soumission */
+.check-btn, .continue-btn, #submit-quiz { /* Les deux boutons de confirmation/continuer */
+    display: block;
+    width: 100%;
+    padding: 2vh;
+    background-color: #032340;
+    color: #E4F2F1;
+    border: none;
+    border-radius: 1.5vh;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
+}
+
+.check-btn:hover, .continue-btn:hover, #submit-quiz:hover {
+    background-color: #8D9FA6;
+    color: #032340;
+}
+
+/* Le bouton Continuer est masqué au départ */
+.continue-btn.hidden {
+    display: none;
+}
+
+/* Le bouton Confirmer est masqué après la vérification */
+.check-btn.hidden {
+    display: none;
+}
+
+
+/* Style des résultats */
+.result-box h2 {
+    color: #E4F2F1;
+    border-bottom-color: #E4F2F1;
+}
+
+#score-display {
+    font-size: 2rem;
+    font-family: 'Cinzel Decorative', serif;
+    color: #E4F2F1;
+    text-align: center;
+    margin-bottom: 1.5vh;
+}
+
+#grade-message {
+    font-style: italic;
+    text-align: center;
+    color: #C5D7D9;
+    padding: 0;
+}
+
+/* Style du bouton Recommencer le Quiz */
+.result-box button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    transition: background-color 0.2s ease;
+    margin-top: 25px; 
+    background-color: #D96E6E; 
+    color: #032340; 
+    font-weight: bold;
+    box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
+}
+
+.result-box button:hover {
+    background-color: #A64747;
+    color: #E4F2F1;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+
+
+/* --- 6. RESPONSIVE --- */
 /* cacher le titre en format ordi et tablette */
 .mobile-header-title {
     display: none; 
@@ -980,6 +1309,14 @@ footer p {
 
     .video-page-content {
         max-width: 90%;
+    }
+
+    .text-bloc {
+        font-size: 0.7em;
+    }
+
+    .quiz-page-content {
+    width: 90%;
     }
 }
 
@@ -1172,7 +1509,7 @@ footer p {
         font-size: 0.5em;
     }
 
-.photo-gallery {
+    .photo-gallery {
         /* On passe à 1 colonne */
         grid-template-columns: 1fr; 
         gap: 1.5vh; /* Réduction du gap sur mobile */
@@ -1181,5 +1518,31 @@ footer p {
     .gallery-item {
         height: 25vh; /* Hauteur plus réduite pour les petits écrans */
     }
+    .parallax1 {
+    background-position: top left;
+    }
 
+    .quiz-page-content {
+        width: 95%;
+    }
+
+    .quiz-card h2 {
+        font-size: 1rem;
+    }
+
+    .answers-container label {
+        font-size: 1rem;
+    }
+    .quiz-page-content h1 {
+        font-size: 1.6rem;
+    }
+
+    .question-text {
+        font-size: 0.9rem;
+        padding-top: 1vh;
+    }
+
+    #score-display {
+        font-size: 1rem;
+    }
 }

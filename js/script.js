@@ -230,3 +230,132 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+
+function toggleSpoiler(element) {
+            element.classList.toggle('revealed');
+        }
+
+// =========================================
+// LOGIQUE DU QUIZ
+// =========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    const quizForm = document.getElementById('nolan-quiz');
+    
+    if (!quizForm) return; 
+
+    // Définition des réponses correctes
+    const correctAnswers = {
+        q1: 'b', // Memento
+        q2: 'c', // 7 ans
+        q3: 'c', // Heath Ledger
+        q4: 'd', // L'Inception
+        q5: 'b'  // IMAX (70mm)
+    };
+    
+    // Fonction principale pour VÉRIFIER et afficher les couleurs
+    function checkAnswer(currentCard, currentId, nextId) {
+        const questionName = currentId;
+        const userAnswer = quizForm.elements[questionName].value;
+        const correctAnswer = correctAnswers[questionName];
+        
+        if (!userAnswer) {
+            alert("Veuillez sélectionner une réponse pour confirmer.");
+            return;
+        }
+
+        // 1. Désactiver toutes les options
+        const inputs = currentCard.querySelectorAll('input[type="radio"]');
+        inputs.forEach(input => {
+            input.disabled = true; // Empêche de re-cliquer
+            const label = currentCard.querySelector(`label[for="${input.id}"]`);
+            
+            if (input.value === correctAnswer) {
+                // 2. Marquer la bonne réponse en VERT
+                label.classList.add('correct');
+            } else if (input.value === userAnswer) {
+                // 3. Marquer la mauvaise réponse sélectionnée par l'utilisateur en ROUGE
+                label.classList.add('incorrect');
+            }
+        });
+
+        // 4. Changer les boutons (Confirmer devient Continuer)
+        currentCard.querySelector('.check-btn').classList.add('hidden');
+        
+        const continueBtn = currentCard.querySelector('.continue-btn');
+        continueBtn.classList.remove('hidden');
+        
+        // S'assurer que le bouton Continuer sait où aller
+        if (nextId === 'results') {
+            continueBtn.addEventListener('click', calculateAndShowResults);
+        } else {
+            continueBtn.addEventListener('click', () => {
+                 goToNextQuestion(currentId, nextId);
+            });
+        }
+    }
+
+    // Fonction pour passer à la question suivante (après la vérification)
+    function goToNextQuestion(currentId, nextId) {
+        const currentCard = document.getElementById(currentId);
+        const nextCard = document.getElementById(nextId);
+        
+        currentCard.classList.add('hidden');
+        if (nextCard) {
+            nextCard.classList.remove('hidden');
+            // Défilement doux vers le haut de la nouvelle question
+            nextCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    // Fonction de soumission finale (à appeler par le bouton Continuer de la dernière question)
+    function calculateAndShowResults() {
+        let score = 0;
+        const totalQuestions = Object.keys(correctAnswers).length;
+        
+        // Calcul du score
+        for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
+            const userAnswer = quizForm.elements[question].value;
+            if (userAnswer === correctAnswer) {
+                score++;
+            }
+        }
+        
+        // Affichage des résultats
+        const resultsCard = document.getElementById('results');
+        const scoreDisplay = document.getElementById('score-display');
+        const gradeMessage = document.getElementById('grade-message');
+        
+        document.getElementById('q5').classList.add('hidden');
+        resultsCard.classList.remove('hidden');
+        
+        scoreDisplay.textContent = `Votre score est de ${score}/${totalQuestions}.`;
+        
+        // Message d'évaluation
+        let message = "";
+        if (score === totalQuestions) {
+            message = "Félicitations ! Vous êtes un Maître Criptologue du cinéma de Nolan. L'œuvre n'a plus de secrets pour vous.";
+        } else if (score >= totalQuestions - 1) {
+            message = "Très bien ! Presque parfait. Vous faites partie des Initiés.";
+        } else if (score >= totalQuestions / 2) {
+            message = "Bon score. Vous avez une solide base de connaissances sur l'univers de Nolan.";
+        } else {
+            message = "Temps de Revoir les Classiques ! Quelques zones d'ombre subsistent.";
+        }
+        gradeMessage.textContent = message;
+
+        // Défilement doux vers la carte des résultats
+        resultsCard.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
+    }
+
+    // Gestion des boutons "Confirmer la réponse" (Check-btn)
+    const checkButtons = document.querySelectorAll('.check-btn');
+    checkButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const currentId = button.parentElement.id;
+            const nextId = button.getAttribute('data-next');
+            checkAnswer(button.parentElement, currentId, nextId);
+        });
+    });
+});
