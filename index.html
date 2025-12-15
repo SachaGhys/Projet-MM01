@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <!-- Métadonnées générales du document -->
     <meta charset="utf-8">
+    <!-- Description du site pour les moteurs de recherche -->
     <meta name="description" content="Site étudiant consacré à l'artiste et réalisateur Christopher Nolan, présentant sa biographie, ses œuvres, ses récompenses, sa filmographie et bien d'autres encore.">
+    <!-- Auteur du site -->
     <meta name="author" content="Sacha Ghys">
+    <!-- Mots-clés pour le référencement -->
     <meta name="keywords" content="Christopher Nolan, réalisateur, cinéma, Interstellar, The Dark Knight, Inception, Oppen">
+    <!-- Configuration du viewport pour le responsive design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icône affichée dans l’onglet du navigateur -->
     <link rel="icon" type="image/png" href="image/icone.png">
+    <!-- Titre de la page -->
     <title>Christopher Nolan - Accueil</title>
+    <!-- Feuille de style principale -->
     <link rel="stylesheet" href="style/style.css">
 </head>
 
-    <body>
+<body>
 
+    <!-- Écran de chargement affiché avant le contenu principal car la page est voluminseuse -->
     <div id="page-loader">
         <div class="loader-bobine">
             <div class="loader-hole"></div>
@@ -20,26 +29,40 @@
         <p>Chargement...</p>
     </div>
 
+     <!-- Vidéo de fond en lecture automatique -->
+    <video autoplay muted loop playsinline class="contenu-bg-video">
+        <source src="video/video_background.mp4" type="video/mp4">
+        Votre navigateur ne supporte pas la vidéo HTML5.
+    </video>
+
+    <!-- Contenu principal de la page -->
+    <main>
+        <!-- En-tête principal du site -->
         <header class="main-header">
+            <!-- Logo cliquable renvoyant vers la page d’accueil -->
             <div class="logo-container">
                 <a href="index.html">
                     <img src="image/logotransparant.png" alt="Logo Christopher Nolan" class="logo-img">
                 </a>
             </div>
 
+            <!-- Titre affiché en version mobile -->
             <div class="mobile-header-title">
                 <span>Christopher</span>
                 <span>Nolan</span>
             </div>
 
+            <!-- Menu burger pour la navigation mobile -->
             <div class="burger-menu" id="burger-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
 
+            <!-- Menu de navigation principal -->
             <nav class="nav-menu" id="nav-menu">
                 <ul>
+                    <!-- Menu déroulant Galerie -->
                     <li class="dropdown">
                         <a href="#" class="nav-btn">Galerie -</a>
                         <ul class="submenu">
@@ -47,9 +70,9 @@
                             <li><a href="page/video.html">Galerie vidéo</a></li>
                         </ul>
                     </li>
-                    
+                    <!-- Lien vers la page Collaboration -->
                     <li><a href="page/collab.html" class="nav-btn">Collaboration</a></li>
-
+                    <!-- Menu déroulant Carrière -->
                     <li class="dropdown">
                         <a href="#" class="nav-btn">Carrière -</a>
                         <ul class="submenu">
@@ -58,9 +81,9 @@
                             <li><a href="page/award.html">Récompenses</a></li>
                         </ul>
                     </li>
-
+                    <!-- Lien vers le quiz -->
                     <li><a href="page/quiz.html" class="nav-btn">Quiz</a></li>
-
+                    <!-- Menu déroulant Contact -->
                     <li class="dropdown">
                         <a href="#" class="nav-btn">Contact -</a>
                         <ul class="submenu">
@@ -72,21 +95,18 @@
             </nav>
         </header>
 
+        <!-- Section principale de contenu -->
+        <section class="contenu">
 
-
-    <section class="contenu">
-            
-            <video autoplay muted loop playsinline class="contenu-bg-video">
-                <source src="video/video_background.mp4" type="video/mp4">
-                Votre navigateur ne supporte pas la vidéo HTML5.
-            </video>
-
+            <!-- Titre principal de la page -->
             <div class="contenu-title-box">
                 <h1>Christopher Nolan</h1>
             </div>
 
+            <!-- Début du diaporama (slideshow) -->
             <div class="conteneur slideshow-container">
 
+                <!-- Slide 1 : Oppenheimer -->
                 <div class="mySlides fade">
                     <div class="conteneur-text">
                         <p><strong>Dernier en date :</strong> Synopsis. En 1942, convaincus que l'Allemagne nazie développe une arme nucléaire, les États-Unis lancent le "Projet Manhattan" pour créer la première bombe atomique.</p>
@@ -96,6 +116,7 @@
                     </div>
                 </div>
 
+                <!-- Slide 2 : Inception -->
                 <div class="mySlides fade">
                     <div class="conteneur-text">
                         <p><strong>Chef d'œuvre :</strong> Inception. Dom Cobb est un voleur expérimenté dans l'art périlleux de l'extraction : sa spécialité consiste à s'approprier les secrets les plus précieux d'un individu.</p>
@@ -105,6 +126,7 @@
                     </div>
                 </div>
 
+                <!-- Slide 3 : Dunkerque -->
                 <div class="mySlides fade">
                     <div class="conteneur-text">
                         <p><strong>Course contre la montre :</strong> Dunkerque. Mai 1940. Encerclés par l'ennemi, 400 000 soldats alliés espèrent un miracle sur les plages. L'opération Dynamo s'engage sur terre, sur mer et dans les airs.</p>
@@ -114,25 +136,30 @@
                     </div>
                 </div>
 
+                <!-- Boutons de navigation du diaporama -->
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
 
-            
-
+                <!-- Indicateurs de slide -->
                 <div class="dots-container">
                     <span class="dot" onclick="currentSlide(1)"></span> 
                     <span class="dot" onclick="currentSlide(2)"></span> 
                     <span class="dot" onclick="currentSlide(3)"></span> 
                 </div>
-        </div>
+            </div>
+            <!-- Fin du diaporama -->
+
         </section>
+    </main>
+    
+    <!-- Pied de page -->
+    <footer>
+        <p>Sacha Ghys © 2025  <a href="mailto:sacha.ghys@utt.fr" style="color: #8D9FA6;">sacha.ghys@utt.fr</a></p>
+    </footer>
 
-        <footer>
-            <p>Sacha Ghys © 2025  <a href="mailto:sacha.ghys@utt.fr" style="color: #8D9FA6;">sacha.ghys@utt.fr</a></p>
-        </footer>
-
-        <script src="js/script.js"></script>
-
-    </body>
+    <!-- Script JavaScript -->
+    <script src="js/script.js"></script>
+    
+</body>
 </html>
 

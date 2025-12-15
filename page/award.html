@@ -1,39 +1,53 @@
 <!DOCTYPE html>
-    <html lang="fr">
-    <head>
-		<meta charset="utf-8">
-        <meta name="description" content="Site étudiant consacré à l'artiste et réalisateur Christopher Nolan, présentant sa biographie, ses œuvres, ses récompenses, sa filmographie et bien d'autres encore.">
-        <meta name="author" content="Sacha Ghys">
-        <meta name="keywords" content="Christopher Nolan, réalisateur, cinéma, Interstellar, The Dark Knight, Inception, Oppenheimer">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="../image/icone.png">
-        <title>Christopher Nolan - Récompenses</title>
-        <link rel="stylesheet" href="../style/style.css">
-    </head>
+<html lang="fr">
+<head>
+    <!-- Métadonnées générales de la page Récompenses -->
+    <meta charset="utf-8">
+    <!-- Description du site pour les moteurs de recherche -->
+    <meta name="description" content="Site étudiant consacré à l'artiste et réalisateur Christopher Nolan, présentant sa biographie, ses œuvres, ses récompenses, sa filmographie et bien d'autres encore.">
+    <!-- Auteur du site -->    
+    <meta name="author" content="Sacha Ghys">
+    <!-- Mots-clés pour le référencement -->    
+    <meta name="keywords" content="Christopher Nolan, réalisateur, cinéma, Interstellar, The Dark Knight, Inception, Oppenheimer">
+    <!-- Configuration du viewport pour le responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icône affichée dans l’onglet du navigateur -->
+    <link rel="icon" type="image/x-icon" href="../image/icone.png">
+    <!-- Titre de la page -->
+    <title>Christopher Nolan - Récompenses</title>
+    <!-- Feuille de style principale -->
+    <link rel="stylesheet" href="../style/style.css">
+</head>
 
-     <body>
+<body>
 
-
+    <main>
+        <!-- En-tête principal du site -->
         <header class="main-header">
+            <!-- Logo cliquable vers la page d’accueil -->
             <div class="logo-container">
                 <a href="../index.html">
                     <img src="../image/logotransparant.png" alt="Logo Christopher Nolan" class="logo-img">
                 </a>
             </div>
-
+          
+            <!-- Titre affiché sur mobile -->
             <div class="mobile-header-title">
                 <span>Christopher</span>
                 <span>Nolan</span>
             </div>
 
+            <!-- Menu burger pour navigation mobile -->
             <div class="burger-menu" id="burger-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
 
+            <!-- Menu de navigation principal -->
             <nav class="nav-menu" id="nav-menu">
                 <ul>
+                    <!-- Menu déroulant Galerie -->
                     <li class="dropdown">
                         <a href="#" class="nav-btn">Galerie -</a>
                         <ul class="submenu">
@@ -41,9 +55,9 @@
                             <li><a href="video.html">Galerie vidéo</a></li>
                         </ul>
                     </li>
-                    
+                    <!-- Lien vers la page Collaboration -->
                     <li><a href="collab.html" class="nav-btn">Collaboration</a></li>
-
+                    <!-- Menu déroulant Carrière -->
                     <li class="dropdown">
                         <a href="#" class="nav-btn">Carrière -</a>
                         <ul class="submenu">
@@ -52,9 +66,9 @@
                             <li><a href="award.html">Récompenses</a></li>
                         </ul>
                     </li>
-
+                    <!-- Lien vers le quiz -->
                     <li><a href="quiz.html" class="nav-btn">Quiz</a></li>
-
+                    <!-- Menu déroulant Contact -->
                     <li class="dropdown">
                         <a href="#" class="nav-btn">Contact -</a>
                         <ul class="submenu">
@@ -66,88 +80,112 @@
             </nav>
         </header>
 
+        <!-- Contenu principal de la page Récompenses -->
+        <div class="award-page-content">
+            
+            <!-- Titre principal -->
+            <h1>Les Distinctions de Christopher Nolan</h1>
+            
+            <!-- Texte d’introduction explicatif -->        
+            <p class="intro-text">
+                Mettez vos connaissances à l'épreuve ! Cliquez (ou tapotez) sur chaque bloc pour deviner la distinction remportée, puis découvrez la récompense et son contexte.
+            </p>
 
-        <main class="award-page-content">
-                <h1>Les Distinctions de Christopher Nolan</h1>
-                
-                <p class="intro-text">
-                    Mettez vos connaissances à l'épreuve ! Cliquez (ou tapotez) sur chaque bloc pour deviner la distinction remportée, puis découvrez la récompense et son contexte.
-                </p>
+            <!-- Liste des récompenses interactives -->
+            <div class="award-list">
 
-                <div class="award-list">
-
-                    <div class="award-item spoiler-blur" onclick="toggleSpoiler(this)">
-                        
-                        <div class="award-hint">
-                            <p class="hint-text">Indice : Une statuette dorée remportée pour son film sur la bombe atomique.</p>
-                        </div>
-
-                        <div class="award-content">
-                            <h2 class="award-title">Oscar du Meilleur Réalisateur</h2>
-                            <p class="award-context">Décerné pour son travail sur le film <i>Oppenheimer</i> (96e cérémonie des Oscars). C'est le premier Oscar de la catégorie remporté par Nolan, reconnaissant la maîtrise de sa mise en scène et de sa narration complexe.</p>
-                            <img src="../image/oscar.jpg" alt="Statuette Oscar">
-                        </div>
-                    </div>
-
-                    <div class="award-item spoiler-blur" onclick="toggleSpoiler(this)">
-
-                        <div class="award-hint">
-                            <p class="hint-text">Indice : Une récompense britannique pour un film sur la Seconde Guerre mondiale raconté en trois temporalités.</p>
-                        </div>
-
-                        <div class="award-content">
-                            <h2 class="award-title">BAFTA du Meilleur Réalisateur</h2>
-                            <p class="award-context">BAFTA remporté pour <i>Dunkerque</i> (Dunkirk) en 2018. Cette distinction souligne sa capacité à transformer un événement historique en un thriller immersif jouant avec la perception du temps.</p>
-                            <img src="../image/bafta.jpg" alt="Trophée BAFTA">
-                        </div>
-                    </div>
-
-                    <div class="award-item spoiler-blur" onclick="toggleSpoiler(this)">
-
-                        <div class="award-hint">
-                            <p class="hint-text">Indice : Un prix de la profession pour son film le plus cérébral, se déroulant dans l'architecture du rêve.</p>
-                        </div>
-
-                        <div class="award-content">
-                            <h2 class="award-title">Prix de la Guilde des Réalisateurs (DGA Award)</h2>
-                            <p class="award-context">Gagné pour le film <i>Inception</i> en 2011. Ce prix est souvent considéré comme l'un des indicateurs les plus fiables de l'Oscar du meilleur réalisateur, reconnaissant le leadership et la vision créative de Nolan sur le plateau.</p>
-                            <img src="../image/dga.jpg" alt="Trophée DGA">
-                        </div>
-                    </div>
-
-                    <div class="award-item spoiler-blur" onclick="toggleSpoiler(this)">
-
-                        <div class="award-hint">
-                            <p class="hint-text">Indice : Une récompense décernée par la presse étrangère de Hollywood pour son travail sur le film atomique.</p>
-                        </div>
-
-                        <div class="award-content">
-                            <h2 class="award-title">Golden Globe du Meilleur Réalisateur</h2>
-                            <p class="award-context">Obtenu pour le film <i>Oppenheimer</i> (81e cérémonie des Golden Globes en 2024). C'était son premier Golden Globe. Le prix, décerné par la presse étrangère de Hollywood, reconnaît la maîtrise de l'ampleur et de la complexité du biopic historique.</p>
-                            <img src="../image/golden_globe.jpg" alt="Trophée Golden Globe">
-                        </div>
-                    </div>
+                <!-- Récompense 1 : Oscar -->
+                <div class="award-item spoiler-blur" onclick="toggleSpoiler(this)">
                     
-                    <div class="award-item spoiler-blur" onclick="toggleSpoiler(this)">
-
-                        <div class="award-hint">
-                            <p class="hint-text">Indice : Une récompense spécialisée dans la Science-Fiction, le Fantastique et l'Horreur, gagnée pour sa maîtrise du genre dans le monde du rêve.</p>
-                        </div>
-
-                        <div class="award-content">
-                            <h2 class="award-title">Saturn Award de la Meilleure Réalisation</h2>
-                            <p class="award-context">Remporté pour <i>Inception</i> (37e cérémonie des Saturn Awards en 2011). Nolan est un habitué des Saturn Awards et cette distinction récompense sa direction innovante dans l'architecture scénaristique du film de science-fiction.</p>
-                            <img src="../image/saturn.jpg" alt="Trophée Saturn Award">
-                        </div>
+                    <!-- Indice affiché avant révélation -->         
+                    <div class="award-hint">
+                        <p class="hint-text">Indice : Une statuette dorée remportée pour son film sur la bombe atomique.</p>
                     </div>
-                    
+
+                    <!-- Contenu révélé au clic -->
+                    <div class="award-content">
+                        <h2 class="award-title">Oscar du Meilleur Réalisateur</h2>
+                        <p class="award-context">Décerné pour son travail sur le film <i>Oppenheimer</i> (96e cérémonie des Oscars). C'est le premier Oscar de la catégorie remporté par Nolan, reconnaissant la maîtrise de sa mise en scène et de sa narration complexe.</p>
+                        <img src="../image/oscar.jpg" alt="Statuette Oscar">
+                    </div>
                 </div>
-            </main>
+
+                <!-- Récompense 2 : BAFTA -->
+                <div class="award-item spoiler-blur" onclick="toggleSpoiler(this)">
+
+                    <!-- Indice affiché avant révélation -->
+                    <div class="award-hint">
+                        <p class="hint-text">Indice : Une récompense britannique pour un film sur la Seconde Guerre mondiale raconté en trois temporalités.</p>
+                    </div>
+
+                    <!-- Contenu révélé au clic -->
+                    <div class="award-content">
+                        <h2 class="award-title">BAFTA du Meilleur Réalisateur</h2>
+                        <p class="award-context">BAFTA remporté pour <i>Dunkerque</i> (Dunkirk) en 2018. Cette distinction souligne sa capacité à transformer un événement historique en un thriller immersif jouant avec la perception du temps.</p>
+                        <img src="../image/bafta.jpg" alt="Trophée BAFTA">
+                    </div>
+                </div>
+
+                <!-- Récompense 3 : DGA Award -->                
+                <div class="award-item spoiler-blur" onclick="toggleSpoiler(this)">
+
+                    <!-- Indice affiché avant révélation -->
+                    <div class="award-hint">
+                        <p class="hint-text">Indice : Un prix de la profession pour son film le plus cérébral, se déroulant dans l'architecture du rêve.</p>
+                    </div>
+
+                    <!-- Contenu révélé au clic -->
+                    <div class="award-content">
+                        <h2 class="award-title">Prix de la Guilde des Réalisateurs (DGA Award)</h2>
+                        <p class="award-context">Gagné pour le film <i>Inception</i> en 2011. Ce prix est souvent considéré comme l'un des indicateurs les plus fiables de l'Oscar du meilleur réalisateur, reconnaissant le leadership et la vision créative de Nolan sur le plateau.</p>
+                        <img src="../image/dga.jpg" alt="Trophée DGA">
+                    </div>
+                </div>
+
+                <!-- Récompense 4 : Golden Globe -->
+                <div class="award-item spoiler-blur" onclick="toggleSpoiler(this)">
+                   
+                    <!-- Indice affiché avant révélation -->
+                    <div class="award-hint">
+                        <p class="hint-text">Indice : Une récompense décernée par la presse étrangère de Hollywood pour son travail sur le film atomique.</p>
+                    </div>
+
+                    <!-- Contenu révélé au clic -->
+                    <div class="award-content">
+                        <h2 class="award-title">Golden Globe du Meilleur Réalisateur</h2>
+                        <p class="award-context">Obtenu pour le film <i>Oppenheimer</i> (81e cérémonie des Golden Globes en 2024). C'était son premier Golden Globe. Le prix, décerné par la presse étrangère de Hollywood, reconnaît la maîtrise de l'ampleur et de la complexité du biopic historique.</p>
+                        <img src="../image/golden_globe.jpg" alt="Trophée Golden Globe">
+                    </div>
+                </div>
+                
+                <!-- Récompense 5 : Saturn Award -->
+
+                <div class="award-item spoiler-blur" onclick="toggleSpoiler(this)">
+
+                    <!-- Indice affiché avant révélation -->
+                    <div class="award-hint">
+                        <p class="hint-text">Indice : Une récompense spécialisée dans la Science-Fiction, le Fantastique et l'Horreur, gagnée pour sa maîtrise du genre dans le monde du rêve.</p>
+                    </div>
+
+                    <!-- Contenu révélé au clic -->
+                    <div class="award-content">
+                        <h2 class="award-title">Saturn Award de la Meilleure Réalisation</h2>
+                        <p class="award-context">Remporté pour <i>Inception</i> (37e cérémonie des Saturn Awards en 2011). Nolan est un habitué des Saturn Awards et cette distinction récompense sa direction innovante dans l'architecture scénaristique du film de science-fiction.</p>
+                        <img src="../image/saturn.jpg" alt="Trophée Saturn Award">
+                    </div>
+                </div>
+                    
+            /div>
+        </div>
+    </main>
+
+    <!-- Pied de page -->
     <footer>
         <p>Sacha Ghys © 2025  <a href="mailto:sacha.ghys@utt.fr" style="color: #8D9FA6;">sacha.ghys@utt.fr</a></p>
     </footer>
 
-        <script src="../js/script.js"></script>
+    <!-- Script JavaScript externe -->
+    <script src="../js/script.js"></script>
 
-    </body>
+</body>
 </html>

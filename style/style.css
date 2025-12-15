@@ -45,6 +45,7 @@ body {
     min-height: 100vh;;     /* Force le corps à faire au moins 100% de la hauteur de l'écran */
     display: flex;          /* Active le mode Flexbox */
     flex-direction: column; /* Empile les éléments (Header, Main, Footer) verticalement. */
+    cursor: url('../image/cursor1.png'), auto;
 }
 
 /* Typographie (Gros titres, etc.) */
@@ -67,6 +68,7 @@ h2 {
     padding-bottom: 10px;
     margin: 20px auto;
     width: 80%;
+    text-align: center;
 }
 
 /* Typographie (Texte, etc.) */
@@ -151,6 +153,11 @@ a {
     100% { transform: rotate(360deg); }
 }
 
+main {
+    max-width: 1280px;
+    margin: auto;
+}
+
 /* header et navigation */
 .main-header {
     position: sticky;
@@ -201,6 +208,7 @@ a {
     border-radius: 15px 0 15px 0; /* Forme feuille */
     transition: all 0.3s ease;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    cursor: url(../image/cursor2.PNG), pointer;
 }
 
 .nav-btn:hover {
@@ -238,6 +246,7 @@ a {
     padding: 5px 10px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
     text-align: center;
+    cursor: url(../image/cursor2.PNG), pointer;
 }
 
 .submenu li a:hover {
@@ -306,6 +315,7 @@ a {
     margin-top: auto;
 }
 
+
 .conteneur-2 {
     position: relative;
     margin: auto;
@@ -318,7 +328,6 @@ a {
     margin-bottom: 5vh;
     margin-top: 1vh;
     flex-direction: column;
-
 }
 
 .conteneur-2 a{
@@ -333,6 +342,7 @@ a {
 .conteneur-2-text {
     text-align: justify;
     margin-left: 3vh;
+    margin-right: 3vh;
     margin-top: 3vh;
 }
 
@@ -347,6 +357,8 @@ a {
 
 .conteneur-2-img img { 
     border-radius: 15px;
+    display: block;
+    margin: auto;
 }
 figcaption {
     color: #E4F2F1; 
@@ -492,7 +504,7 @@ color: #E4F2F1;
 padding: 12px 20px;
 border: none;
 border-radius: 4px;
-cursor: pointer;
+cursor: url(../image/cursor2.PNG), pointer;
 display: block;
 margin: auto;
 }
@@ -613,7 +625,7 @@ padding: 5vh;
     border-radius: 2vh;
     overflow: hidden;
     box-shadow: 1.5vh 1.5vh 1.5vh rgba(0,0,0,0.4);
-    cursor: pointer;
+    cursor: url(../image/cursor2.PNG), pointer;
     background-color: #fff;
     /* Force une hauteur uniforme pour toutes les images */
     height: 35vh; 
@@ -779,7 +791,7 @@ padding: 5vh;
     align-items: center;
     text-align: center;
     z-index: 10;
-    cursor: pointer;
+    cursor: url(../image/cursor2.PNG), pointer;
 }
 
 /* État Révélé (Ajouté par JS) */
@@ -824,7 +836,7 @@ footer p {
 
 /* --- BOUTONS SUIVANT / PRÉCÉDENT et slideshow --- */
 .prev, .next {
-  cursor: pointer;
+  cursor: url(../image/cursor2.PNG), pointer;
   position: absolute;
   top: 50%;
   width: auto;
@@ -856,7 +868,7 @@ footer p {
     border-radius: 50%; /* Rond */
     display: inline-block;
     transition: background-color 0.6s ease;
-    cursor: pointer; /* Pour montrer qu'on peut cliquer */
+    cursor: url(../image/cursor2.PNG), pointer; /* Pour montrer qu'on peut cliquer */
 }
 
 .active-dot {
@@ -958,7 +970,7 @@ footer p {
     background-color: #3F5559D9; /* Bleu nuit opaque */
     z-index: 15; /* Au-dessus de l'indice (z-index 10) */
     transition: opacity 0.4s ease;
-    cursor: pointer;
+    cursor: url(../image/cursor2.PNG), pointer;
 }
 
 .award-item.spoiler-blur .award-content {
@@ -992,7 +1004,7 @@ footer p {
 }
 
 .hint-text {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Lora', serif;
     font-size: 1.3rem;
     color: #E4F2F1; /* Texte de l'indice très clair */
     padding: 10px;
@@ -1104,7 +1116,7 @@ footer p {
     padding: 1.5vh;
     background-color: rgba(197, 215, 217, 0.1); /* Fond légèrement transparent */
     border-radius: 1.5vh;
-    cursor: pointer;
+    cursor: url(../image/cursor2.PNG), pointer;
     transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
     font-family: 'Lora', serif;
     color: #E4F2F1;
@@ -1160,7 +1172,7 @@ footer p {
     color: #E4F2F1;
     border: none;
     border-radius: 1.5vh;
-    cursor: pointer;
+    cursor: url(../image/cursor2.PNG), pointer;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.2rem;
     transition: background-color 0.2s ease;
@@ -1211,7 +1223,7 @@ footer p {
     padding: 12px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: url(../image/cursor2.PNG), pointer;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.2rem;
     transition: background-color 0.2s ease;
@@ -1243,7 +1255,7 @@ footer p {
 
 .burger-menu {
     display: none; /* Caché par défaut */
-    cursor: pointer;
+    cursor: url(../image/cursor2.PNG), pointer;
     width: 30px;
     height: 25px;
     position: relative;
@@ -1328,6 +1340,58 @@ footer p {
         font-size: 0.9rem;
     }
     
+    .conteneur-2-img {
+        gap: 10vh;
+    }
+    .conteneur-2-img img {
+        width: 65%;
+    }
+    
+    .credits h2 {
+        font-size: 2.5rem;
+    }
+
+    @media (max-width: 768px) {
+    /* ... (vos autres styles tablette) ... */
+    
+    /* --- TIMELINE TABLETTE (Branche à gauche) --- */
+    
+    .timeline::after {
+        left: 30px; /* Déplace la ligne centrale vers la gauche (30px + 3px de margin-left) */
+    }
+
+    .container {
+        width: 100%; /* Les conteneurs prennent toute la largeur */
+        padding-left: 70px; /* Espace pour la ligne et le cercle à gauche */
+        padding-right: 25px;
+    }
+
+    /* Force tous les conteneurs à se comporter comme les éléments LEFT */
+    .container.right { 
+        left: 0%; /* Annule le left: 50% du desktop */
+    }
+
+    /* Cercle sur la ligne verticale */
+    .container::after {
+        left: 23px; /* Positionne le cercle sur la nouvelle ligne (30px - 7px de décalage) */
+        right: auto; /* Annule le positionnement right: -17px */
+        top: 48px; /* Monte un peu le cercle pour un meilleur alignement */
+    }
+    
+    /* Triangle (flèche) - doit être à GAUCHE pour tous */
+    .container::before {
+        left: 60px; /* Positionne la flèche à gauche du bloc de texte */
+        border-width: 10px 10px 10px 0; /* Change la direction (pointe à droite) */
+        border-color: transparent #3F5559 transparent transparent; 
+        right: auto; /* Annule l'ancienne règle right: 30px; */
+    }
+
+    /* Annulation des marges pour les flèches droite */
+    .right::before {
+        left: 60px; /* S'assure que la flèche des anciens éléments "right" est aussi à gauche */
+    }
+}
+
 }
 
 @media (max-width:426px) {
@@ -1565,5 +1629,53 @@ footer p {
 
     .collab-detail p{
         font-size: 0.8rem;
+    }
+
+    .credits h2 {
+        font-size: 2rem;
+    }
+    .conteneur-2-text {
+        font-size: 1.7rem;
+    }
+
+    .timeline::after {
+        display: none; /* Cache la ligne verticale centrale */
+    }
+
+    .container {
+        width: 100%;
+        padding: 5px; /* Marge autour de chaque carte */
+        margin-bottom: 20px; /* Espace entre les cartes */
+    }
+
+    /* Cache le cercle et la flèche sur TOUS les conteneurs */
+    .container::after,
+    .container::before,
+    .left::before,
+    .right::before {
+        display: none;
+    }
+
+    /* Le contenu (la date et le texte) doit être redessiné en bloc simple */
+    .content {
+        padding-left: 2vh;
+        padding-right: 2vh;
+        text-align: left; /* Texte aligné à gauche */
+    }
+
+    .timeline h2 {
+        font-size: 3rem; /* Réduction de la taille de la date */
+        text-align: center; /* S'assurer que la date est alignée à gauche */
+        width: 100%; /* La date prend toute la largeur */
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+    }
+
+    .content p {
+        /* Règle à adapter si vous voulez que le texte soit de couleur différente
+           en mode mobile (actuellement en #E4F2F1, ce qui est clair) */
+        color: #E4F2F1; 
+        padding: 0;
+        text-align: justify;
     }
 }
