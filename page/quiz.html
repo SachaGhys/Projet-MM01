@@ -1,39 +1,53 @@
 <!DOCTYPE html>
-    <html lang="fr">
-    <head>
-		<meta charset="utf-8">
-        <meta name="description" content="Site étudiant consacré à l'artiste et réalisateur Christopher Nolan, présentant sa biographie, ses œuvres, ses récompenses, sa filmographie et bien d'autres encore.">
-        <meta name="author" content="Sacha Ghys">
-        <meta name="keywords" content="Christopher Nolan, réalisateur, cinéma, Interstellar, The Dark Knight, Inception, Oppenheimer">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="../image/icone.png">
-        <title>Christopher Nolan - Galerie photo</title>
-        <link rel="stylesheet" href="../style/style.css">
-    </head>
+<html lang="fr">
+<head>
+    <!-- Métadonnées générales de la page Quiz -->
+	<meta charset="utf-8">
+    <!-- Description du site pour les moteurs de recherche -->
+    <meta name="description" content="Site étudiant consacré à l'artiste et réalisateur Christopher Nolan, présentant sa biographie, ses œuvres, ses récompenses, sa filmographie et bien d'autres encore.">
+    <!-- Auteur du site -->    
+    <meta name="author" content="Sacha Ghys">
+    <!-- Mots-clés pour le référencement -->    
+    <meta name="keywords" content="Christopher Nolan, réalisateur, cinéma, Interstellar, The Dark Knight, Inception, Oppenheimer">
+    <!-- Configuration du viewport pour le responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icône affichée dans l’onglet du navigateur -->
+    <link rel="icon" type="image/x-icon" href="../image/icone.png">
+    <!-- Titre de la page -->
+    <title>Christopher Nolan - Galerie photo</title>
+    <!-- Feuille de style principale -->
+    <link rel="stylesheet" href="../style/style.css">
+</head>
 
-    
-     <body>
-        <main>
+<body>
+
+    <main>
+        <!-- En-tête principal du site -->
         <header class="main-header">
+            <!-- Logo cliquable vers la page d’accueil -->
             <div class="logo-container">
                 <a href="../index.html">
                     <img src="../image/logotransparant.png" alt="Logo Christopher Nolan" class="logo-img">
                 </a>
             </div>
-
+            
+            <!-- Titre affiché en version mobile -->
             <div class="mobile-header-title">
                 <span>Christopher</span>
                 <span>Nolan</span>
             </div>
 
+            <!-- Menu burger pour la navigation mobile -->
             <div class="burger-menu" id="burger-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
 
+            <!-- Menu de navigation principal -->
             <nav class="nav-menu" id="nav-menu">
                 <ul>
+                    <!-- Menu déroulant Galerie -->
                     <li class="dropdown">
                         <a href="#" class="nav-btn">Galerie -</a>
                         <ul class="submenu">
@@ -41,9 +55,9 @@
                             <li><a href="video.html">Galerie vidéo</a></li>
                         </ul>
                     </li>
-                    
+                    <!-- Lien vers la page Collaboration -->
                     <li><a href="collab.html" class="nav-btn">Collaboration</a></li>
-
+                    <!-- Menu déroulant Carrière -->
                     <li class="dropdown">
                         <a href="#" class="nav-btn">Carrière -</a>
                         <ul class="submenu">
@@ -52,9 +66,9 @@
                             <li><a href="award.html">Récompenses</a></li>
                         </ul>
                     </li>
-
+                    <!-- Lien vers le quiz -->
                     <li><a href="quiz.html" class="nav-btn">Quiz</a></li>
-
+                    <!-- Menu déroulant Contact -->
                     <li class="dropdown">
                         <a href="#" class="nav-btn">Contact -</a>
                         <ul class="submenu">
@@ -66,97 +80,142 @@
             </nav>
         </header>
 
+        <!-- Contenu principal de la page Quiz -->
+        <div class="quiz-page-content">
 
-<div class="quiz-page-content">
-    <h1>Le Défi de la Connaissance Nolanienne</h1>
+            <!-- Titre principal -->
+            <h1>Le Défi de la Connaissance Nolanienne</h1>
+            
+            <!-- Texte d’introduction -->
+            <p class="intro-text">
+                Testez vos connaissances sur l'œuvre de Christopher Nolan ! Répondez aux 5 questions pour déterminer si vous êtes un simple spectateur ou un véritable initié.
+            </p>
+
+            <!-- Formulaire du quiz -->
+            <form id="nolan-quiz">
+
+                <!-- Question 1 -->
+                <!-- Bloc complet pour la première question -->
+                <div class="quiz-card" id="q1">
+                    <!-- Titre et numéro du défi -->
+                    <h2>DÉFI 01 : Le Protagoniste Flou</h2>
+                    <!-- Texte de la question -->
+                    <p class="question-text">Quel film de Nolan met en scène un protagoniste atteint d'amnésie antérograde, l'obligeant à s'appuyer sur des notes manuscrites et des tatouages ?</p>
+                    <!-- Conteneur des réponses -->
+                    <div class="answers-container">
+                        <!-- Chaque input est relié à son label pour accessibilité -->
+                        <input type="radio" name="q1" id="q1a" value="a"><label for="q1a"><span>The Prestige</span></label>
+                        <input type="radio" name="q1" id="q1b" value="b"><label for="q1b"><span>Memento</span></label>
+                        <input type="radio" name="q1" id="q1c" value="c"><label for="q1c"><span>Insomnia</span></label>
+                        <input type="radio" name="q1" id="q1d" value="d"><label for="q1d"><span>Interstellar</span></label>
+                    </div>
+                    <!-- Boutons pour confirmer et passer à la question suivante -->
+                    <button type="button" class="check-btn" data-next="q2">Confirmer la réponse</button>
+                    <button type="button" class="continue-btn hidden" data-next="q2">Passer au Défi 02</button>
+                </div>
+
+                <!-- Question 2 -->
+                <!-- Bloc complet pour la deuxième question -->
+                <div class="quiz-card hidden" id="q2">
+                    <!-- Titre et numéro du défi -->
+                    <h2>DÉFI 02 : L'Érosion du Temps</h2>
+                    <!-- Texte de la question -->
+                    <p class="question-text">Dans <i>Interstellar</i>, à cause de la proximité du trou noir Gargantua, combien d'années terrestres équivaut approximativement une heure sur la planète de Miller ?</p>
+                    <!-- Conteneur des réponses -->
+                    <div class="answers-container">
+                        <!-- Chaque input est relié à son label pour accessibilité -->
+                        <input type="radio" name="q2" id="q2a" value="a"><label for="q2a"><span>7 jours</span></label>
+                        <input type="radio" name="q2" id="q2b" value="b"><label for="q2b"><span>7 mois</span></label>
+                        <input type="radio" name="q2" id="q2c" value="c"><label for="q2c"><span>7 ans</span></label>
+                        <input type="radio" name="q2" id="q2d" value="d"><label for="q2d"><span>70 ans</span></label>
+                    </div>
+                    <!-- Boutons pour confirmer et passer à la question suivante -->
+                    <button type="button" class="check-btn" data-next="q3">Confirmer la réponse</button>
+                    <button type="button" class="continue-btn hidden" data-next="q3">Passer au Défi 03</button>
+                </div>
+                
+                <!-- Question 3 -->
+                <!-- Bloc complet pour la troisième question -->
+                <div class="quiz-card hidden" id="q3">
+                    <!-- Titre et numéro du défi -->
+                    <h2>DÉFI 03 : L'Agent du Chaos</h2>
+                    <!-- Texte de la question -->
+                    <p class="question-text">Quel acteur a remporté un Oscar (posthume) pour son interprétation du Joker dans <i>The Dark Knight</i> ?</p>
+                    <!-- Conteneur des réponses -->
+                    <div class="answers-container">
+                        <!-- Chaque input est relié à son label pour accessibilité -->
+                        <input type="radio" name="q3" id="q3a" value="a"><label for="q3a"><span>Jared Leto</span></label>
+                        <input type="radio" name="q3" id="q3b" value="b"><label for="q3b"><span>Jack Nicholson</span></label>
+                        <input type="radio" name="q3" id="q3c" value="c"><label for="q3c"><span>Heath Ledger</span></label>
+                        <input type="radio" name="q3" id="q3d" value="d"><label for="q3d"><span>Joaquin Phoenix</span></label>
+                    </div>
+                    <!-- Boutons pour confirmer et passer à la question suivante -->
+                    <button type="button" class="check-btn" data-next="q4">Confirmer la réponse</button>
+                    <button type="button" class="continue-btn hidden" data-next="q4">Passer au Défi 04</button>
+                </div>
+
+                <!-- Question 4 -->
+                <!-- Bloc complet pour la quatrième question -->
+                <div class="quiz-card hidden" id="q4">
+                    <!-- Titre et numéro du défi -->
+                    <h2>DÉFI 04 : L'Idée Semée</h2>
+                    <!-- Texte de la question -->
+                    <p class="question-text">Dans <i>Inception</i>, quel est le terme utilisé pour désigner l'implantation d'une idée dans le subconscient d'une cible ?</p>
+                    <!-- Conteneur des réponses -->
+                    <div class="answers-container">
+                        <!-- Chaque input est relié à son label pour accessibilité -->
+                        <input type="radio" name="q4" id="q4a" value="a"><label for="q4a"><span>L'Extraction</span></label>
+                        <input type="radio" name="q4" id="q4b" value="b"><label for="q4b"><span>Le Limbo</span></label>
+                        <input type="radio" name="q4" id="q4c" value="c"><label for="q4c"><span>La Projection</span></label>
+                        <input type="radio" name="q4" id="q4d" value="d"><label for="q4d"><span>L'Inception</span></label>
+                    </div>
+                    <!-- Boutons pour confirmer et passer à la question suivante -->
+                    <button type="button" class="check-btn" data-next="q5">Confirmer la réponse</button>
+                    <button type="button" class="continue-btn hidden" data-next="q5">Passer au Défi 05</button>
+                </div>
+
+                <!-- Question 5 -->
+                <!-- Bloc complet pour la cinquième question -->
+                <div class="quiz-card hidden" id="q5">
+                    <!-- Titre et numéro du défi -->
+                    <h2>DÉFI 05 : La Vision du Réalisateur</h2>
+                    <!-- Texte de la question -->
+                    <p class="question-text">Quel format de pellicule grand format Christopher Nolan privilégie-t-il souvent pour le tournage des scènes d'action majeures et des vues panoramiques ?</p>
+                    <!-- Conteneur des réponses -->
+                    <div class="answers-container">
+                        <!-- Chaque input est relié à son label pour accessibilité -->
+                        <input type="radio" name="q5" id="q5a" value="a"><label for="q5a"><span>35mm anamorphique</span></label>
+                        <input type="radio" name="q5" id="q5b" value="b"><label for="q5b"><span>IMAX (70mm)</span></label>
+                        <input type="radio" name="q5" id="q5c" value="c"><label for="q5c"><span>Super 8</span></label>
+                        <input type="radio" name="q5" id="q5d" value="d"><label for="q5d"><span>Caméra numérique 8K</span></label>
+                    </div>
+                    <!-- Boutons pour confirmer et afficher les résultats -->
+                    <button type="button" class="check-btn" data-next="results">Confirmer la réponse</button>
+                    <button type="button" class="continue-btn hidden" data-next="results">Afficher le Résultat</button>
+                </div>
+                
+                <!-- Résultats du quiz -->
+                <div class="quiz-card result-box hidden" id="results">
+                    <!-- Affichage du score final -->
+                    <h2>RÉSULTAT DU DÉFI</h2>
+                    <div id="score-display">Votre score est de 0/5.</div>
+                    <p id="grade-message"></p>
+                    <!-- Bouton pour recommencer le quiz -->
+                    <button type="button" id="restart-quiz-btn" onclick="location.reload()">Recommencer le Quiz</button>
+                </div>
+
+            </form>
+        </div>
+
+    </main>
     
-    <p class="intro-text">
-        Testez vos connaissances sur l'œuvre de Christopher Nolan ! Répondez aux 5 questions pour déterminer si vous êtes un simple spectateur ou un véritable initié.
-    </p>
+    <!-- Pied de page -->
+    <footer>
+        <p>Sacha Ghys © 2025  <a href="mailto:sacha.ghys@utt.fr" style="color: #8D9FA6;">sacha.ghys@utt.fr</a></p>
+    </footer>
 
-    <form id="nolan-quiz">
+    <!-- Script JavaScript externe -->
+    <script src="../js/script.js"></script>
 
-        <div class="quiz-card" id="q1">
-            <h2>DÉFI 01 : Le Protagoniste Flou</h2>
-            <p class="question-text">Quel film de Nolan met en scène un protagoniste atteint d'amnésie antérograde, l'obligeant à s'appuyer sur des notes manuscrites et des tatouages ?</p>
-            <div class="answers-container">
-                <input type="radio" name="q1" id="q1a" value="a"><label for="q1a"><span>The Prestige</span></label>
-                <input type="radio" name="q1" id="q1b" value="b"><label for="q1b"><span>Memento</span></label>
-                <input type="radio" name="q1" id="q1c" value="c"><label for="q1c"><span>Insomnia</span></label>
-                <input type="radio" name="q1" id="q1d" value="d"><label for="q1d"><span>Interstellar</span></label>
-            </div>
-            <button type="button" class="check-btn" data-next="q2">Confirmer la réponse</button>
-            <button type="button" class="continue-btn hidden" data-next="q2">Passer au Défi 02</button>
-        </div>
-
-        <div class="quiz-card hidden" id="q2">
-            <h2>DÉFI 02 : L'Érosion du Temps</h2>
-            <p class="question-text">Dans <i>Interstellar</i>, à cause de la proximité du trou noir Gargantua, combien d'années terrestres équivaut approximativement une heure sur la planète de Miller ?</p>
-            <div class="answers-container">
-                <input type="radio" name="q2" id="q2a" value="a"><label for="q2a"><span>7 jours</span></label>
-                <input type="radio" name="q2" id="q2b" value="b"><label for="q2b"><span>7 mois</span></label>
-                <input type="radio" name="q2" id="q2c" value="c"><label for="q2c"><span>7 ans</span></label>
-                <input type="radio" name="q2" id="q2d" value="d"><label for="q2d"><span>70 ans</span></label>
-            </div>
-            <button type="button" class="check-btn" data-next="q3">Confirmer la réponse</button>
-            <button type="button" class="continue-btn hidden" data-next="q3">Passer au Défi 03</button>
-        </div>
-        
-        <div class="quiz-card hidden" id="q3">
-            <h2>DÉFI 03 : L'Agent du Chaos</h2>
-            <p class="question-text">Quel acteur a remporté un Oscar (posthume) pour son interprétation du Joker dans <i>The Dark Knight</i> ?</p>
-            <div class="answers-container">
-                <input type="radio" name="q3" id="q3a" value="a"><label for="q3a"><span>Jared Leto</span></label>
-                <input type="radio" name="q3" id="q3b" value="b"><label for="q3b"><span>Jack Nicholson</span></label>
-                <input type="radio" name="q3" id="q3c" value="c"><label for="q3c"><span>Heath Ledger</span></label>
-                <input type="radio" name="q3" id="q3d" value="d"><label for="q3d"><span>Joaquin Phoenix</span></label>
-            </div>
-            <button type="button" class="check-btn" data-next="q4">Confirmer la réponse</button>
-            <button type="button" class="continue-btn hidden" data-next="q4">Passer au Défi 04</button>
-        </div>
-
-        <div class="quiz-card hidden" id="q4">
-            <h2>DÉFI 04 : L'Idée Semée</h2>
-            <p class="question-text">Dans <i>Inception</i>, quel est le terme utilisé pour désigner l'implantation d'une idée dans le subconscient d'une cible ?</p>
-            <div class="answers-container">
-                <input type="radio" name="q4" id="q4a" value="a"><label for="q4a"><span>L'Extraction</span></label>
-                <input type="radio" name="q4" id="q4b" value="b"><label for="q4b"><span>Le Limbo</span></label>
-                <input type="radio" name="q4" id="q4c" value="c"><label for="q4c"><span>La Projection</span></label>
-                <input type="radio" name="q4" id="q4d" value="d"><label for="q4d"><span>L'Inception</span></label>
-            </div>
-            <button type="button" class="check-btn" data-next="q5">Confirmer la réponse</button>
-            <button type="button" class="continue-btn hidden" data-next="q5">Passer au Défi 05</button>
-        </div>
-
-        <div class="quiz-card hidden" id="q5">
-            <h2>DÉFI 05 : La Vision du Réalisateur</h2>
-            <p class="question-text">Quel format de pellicule grand format Christopher Nolan privilégie-t-il souvent pour le tournage des scènes d'action majeures et des vues panoramiques ?</p>
-            <div class="answers-container">
-                <input type="radio" name="q5" id="q5a" value="a"><label for="q5a"><span>35mm anamorphique</span></label>
-                <input type="radio" name="q5" id="q5b" value="b"><label for="q5b"><span>IMAX (70mm)</span></label>
-                <input type="radio" name="q5" id="q5c" value="c"><label for="q5c"><span>Super 8</span></label>
-                <input type="radio" name="q5" id="q5d" value="d"><label for="q5d"><span>Caméra numérique 8K</span></label>
-            </div>
-            <button type="button" class="check-btn" data-next="results">Confirmer la réponse</button>
-            <button type="button" class="continue-btn hidden" data-next="results">Afficher le Résultat</button>
-        </div>
-        
-        <div class="quiz-card result-box hidden" id="results">
-            <h2>RÉSULTAT DU DÉFI</h2>
-            <div id="score-display">Votre score est de 0/5.</div>
-            <p id="grade-message"></p>
-            <button type="button" id="restart-quiz-btn" onclick="location.reload()">Recommencer le Quiz</button>
-        </div>
-
-    </form>
-</div>
-
-        </main>
-        <footer>
-            <p>Sacha Ghys © 2025  <a href="mailto:sacha.ghys@utt.fr" style="color: #8D9FA6;">sacha.ghys@utt.fr</a></p>
-        </footer>
-
-        <script src="../js/script.js"></script>
-
-    </body>
+</body>
 </html>
