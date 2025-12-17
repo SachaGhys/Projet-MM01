@@ -1,48 +1,62 @@
 <!DOCTYPE html>
-    <html lang="fr">
-    <head>
-		<meta charset="utf-8">
-        <meta name="description" content="Site étudiant consacré à l'artiste et réalisateur Christopher Nolan, présentant sa biographie, ses œuvres, ses récompenses, sa filmographie et bien d'autres encore.">
-        <meta name="author" content="Sacha Ghys">
-        <meta name="keywords" content="Christopher Nolan, réalisateur, cinéma, Interstellar, The Dark Knight, Inception, Oppenheimer">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="../image/icone.png">        
-        <title>Christopher Nolan - Galerie vidéo</title>
-        <link rel="stylesheet" href="../style/style.css">
-    </head>
-
+<html lang="fr">
+<head>
+    <!-- Métadonnées générales de la page Biographie -->
+    <meta charset="utf-8">
+    <!-- Description du site pour les moteurs de recherche -->
+    <meta name="description" content="Site étudiant consacré à l'artiste et réalisateur Christopher Nolan, présentant sa biographie, ses œuvres, ses récompenses, sa filmographie et bien d'autres encore.">
+    <!-- Auteur du site -->    
+    <meta name="author" content="Sacha Ghys">
+    <!-- Mots-clés pour le référencement -->    
+    <meta name="keywords" content="Christopher Nolan, réalisateur, cinéma, Interstellar, The Dark Knight, Inception, Oppenheimer">
+    <!-- Configuration du viewport pour le responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icône affichée dans l’onglet du navigateur -->
+    <link rel="icon" type="image/x-icon" href="../image/icone.png">
+    <!-- Titre de la page -->
+    <title>Christopher Nolan - Galerie vidéo</title>
+    <!-- Feuille de style principale -->
+    <link rel="stylesheet" href="../style/style.css">
+</head>
     
-    
-     <body>
+<body>
 
-        <div id="page-loader">
-            <div class="loader-bobine">
-                <div class="loader-hole"></div>
-            </div>
-            <p>Chargement...</p>
+    <!-- Écran de chargement affiché avant le contenu principal -->
+    <div id="page-loader">
+        <!-- Animation en forme de bobine de film -->
+        <div class="loader-bobine">
+            <div class="loader-hole"></div>
         </div>
+        <p>Chargement...</p>
+    </div>
 
-        <main>
+    <main>
+        <!-- En-tête principal du site -->
         <header class="main-header">
+            <!-- Logo cliquable vers la page d’accueil -->
             <div class="logo-container">
                 <a href="../index.html">
                     <img src="../image/logotransparant.png" alt="Logo Christopher Nolan" class="logo-img">
                 </a>
             </div>
 
+            <!-- Titre affiché sur mobile -->
             <div class="mobile-header-title">
                 <span>Christopher</span>
                 <span>Nolan</span>
             </div>
 
+            <!-- Menu burger pour navigation mobile -->
             <div class="burger-menu" id="burger-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
 
+            <!-- Menu de navigation principal -->
             <nav class="nav-menu" id="nav-menu">
                 <ul>
+                    <!-- Menu déroulant Galerie -->
                     <li class="dropdown">
                         <a href="#" class="nav-btn">Galerie -</a>
                         <ul class="submenu">
@@ -50,9 +64,9 @@
                             <li><a href="video.html">Galerie vidéo</a></li>
                         </ul>
                     </li>
-                    
+                    <!-- Lien vers la page Collaboration -->
                     <li><a href="collab.html" class="nav-btn">Collaboration</a></li>
-
+                    <!-- Menu déroulant Carrière -->
                     <li class="dropdown">
                         <a href="#" class="nav-btn">Carrière -</a>
                         <ul class="submenu">
@@ -61,9 +75,9 @@
                             <li><a href="award.html">Récompenses</a></li>
                         </ul>
                     </li>
-
+                    <!-- Lien vers le quiz -->
                     <li><a href="quiz.html" class="nav-btn">Quiz</a></li>
-
+                    <!-- Menu déroulant Contact -->
                     <li class="dropdown">
                         <a href="#" class="nav-btn">Contact -</a>
                         <ul class="submenu">
@@ -75,60 +89,75 @@
             </nav>
         </header>
 
-<div class="video-page-content">
-        <h1 class="page-title">Galerie Vidéo : Bandes-Annonces & Scènes Clés</h1>
-        
-        <p class="intro-text">
-            Visionnez les bandes-annonces ou cliquez pour révéler les scènes sensibles (Spoil).
-        </p>
+        <!-- Contenu principal de la page vidéo -->
+        <div class="video-page-content">
 
-        <div class="video-gallery-list">
+            <!-- Titre de la page -->
+            <h1 class="page-title">Galerie Vidéo : Bandes-Annonces & Scènes Clés</h1>
 
-            <div class="video-item">
-                
-                <div class="video-iframe-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/i2DdcW8TNEo?si=12Ee9VbN0LpzTm8v" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                
-                <p class="video-description">Bande-Annonce officielle : Oppenheimer (2023).</p>
-            </div>
-
-            <div class="video-item spoiler-blur" onclick="toggleVideoSpoiler(this)">
-                
-                <div class="video-iframe-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/NrfeTUYZcBk?si=8zs_bZkpSHwPZxew&amp;start=5" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                
-                <p class="video-description">Scène de la toupie finale : Inception (2010).</p>
-            </div>
-
-            <div class="video-item">
-                
-                <div class="video-iframe-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/EXeTwQWrcwY?si=1a4TJwmzPGs3RpbW" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                
-                <p class="video-description">Bande-Annonce : The Dark Knight (2008).</p>
-            </div>
-
-            <div class="video-item spoiler-blur" onclick="toggleVideoSpoiler(this)">
-                
-                <div class="video-iframe-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Rvns5DaW-ug?si=z-3ADbmuZIZCwMkc" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                </div>
-                
-                <p class="video-description">Scène du Tesseract : Interstellar (2014).</p>
-            </div>
+            <!-- Texte introductif -->
+            <p class="intro-text">
+                Visionnez les bandes-annonces ou cliquez pour révéler les scènes sensibles (Spoil).
+            </p>
             
+            <!-- Liste des vidéos -->
+            <div class="video-gallery-list">
+
+                <!-- Vidéo sans spoiler -->
+                <div class="video-item">
+                    
+                    <!-- Conteneur responsive pour l'iframe -->
+                    <div class="video-iframe-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/i2DdcW8TNEo?si=12Ee9VbN0LpzTm8v" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    
+                    <!-- Description de la vidéo -->
+                    <p class="video-description">Bande-Annonce officielle : Oppenheimer (2023).</p>
+                </div>
+                
+                <!-- Vidéo contenant un spoiler -->
+                <div class="video-item spoiler-blur" onclick="toggleVideoSpoiler(this)">
+                    
+                    <!-- Iframe floutée par défaut -->
+                    <div class="video-iframe-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/NrfeTUYZcBk?si=8zs_bZkpSHwPZxew&amp;start=5" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                   
+                    <!-- Description de la scène -->
+                    <p class="video-description">Scène de la toupie finale : Inception (2010).</p>
+                </div>
+
+                <!-- Bande-annonce classique -->
+                <div class="video-item">
+                    
+                    <div class="video-iframe-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/EXeTwQWrcwY?si=1a4TJwmzPGs3RpbW" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    
+                    <p class="video-description">Bande-Annonce : The Dark Knight (2008).</p>
+                </div>
+                
+                <!-- Vidéo spoiler nécessitant une action utilisateur -->
+                <div class="video-item spoiler-blur" onclick="toggleVideoSpoiler(this)">
+                    
+                    <div class="video-iframe-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Rvns5DaW-ug?si=z-3ADbmuZIZCwMkc" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    
+                    <p class="video-description">Scène du Tesseract : Interstellar (2014).</p>
+                </div>
+                
+            </div>
         </div>
-    </div>
     </main>
 
-        <footer>
-            <p>Sacha Ghys © 2025  <a href="mailto:sacha.ghys@utt.fr" style="color: #8D9FA6;">sacha.ghys@utt.fr</a></p>
-        </footer>
+    <!-- Pied de page commun à tout le site -->
+    <footer>
+        <p>Sacha Ghys © 2025  <a href="mailto:sacha.ghys@utt.fr" style="color: #8D9FA6;">sacha.ghys@utt.fr</a></p>
+    </footer>
 
-        <script src="../js/script.js"></script>
+    <!-- Script JavaScript externe -->
+    <script src="../js/script.js"></script>
 
-    </body>
+</body>
 </html>
