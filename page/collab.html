@@ -1,40 +1,55 @@
 <!DOCTYPE html>
-    <html lang="fr">
-    <head>
-		<meta charset="utf-8">
-        <meta name="description" content="Site étudiant consacré à l'artiste et réalisateur Christopher Nolan, présentant sa biographie, ses œuvres, ses récompenses, sa filmographie et bien d'autres encore.">
-        <meta name="author" content="Sacha Ghys">
-        <meta name="keywords" content="Christopher Nolan, réalisateur, cinéma, Interstellar, The Dark Knight, Inception, Oppenheimer">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" type="image/x-icon" href="../image/icone.png">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-        <title>Christopher Nolan - Collaboration</title>
-        <link rel="stylesheet" href="../style/style.css">
-    </head>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Métadonnées générales de la page Biographie -->
+    <meta charset="utf-8">
+    <!-- Description du site pour les moteurs de recherche -->
+    <meta name="description" content="Site étudiant consacré à l'artiste et réalisateur Christopher Nolan, présentant sa biographie, ses œuvres, ses récompenses, sa filmographie et bien d'autres encore.">
+    <!-- Auteur du site -->    
+    <meta name="author" content="Sacha Ghys">
+    <!-- Mots-clés pour le référencement -->    
+    <meta name="keywords" content="Christopher Nolan, réalisateur, cinéma, Interstellar, The Dark Knight, Inception, Oppenheimer">
+    <!-- Configuration du viewport pour le responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Icône affichée dans l’onglet du navigateur -->
+    <link rel="icon" type="image/x-icon" href="../image/icone.png">
+    <!-- Titre de la page -->
+    <title>Christopher Nolan - Collaboration</title>
+    <!-- Feuille de style principale -->
+    <link rel="stylesheet" href="../style/style.css">
+</head>
 
+<body>
+    <main>
     
-     <body>
-        <main>
+    <main>
+        <!-- En-tête principal du site -->
         <header class="main-header">
+            <!-- Logo cliquable vers la page d’accueil -->
             <div class="logo-container">
                 <a href="../index.html">
                     <img src="../image/logotransparant.png" alt="Logo Christopher Nolan" class="logo-img">
                 </a>
             </div>
 
+            <!-- Titre affiché sur mobile -->
             <div class="mobile-header-title">
                 <span>Christopher</span>
                 <span>Nolan</span>
             </div>
 
+            <!-- Menu burger pour navigation mobile -->
             <div class="burger-menu" id="burger-menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
 
+            <!-- Menu de navigation principal -->
             <nav class="nav-menu" id="nav-menu">
                 <ul>
+                    <!-- Menu déroulant Galerie -->
                     <li class="dropdown">
                         <a href="#" class="nav-btn">Galerie -</a>
                         <ul class="submenu">
@@ -42,9 +57,9 @@
                             <li><a href="video.html">Galerie vidéo</a></li>
                         </ul>
                     </li>
-                    
+                    <!-- Lien vers la page Collaboration -->
                     <li><a href="collab.html" class="nav-btn">Collaboration</a></li>
-
+                    <!-- Menu déroulant Carrière -->
                     <li class="dropdown">
                         <a href="#" class="nav-btn">Carrière -</a>
                         <ul class="submenu">
@@ -53,9 +68,9 @@
                             <li><a href="award.html">Récompenses</a></li>
                         </ul>
                     </li>
-
+                    <!-- Lien vers le quiz -->
                     <li><a href="quiz.html" class="nav-btn">Quiz</a></li>
-
+                    <!-- Menu déroulant Contact -->
                     <li class="dropdown">
                         <a href="#" class="nav-btn">Contact -</a>
                         <ul class="submenu">
@@ -68,87 +83,112 @@
         </header>
 
 
-
+        <!-- Titre principal de la page Collaborations -->
         <h2>Les collaborateurs réguliers de Christopher Nolan</h2>
 
-
+        <!-- Section dédiée aux acteurs récurrents -->
         <section> 
-                <div class="collab-master">
-                    <h2>Acteurs Principaux</h2>
-                    <p>Les visages récurrents au cœur de l'univers Nolan.</p>
-                    <div class="photo-group">
-                        <img src="../image/acteur.jpg" alt="Photo de groupe du casting">
-                    </div>
-                </div>
-                
-                 <div class="collab-grid">      
-                        <div class="collab-detail"> 
-                            <img src="../image/cillian.jpg" alt="Cillian Murphy">
-                            <h3>Cillian Murphy</h3>
-                            <p>L'acteur fétiche révélé au grand public par Nolan. Après plusieurs seconds rôles (<i>Batman Begins</i>, <i>Inception</i>), Murphy est devenu l'acteur principal d'un projet du réalisateur, culminant avec sa performance oscarisée dans <i>Oppenheimer</i> (2023).</p>
-                        </div>
-                         
-                        <div class="collab-detail"> 
-                            <img src="../image/caine.jpg" alt="Michael Caine">
-                            <h3>Michael Caine</h3>
-                            <p>Le collaborateur le plus fidèle de la filmographie de Nolan, puisqu'il est apparu dans huit de ses films consécutifs. Il y incarne souvent des figures paternelles, mentors ou guides, comme Alfred dans la trilogie <i>Dark Knight</i>.</p>
-                        </div>
-                        
-                        <div class="collab-detail"> 
-                            <img src="../image/dicaprio.jpg" alt="Tom Hardy">
-                            <h3>Leonardo DiCaprio</h3>
-                            <p>Rôle principal et mémorable dans Inception (2010). Il fait partie des rares acteurs non-britanniques à avoir mené un projet majeur de Nolan.</p>
-                        </div>
-                    </div>
-            </section>
-<br>
-<br>
-            <section>
-                <div class="collab-master">
-                    <h2>Technique & Création</h2>
-                    <p>Les artistes et ingénieurs dont le travail façonne l'identité visuelle et sonore de ses films.</p>
-                    <div class="photo-group">
-                        <img src="../image/technical_set.jpg" alt="Studio d'enregistrement ou Caméra IMAX" class="img-master">
-                    </div>
-                </div>
-                
-                <div class="collab-grid">
-                    
-                    <div class="collab-detail"> 
-                        <img src="../image/zimmer.jpg" alt="Hans Zimmer">
-                        <h3>Hans Zimmer</h3>
-                        <p>Le compositeur emblématique des musiques épiques et des thèmes mémorables qui définissent l'univers Nolan (<i>Inception</i>, <i>Interstellar</i>).</p>
-                    </div>
-                    
-                    <div class="collab-detail"> 
-                        <img src="../image/hoytema.jpg" alt="Hoyte van Hoytema">
-                        <h3>Hoyte van Hoytema</h3>
-                        <p>Directeur de la photographie (DP) maître de l'IMAX, responsable de l'esthétique monumentale des films récents (<i>Dunkerque</i>, <i>Oppenheimer</i>).</p>
-                    </div>
-                    
-                    <div class="collab-detail"> 
-                        <img src="../image/emma_thomas.jpg" alt="Emma Thomas">
-                        <h3>Emma Thomas</h3>
-                        <p>Productrice exécutive de tous les films de Nolan. Elle est sa partenaire créative et co-fondatrice de leur société de production, Syncopy Films.</p>
-                    </div>
-                </div>
-            </section>
 
+            <!-- Bloc de présentation générale -->
+            <div class="collab-master">
+                <h2>Acteurs Principaux</h2>
+                <p>Les visages récurrents au cœur de l'univers Nolan.</p>
+
+                <!-- Image illustrative du casting -->
+                <div class="photo-group">
+                    <img src="../image/acteur.jpg" alt="Photo de groupe du casting">
+                </div>
+            </div>
+                
+            <!-- Grille contenant les fiches acteurs -->
+             <div class="collab-grid">      
+
+                <!-- Fiche acteur : Cillian Murphy -->
+                <div class="collab-detail"> 
+                    <img src="../image/cillian.jpg" alt="Cillian Murphy">
+                    <h3>Cillian Murphy</h3>
+                    <p>L'acteur fétiche révélé au grand public par Nolan. Après plusieurs seconds rôles (<i>Batman Begins</i>, <i>Inception</i>), Murphy est devenu l'acteur principal d'un projet du réalisateur, culminant avec sa performance oscarisée dans <i>Oppenheimer</i> (2023).</p>
+                </div>
+
+                <!-- Fiche acteur : Michael Caine -->       
+                <div class="collab-detail"> 
+                    <img src="../image/caine.jpg" alt="Michael Caine">
+                    <h3>Michael Caine</h3>
+                    <p>Le collaborateur le plus fidèle de la filmographie de Nolan, puisqu'il est apparu dans huit de ses films consécutifs. Il y incarne souvent des figures paternelles, mentors ou guides, comme Alfred dans la trilogie <i>Dark Knight</i>.</p>
+                </div>
+                        
+                <!-- Fiche acteur : Leonardo DiCaprio -->
+                <div class="collab-detail"> 
+                    <img src="../image/dicaprio.jpg" alt="Tom Hardy">
+                    <h3>Leonardo DiCaprio</h3>
+                    <p>Rôle principal et mémorable dans Inception (2010). Il fait partie des rares acteurs non-britanniques à avoir mené un projet majeur de Nolan.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Espacement visuel entre les sections -->
+        <br>
+        <br>
+
+        <!-- Section dédiée à l’équipe technique -->
+        <section>
+
+            <!-- Présentation générale technique -->
+            <div class="collab-master">
+                <h2>Technique & Création</h2>
+                <p>Les artistes et ingénieurs dont le travail façonne l'identité visuelle et sonore de ses films.</p>
+
+                <!-- Image d’illustration technique -->
+                <div class="photo-group">
+                    <img src="../image/technical_set.jpg" alt="Studio d'enregistrement ou Caméra IMAX" class="img-master">
+                </div>
+            </div>
+                
+            <!-- Grille des collaborateurs techniques -->
+            <div class="collab-grid">
+                    
+                <!-- Compositeur : Hans Zimmer -->
+                <div class="collab-detail"> 
+                    <img src="../image/zimmer.jpg" alt="Hans Zimmer">
+                    <h3>Hans Zimmer</h3>
+                    <p>Le compositeur emblématique des musiques épiques et des thèmes mémorables qui définissent l'univers Nolan (<i>Inception</i>, <i>Interstellar</i>).</p>
+                </div>
+                    
+                <!-- Directeur photo : Hoyte van Hoytema -->
+                <div class="collab-detail"> 
+                    <img src="../image/hoytema.jpg" alt="Hoyte van Hoytema">
+                    <h3>Hoyte van Hoytema</h3>
+                    <p>Directeur de la photographie (DP) maître de l'IMAX, responsable de l'esthétique monumentale des films récents (<i>Dunkerque</i>, <i>Oppenheimer</i>).</p>
+                </div>
+
+                <!-- Productrice : Emma Thomas -->
+                <div class="collab-detail"> 
+                    <img src="../image/emma_thomas.jpg" alt="Emma Thomas">
+                    <h3>Emma Thomas</h3>
+                    <p>Productrice exécutive de tous les films de Nolan. Elle est sa partenaire créative et co-fondatrice de leur société de production, Syncopy Films.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Audio d’ambiance de la page -->
         <audio id="background-audio" loop>
             <source src="../son/son_collab.mp3" type="audio/mpeg">
         </audio>
 
+        <!-- Bouton de contrôle du son -->
         <button id="audio-control-btn" title="Activer/Désactiver le son">
             <i id="audio-icon" class="fas fa-volume-up"></i> 
         </button>
 
+    </main>
+    
+    <!-- Pied de page commun -->
+    <footer>
+        <p>Sacha Ghys © 2025  <a href="mailto:sacha.ghys@utt.fr" style="color: #8D9FA6;">sacha.ghys@utt.fr</a></p>
+    </footer>
 
-        </main>
-        <footer>
-            <p>Sacha Ghys © 2025  <a href="mailto:sacha.ghys@utt.fr" style="color: #8D9FA6;">sacha.ghys@utt.fr</a></p>
-        </footer>
+    <!-- Script JavaScript externe -->
+    <script src="../js/script.js"></script>
 
-        <script src="../js/script.js"></script>
-
-    </body>
+</body>
 </html>
