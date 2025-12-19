@@ -1,5 +1,16 @@
 @charset "utf-8";
 
+/* Définition des variables de couleur pour une cohérence sur tout le site */
+:root {
+    --primary-color: #032340;    /* Bleu nuit */
+    --secondary-color: #3F5559;  /* Gris-bleu sombre */
+    --accent-color: #8D9FA6;     /* Gris acier */
+    --light-bg: #E4F2F1;         /* Fond clair */
+    --hover-color: #C5D7D9;      /* Couleur de survol */
+    --white: #F0F0F0;
+    --shadow: rgba(0, 0, 0, 0.4);
+}
+
 /* Police utilisée pour les gros titres */
 @font-face {
     font-family: 'Cinzel Decorative';
@@ -38,21 +49,21 @@
 }
 
 body {
-    background-color: #E4F2F1; /* Couleur secondaire claire (Fond de page) */
-    color: #3F5559;            /* Couleur texte principal */
+    background-color: var(--light-bg); /* Couleur Fond de page */
+    color: var(--secondary-color); /* Couleur texte principal */
     font-family: 'Lora', serif; /* Police par défaut pour le texte */
     line-height: 1.6;
-    min-height: 100vh;;     /* Force le corps à faire au moins 100% de la hauteur de l'écran */
-    display: flex;          /* Active le mode Flexbox */
+    min-height: 100vh; /* Force le corps à faire au moins 100% de la hauteur de l'écran */
+    display: flex; /* Active le mode Flexbox */
     flex-direction: column; /* Empile les éléments (Header, Main, Footer) verticalement. */
-    cursor: url('../image/cursor3.png'), auto;
+    cursor: url('../image/cursor3.png'), auto; /* Curseur personnalisé */
 }
 
 /* Typographie (Gros titres, etc.) */
 h1 {
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Cinzel Decorative', serif; /* Police Cinzel Decorative */
     font-weight: 400; /* On force 400 car c'est la seule version qu'on a */
-    color: #032340; 
+    color: var(--primary-color); 
     text-align: center;
     margin-top: 5vh;
     font-size: 2.5rem;
@@ -60,11 +71,11 @@ h1 {
 
 /* Typographie (Petits titres, etc.) */
 h2 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Cormorant Garamond', serif; /* Police Cormorant Garamond */
     font-weight: 300; 
-    color: #032340;   
+    color: var(--primary-color);   
     font-size: 3rem;
-    border-bottom: 1px solid #8D9FA6; 
+    border-bottom: 1px solid var(--accent-color); 
     padding-bottom: 10px;
     margin: 20px auto;
     width: 80%;
@@ -73,8 +84,8 @@ h2 {
 
 /* Typographie (Texte, etc.) */
 p {
-    color: #E4F2F1; 
-    font-family: 'Lora', serif;
+    color: var(--light-bg); 
+    font-family: 'Lora', serif; /* Police Lora */
     font-size: 1.1rem;
     padding-right: 1vh;
     padding-left: 1vh; 
@@ -90,14 +101,14 @@ a {
     text-decoration: none;
 }
 
-/* loader des pages volumineuse */
+/* Loader des pages volumineuse */
 #page-loader {
     position: fixed; /* Reste fixe même si on scroll */
     top: 0; 
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #3F5559; /* Couleur sombre de la charte graphique */
+    background-color: var(--secondary-color); /* Couleur sombre de la charte graphique */
     z-index: 9999; /* Toujours au-dessus de tout le contenu */
     display: flex; /* Activation mode flexbox */
     flex-direction: column; 
@@ -114,13 +125,12 @@ a {
 }
 
 .loader-bobine {
-    width: 80px;
+    width: 80px; /* taille en pixel par simplicité */
     height: 80px;
-    border: 8px solid #E4F2F1; /* Contour de la bobine (Couleur claire) */
+    border: 8px solid var(--light-bg); /* Contour de la bobine (Couleur claire) */
     border-radius: 50%; /* Forme circulaire */
     border-top-color: transparent; /* Crée l'effet de vide de la bobine */
     position: relative;
-    
     /* Animation de rotation */
     animation: spin 1.2s linear infinite;
     margin-bottom: 20px;
@@ -134,13 +144,13 @@ a {
     transform: translate(-50%, -50%);
     width: 20px;
     height: 20px;
-    background-color: #E4F2F1;
+    background-color: var(--light-bg);
     border-radius: 50%;
 }
 
 /* Texte de chargement */
 #page-loader p {
-    color: #E4F2F1; 
+    color: var(--light-bg); 
     font-family: 'Lora', serif;
     font-size: 1.2rem;
     padding: 0;
@@ -153,41 +163,49 @@ a {
     100% { transform: rotate(360deg); }
 }
 
+/* style des balises main */
 main {
-    max-width: 1280px;
-    margin: auto;
+    flex-grow: 1;
+    display: flex; /* activation du mode flexbox */
+    flex-direction: column;
+    max-width: 1280px; /* La largeur ne s’étale plus indéfiniment  */
+    margin-left: auto; /* on centre la page */
+    margin-right: auto;
 }
 
 /* header et navigation */
 .main-header {
-    position: sticky;
+    position: sticky; /* navigatio sticky */
     top: 0;
-    z-index: 3000;
-    background-color: #3F5559;
+    z-index: 3000; /* par dessus la page */
+    background-color: var(--secondary-color);
     padding: 5px 40px;
     display: flex;
     align-items: center;
     height: 100px;
-    border-radius: 0 0 2vh 2vh;
+    border-radius: 0 0 2vh 2vh; /* bordure du bas arrondie quand la page est supérieur à 1280px */
 }
 
+/* Conteneur du logo */
 .logo-container {
     flex-shrink: 0; /* Empêche le logo de s'écraser */
     margin-right: 5vh; 
 }
-.logo-img {
 
+/* Image du logo */
+.logo-img {
     max-height: 100px; 
     width: auto;
     display: block;
-
 }
 
+/* Menu de navigation principal */
 .nav-menu {
     flex-grow: 1;
     z-index: 3000;
 }
 
+/* Liste des liens de navigation */
 .nav-menu > ul {
     display: flex;
     justify-content: space-around; 
@@ -197,9 +215,10 @@ main {
     padding: 0; 
 }
 
+/* Boutons de navigation */
 .nav-btn {
     display: block;
-    background-color: #F0F0F0;
+    background-color: var(--white);
     position: relative;
     color: #000;
     font-family: 'Cormorant Garamond', serif;
@@ -212,22 +231,25 @@ main {
     cursor: url(../image/cursor2.PNG), pointer;
 }
 
+/* Effet au survol des boutons */
 .nav-btn:hover {
-    background-color: #C5D7D9;
+    background-color: var(--hover-color);
     transform: translateY(-2px);
 }
 
+/* Menu déroulant */
 .dropdown {
     position: relative;
 }
 
+/* Sous-menu caché par défaut */
 .submenu {
     display: none;
     position: absolute;
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #3F5559;
+    background-color: var(--secondary-color);
     padding: 10px 0;
     border-radius: 0 0 15px 15px;
     min-width: 200px;
@@ -240,8 +262,9 @@ main {
     width: 100%;
 }
 
+/* style des liens des sous menu */
 .submenu li a {
-    color: #F0F0F0;
+    color: var(--white);
     font-family: 'Lora', serif;
     display: block;
     padding: 5px 10px;
@@ -250,41 +273,42 @@ main {
     cursor: url(../image/cursor2.PNG), pointer;
 }
 
+/* survole */
 .submenu li a:hover {
-    color: #C5D7D9;
+    color: var(--hover-color);
     padding-left: 15px;
     transition: 0.2s;
 }
 
+/* Affichage du sous-menu au survol */
 .dropdown:hover .submenu {
     display: flex;
 }
 /* fin navigation */
 
-
-/* contenu */
+/* contenu de la page d'accueil */
 .contenu {
     flex-grow:1;
     position: relative;
-    width: 100%;
-    min-height: 85vh;        
-    display: flex;
+    width: 100%;      
+    display: flex; /* mode flexbox */
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     overflow: hidden; /* Important, coupe la vidéo si elle dépasse */
 }
 
+/* Vidéo en arrière-plan */
 .contenu-bg-video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover; /* Prend tout l'écran */
     z-index: -1; /* Doit être en arrière plan */
 }
 
+/* Bloc du titre principal */
 .contenu-title-box {
     margin-top: 150px;
     background-color: rgba(255, 255, 255, 0.1);
@@ -293,14 +317,16 @@ main {
     border-radius: 10px;
 }
 
+/* Style du titre de la page d'accueil */
 .contenu-title-box h1 {
     margin: 0;
-    color: #C5D7D9;
+    color: var(--hover-color);
     font-family: 'Cinzel Decorative', serif;
     font-size: 3rem;
     text-transform: capitalize;
 }
 
+/* Conteneur principal avec texte et image */
 .conteneur {
     position: relative;
     margin: auto;
@@ -316,7 +342,7 @@ main {
     margin-top: auto;
 }
 
-
+/* Conteneur secondaire en colonne */
 .conteneur-2 {
     position: relative;
     margin: auto;
@@ -332,14 +358,16 @@ main {
 }
 
 .conteneur-2 a{
-    color: #032340;
+    color: var(--primary-color);
 }
 
+/* effet de survol */
 .conteneur-2 a:hover{
-    color: #032340;
+    color: var(--primary-color);
     text-decoration: underline;
 }
 
+/* Texte du conteneur secondaire */
 .conteneur-2-text {
     text-align: justify;
     margin-left: 3vh;
@@ -347,6 +375,7 @@ main {
     margin-top: 3vh;
 }
 
+/* Images du conteneur secondaire */
 .conteneur-2-img {
     display: flex;
     justify-content: center;
@@ -356,31 +385,37 @@ main {
     padding-bottom: 5vh;
 }
 
+/* Gestion de l'image du conteneur secondaire */
 .conteneur-2-img img { 
     border-radius: 15px;
     display: block;
     margin: auto;
 }
+
+/* Description de l'image */
 figcaption {
-    color: #E4F2F1; 
+    color: var(--light-bg); 
     font-family: 'Lora', serif;
     text-align: center;
 }
 
+/* Texte du conteneur principal */
 .conteneur-text {
     flex: 2;
     font-family: 'Lora', serif;
-    color: #E4F2F1;
+    color: var(--light-bg);
     font-size: 1.1rem;
     text-align: justify;
     margin: 1vh 1vh 1vh 8vh;
 }
 
+/* Images du conteneur principal */
 .conteneur-img {
     height: 90%;
     padding-right: 50px;
 }
 
+/* Gestion de l'image du conteneur principal */
 .conteneur-img img {
     width: 100%;
     height: 100%;
@@ -399,17 +434,19 @@ figcaption {
   margin: 0 auto;
 }
 
+/* Ligne centrale de la timeline */
 .timeline::after {
   content: '';
   position: absolute;
   width: 6px;
-  background-color:#3F5559;
+  background-color:var(--secondary-color);
   top: 0;
   bottom: 0;
   left: 50%;
   margin-left: -3px;
 }
 
+/* Élément individuel de la timeline */
 .container {
   padding: 10px 40px;
   position: relative;
@@ -417,73 +454,76 @@ figcaption {
   width: 50%;
 }
 
-
-/* The circles on the timeline */
+/* Cercle de repère sur la timeline */
 .container::after {
   content: '';
   position: absolute;
   width: 25px;
   height: 25px;
   right: -17px;
-  background-color: #3F5559;
-  border: 4px solid #8D9FA6;
+  background-color: var(--secondary-color);
+  border: 4px solid var(--accent-color);
   top: 50px;
   border-radius: 50%;
   z-index: 1;
 }
 
+/* Bloc de la timeline placé à gauche */
 .left {
   left: 0;
 }
 
+/* Bloc de la timeline placé à droite */
 .right {
   left: 50%;
 }
 
+/* Flèche reliant le bloc gauche à la ligne centrale */
 .left::before {
-  content: " ";
+  content: " "; /* Pseudo-élément décoratif */
   height: 0;
   position: absolute;
-  top: 57px;
+  top: 57px; /* Alignement vertical avec le cercle */
   width: 0;
   z-index: 1;
-  right: 30px;
-  border: medium solid #3F5559;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent #3F5559;
+  right: 30px; /* Position de la flèche */
+  border: medium solid var(--secondary-color); /* Couleur de la flèche */
+  border-width: 10px 0 10px 10px; /* Forme triangulaire */
+  border-color: transparent transparent transparent var(--secondary-color);
 }
 
-
+/* --- Flèche pointant vers la ligne centrale (bloc droit) --- */
 .right::before {
-  content: " ";
+  content: " "; /* Élément décoratif */
   height: 0;
   position: absolute;
-  top: 57px;
+  top: 57px; /* Alignement vertical avec le cercle */
   width: 0;
   z-index: 1;
-  left: 30px;
-  border: medium solid #3F5559;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent #3F5559 transparent transparent;
+  left: 30px; /* Position de la flèche */
+  border: medium solid var(--secondary-color); /* Couleur de la flèche */
+  border-width: 10px 10px 10px 0; /* Forme triangulaire */
+  border-color: transparent var(--secondary-color) transparent transparent;
 }
 
-
+/* --- Positionnement du cercle de la timeline côté droit --- */
 .right::after {
-left: -16px;
+left: -16px; /* Place le cercle sur la ligne centrale */
 }
 
-
+/* --- Contenu principal d’un événement de la timeline --- */
 .content {
-text-align:center;
+text-align:center; /* Texte centré */
 padding-bottom: 2vh;
-background-color: #8D9FA6;
+background-color: var(--accent-color); /* Fond de la carte */
 position: relative;
-border-radius: 6px;
+border-radius: 6px; /* Coins arrondis */
 }
 
+/* --- Titre (date) dans la timeline --- */
 .content h2 {
     text-align: center;
-    font-size: 4em;
+    font-size: 4em; /* Grande taille pour mise en valeur */
 }
 
 
@@ -500,8 +540,8 @@ resize: vertical /*permet à l'utilisateur d'agrandir la case massage */
 }
 
 input[type=submit] {
-background-color: #3F5559;
-color: #E4F2F1;
+background-color: var(--secondary-color);
+color: var(--light-bg);
 padding: 12px 20px;
 border: none;
 border-radius: 4px;
@@ -511,7 +551,7 @@ margin: auto;
 }
 
 input[type=submit]:hover {
-  background-color: #032340;
+  background-color: var(--primary-color);
 }
 
 .formulaire {
@@ -529,7 +569,7 @@ padding: 5vh;
     grid-template-columns: repeat(3, 1fr); 
     gap: 3vh; 
     padding: 3vh;
-    background-color: #E4F2F1;
+    background-color: var(--light-bg);
 }
 
 .collab-master {
@@ -537,15 +577,15 @@ padding: 5vh;
     height: auto;
     margin: auto;
     margin-bottom: 5vh;
-    background-color: #3F5559; 
-    color: #E4F2F1;
+    background-color: var(--secondary-color); 
+    color: var(--light-bg);
     text-align: center;
     overflow: hidden;
     border-radius: 1vh 1vh 1vh 1vh; 
     box-shadow: 1vh 1vh 1vh rgba(0,0,0,0.4);
 }
 .collab-master h2 {
-    color: #E4F2F1;
+    color: var(--light-bg);
     border-bottom: none;
     margin-bottom: 0;
 }
@@ -559,7 +599,7 @@ padding: 5vh;
 }
 
 .collab-detail {
-    background-color: #8D9FA6;
+    background-color: var(--accent-color);
     border-radius: 1vh;
     box-shadow: 1vh 1vh 1vh rgba(0,0,0,0.4);
     overflow: hidden;
@@ -607,7 +647,7 @@ padding: 5vh;
 .intro-text {
     max-width: 150vh;
     margin: auto; 
-    color: #3F5559; 
+    color: var(--secondary-color); 
     font-size: 1.1rem;
     text-align: center;
     padding-bottom: 8vh;
@@ -643,7 +683,7 @@ padding: 5vh;
 /* --- flou pour l'anti spoil --- */
 .spoiler-blur {
     text-align: center;
-    background-color: #032340; /* Pour cacher les bords */
+    background-color: var(--primary-color); /* Pour cacher les bords */
 }
 
 .spoiler-blur img {
@@ -658,7 +698,7 @@ padding: 5vh;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    background-color: #032340D9;
+    background-color: var(--primary-color)D9;
     padding: 1vh 1vh;
     border-radius: 2vh;
     font-family: 'Cinzel Decorative', serif;
@@ -711,7 +751,7 @@ padding: 5vh;
 
 .caption-desc {
     font-size: 0.9rem;
-    color: #C5D7D9;
+    color: var(--hover-color);
     margin: 5px 0 0 0;
     padding: 0;
 }
@@ -760,11 +800,11 @@ padding: 5vh;
 
 .video-description {
     text-align: center;
-    color: #032340;
+    color: var(--primary-color);
     font-size: 1.1rem;
     padding: 15px 10px;
     margin: 0;
-    background-color: #C5D7D9; /* Couleur de fond pour la description */
+    background-color: var(--hover-color); /* Couleur de fond pour la description */
 }
 
 /* --- SYSTÈME ANTI-SPOIL VIDÉO --- */
@@ -783,7 +823,7 @@ padding: 5vh;
     position: absolute;
     width: 30%;
     height: 30%; /* Couvre toute la zone de la vidéo */
-    background-color: #03234066;
+    background-color: var(--primary-color)66;
     color: white;
     font-family: 'Cinzel Decorative', serif;
     font-size: 2.5vh;
@@ -873,7 +913,7 @@ footer p {
 }
 
 .active-dot {
-    background-color: #032340; /* Bleu nuit */
+    background-color: var(--primary-color); /* Bleu nuit */
     border: 1px solid #FFF; /* Petit contour blanc pour le style */
 }
 
@@ -901,10 +941,10 @@ footer p {
 }
 
 .section-background h1 {
-    background-color: #3F555966;
+    background-color: var(--secondary-color)66;
     border-radius: 2vh;
     padding: 1vh 1vh 1vh 1vh;
-    color: #C5D7D9;
+    color: var(--hover-color);
 }
 
 .parallax {
@@ -920,7 +960,7 @@ footer p {
   background-image: url("../image/batman_back.jpg");
 }
 .text-bloc {
-    background-color: #3F5559;
+    background-color: var(--secondary-color);
     height: auto;
     display: flex;
     align-items: center;
@@ -949,9 +989,9 @@ footer p {
 .award-item {
     position: relative;
     border-radius: 10px;
-    box-shadow: 0 5px 15px #03234066;
+    box-shadow: 0 5px 15px var(--primary-color)66;
     overflow: hidden;
-    background-color: #C5D7D9; /* Fond de la carte */
+    background-color: var(--hover-color); /* Fond de la carte */
     padding: 20px;
     transition: all 0.3s ease;
 }
@@ -968,7 +1008,7 @@ footer p {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #3F5559D9; /* Bleu nuit opaque */
+    background-color: var(--secondary-color)D9; /* Bleu nuit opaque */
     z-index: 15; /* Au-dessus de l'indice (z-index 10) */
     transition: opacity 0.4s ease;
     cursor: url(../image/cursor2.PNG), pointer;
@@ -1007,9 +1047,9 @@ footer p {
 .hint-text {
     font-family: 'Lora', serif;
     font-size: 1.3rem;
-    color: #E4F2F1; /* Texte de l'indice très clair */
+    color: var(--light-bg); /* Texte de l'indice très clair */
     padding: 10px;
-    border: 2px solid #E4F2F1;
+    border: 2px solid var(--light-bg);
     border-radius: 5px;
 }
 
@@ -1032,13 +1072,13 @@ footer p {
 
 .award-title {
     font-family: 'Cormorant Garamond', serif;
-    color: #032340;
+    color: var(--primary-color);
     font-size: 2.2rem;
     margin-bottom: 10px;
 }
 
 .award-context {
-    color: #3F5559;
+    color: var(--secondary-color);
     font-size: 1.1rem;
     text-align: justify;
     padding: 0; 
@@ -1058,14 +1098,14 @@ footer p {
 
 /* 3. Ramène la carte à son état de couleur normal */
 .award-item.revealed {
-    background-color: #E4F2F1;
-    color: #3F5559;
+    background-color: var(--light-bg);
+    color: var(--secondary-color);
 }
 
 /* 4. Pour s'assurer que le texte dans l'état révélé est bien visible */
 .award-item.revealed .award-title, 
 .award-item.revealed .award-context {
-    color: #032340; /* Texte bien sombre sur fond clair */
+    color: var(--primary-color); /* Texte bien sombre sur fond clair */
 }
 
 /* page de quiz */
@@ -1076,30 +1116,30 @@ footer p {
 }
 
 .quiz-card {
-    background-color: #3F5559; /* Couleur de fond sombre et élégante */
-    color: #E4F2F1;
+    background-color: var(--secondary-color); /* Couleur de fond sombre et élégante */
+    color: var(--light-bg);
     padding: 2vh;
     border-radius: 2vh;
     box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.5);
-    border-left: 1vh solid #032340; /* Touche de couleur Nolan (Bleu nuit) */
+    border-left: 1vh solid var(--primary-color); /* Touche de couleur Nolan (Bleu nuit) */
     transition: opacity 0.5s ease;
 }
 
 .quiz-card h2 {
     font-family: 'Cinzel Decorative', serif;
-    color: #C5D7D9;
+    color: var(--hover-color);
     font-size: 1.8rem;
     text-align: center;
     margin: 0;
     padding-bottom: 5px;
-    border-bottom: 2px solid #C5D7D9;
+    border-bottom: 2px solid var(--hover-color);
     width: 100%;
 }
 
 .question-text {
     font-size: 1.1rem;
     margin-bottom: 2vh;
-    color: #E4F2F1;
+    color: var(--light-bg);
     padding: 0;
 }
 
@@ -1120,7 +1160,7 @@ footer p {
     cursor: url(../image/cursor2.PNG), pointer;
     transition: background-color 0.2s ease, border 0.2s ease, color 0.2s ease;
     font-family: 'Lora', serif;
-    color: #E4F2F1;
+    color: var(--light-bg);
     font-size: 1rem;
     border: 1px solid transparent;
     width: 100%; 
@@ -1136,16 +1176,16 @@ footer p {
 
 /* Style appliqué au LABEL LORSQUE l'INPUT FRÈRE est COCHÉ (SÉLECTION VISUELLE) */
 .answers-container input[type="radio"]:checked + label {
-    background-color: #8D9FA6; /* Couleur forte lors de la sélection (état temporaire avant validation) */
-    color: #032340; 
+    background-color: var(--accent-color); /* Couleur forte lors de la sélection (état temporaire avant validation) */
+    color: var(--primary-color); 
     font-weight: bold;
-    border: 0.3vh solid #032340; 
+    border: 0.3vh solid var(--primary-color); 
 }
 
 /* Hover sur les options */
 .answers-container label:hover {
     background-color: rgba(197, 215, 217, 0.2);
-    border-color: #C5D7D9;
+    border-color: var(--hover-color);
 }
 
 /* Couleur verte pour les bonnes réponses (surligné en vert) */
@@ -1169,8 +1209,8 @@ footer p {
     display: block;
     width: 100%;
     padding: 2vh;
-    background-color: #032340;
-    color: #E4F2F1;
+    background-color: var(--primary-color);
+    color: var(--light-bg);
     border: none;
     border-radius: 1.5vh;
     cursor: url(../image/cursor2.PNG), pointer;
@@ -1181,8 +1221,8 @@ footer p {
 }
 
 .check-btn:hover, .continue-btn:hover, #submit-quiz:hover {
-    background-color: #8D9FA6;
-    color: #032340;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 /* Le bouton Continuer est masqué au départ */
@@ -1198,14 +1238,14 @@ footer p {
 
 /* Style des résultats */
 .result-box h2 {
-    color: #E4F2F1;
-    border-bottom-color: #E4F2F1;
+    color: var(--light-bg);
+    border-bottom-color: var(--light-bg);
 }
 
 #score-display {
     font-size: 2rem;
     font-family: 'Cinzel Decorative', serif;
-    color: #E4F2F1;
+    color: var(--light-bg);
     text-align: center;
     margin-bottom: 1.5vh;
 }
@@ -1213,7 +1253,7 @@ footer p {
 #grade-message {
     font-style: italic;
     text-align: center;
-    color: #C5D7D9;
+    color: var(--hover-color);
     padding: 0;
 }
 
@@ -1230,23 +1270,19 @@ footer p {
     transition: background-color 0.2s ease;
     margin-top: 25px; 
     background-color: #D96E6E; 
-    color: #032340; 
+    color: var(--primary-color); 
     font-weight: bold;
     box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
 }
 
 .result-box button:hover {
     background-color: #A64747;
-    color: #E4F2F1;
+    color: var(--light-bg);
 }
 
 .hidden {
     display: none;
 }
-
-
-
-
 
 /* --- 6. RESPONSIVE --- */
 /* cacher le titre en format ordi et tablette */
@@ -1267,7 +1303,7 @@ footer p {
     display: block;
     width: 100%;
     height: 3px;
-    background-color: #C5D7D9; /* Couleur claire */
+    background-color: var(--hover-color); /* Couleur claire */
     margin: 5px 0;
     transition: all 0.3s ease-in-out;
     border-radius: 2px;
@@ -1389,7 +1425,7 @@ footer p {
     .container::before {
         left: 60px; /* Positionne la flèche à gauche du bloc de texte */
         border-width: 10px 10px 10px 0; /* Change la direction (pointe à droite) */
-        border-color: transparent #3F5559 transparent transparent; 
+        border-color: transparent var(--secondary-color) transparent transparent; 
         right: auto; /* Annule l'ancienne règle right: 30px; */
     }
 
@@ -1435,7 +1471,7 @@ footer p {
         transform: translate(-50%, -50%);
         
         font-family: 'Cinzel Decorative', serif;
-        color: #C5D7D9;
+        color: var(--hover-color);
         font-weight: bold;
         font-size: 1.5rem;
         line-height: 1.1;
@@ -1455,7 +1491,7 @@ footer p {
         left: -100%; /* Caché à gauche */
         width: 100%;
         height: calc(100vh - 80px);
-        background-color: #3F5559;
+        background-color: var(--secondary-color);
         flex-direction: column;
         transition: 0.4s ease-in-out;
         z-index: 3900;
@@ -1480,7 +1516,7 @@ footer p {
         padding: 15px;
         font-size: 1.1rem;
         background-color: transparent; /* Fond transparent sur mobile pour alléger */
-        color: #F0F0F0;
+        color: var(--white);
         box-shadow: none;
         border-bottom: 1px solid rgba(255,255,255,0.1);
         border-radius: 0;
@@ -1681,8 +1717,8 @@ footer p {
 
     .content p {
         /* Règle à adapter si vous voulez que le texte soit de couleur différente
-           en mode mobile (actuellement en #E4F2F1, ce qui est clair) */
-        color: #E4F2F1; 
+           en mode mobile (actuellement en var(--light-bg), ce qui est clair) */
+        color: var(--light-bg); 
         padding: 0;
         text-align: justify;
     }
