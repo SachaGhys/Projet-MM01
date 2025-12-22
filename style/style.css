@@ -427,6 +427,69 @@ figcaption {
     border-bottom-right-radius: 20px;
 }
 
+/* Slide du diaporama */
+.mySlides {
+    display: none;  /* Cache toutes les slides par défaut */
+    height: 100%;  
+    width: 100%;
+    align-items: center; /* Centre le contenu verticalement */
+}
+
+/* Boutons suivant/précédent */
+.prev, .next {
+  cursor: url(../image/cursor2.PNG), pointer; /* Curseur personnalisé */
+  position: absolute;
+  top: 50%; /* Centrage vertical */
+  width: auto;
+  padding: 16px;
+  margin-top: -22px; /* Ajustement fin du centrage */
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease; /* Animation au survol */
+  border-radius: 0 3px 3px 0;
+  user-select: none; /* Empêche la sélection du texte */
+  background-color: rgba(0,0,0,0.3); /* Lisibilité sur l’image */
+}
+
+/* Bouton suivant placé à droite */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Effet hover sur les flèches */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* --- Points de navigation (dots) --- */
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 5px; /* Un peu d'espace entre les points */
+    background-color: #bbb; /* Gris clair par défaut */
+    border-radius: 50%; /* Rond */
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    cursor: url(../image/cursor2.PNG), pointer; /* Pour montrer qu'on peut cliquer */
+}
+
+/* Point actif correspondant à la slide affichée */
+.active-dot {
+    background-color: var(--primary-color); /* Bleu nuit */
+    border: 1px solid #FFF; /* Petit contour blanc pour le style */
+}
+
+/* --- Conteneur des dots --- */
+.dots-container {
+    position: absolute;
+    bottom: 10px;      /* Les dots se placent en bas du conteneur */
+    width: 100%;
+    text-align: center;
+    z-index: 20; /* Au-dessus des images */
+}
+
 /* timeline faite grâce à w3school */
 .timeline {
   position: relative;
@@ -527,51 +590,56 @@ border-radius: 6px; /* Coins arrondis */
 }
 
 
-/* formulaire */
+/* Formulaire */
+/* Champs de saisie du formulaire */
 input[type=text], select, textarea {
 width: 100%; 
 padding: 12px;  
-border: 1px solid #ccc; 
-border-radius: 4px; 
-box-sizing: border-box; 
+border: 1px solid #ccc; /* Bordure discrète */
+border-radius: 4px;  /* Coins arrondis */
+box-sizing: border-box; /* Inclut padding et bordure dans la largeur */
 margin-top: 6px; 
 margin-bottom: 16px; 
 resize: vertical /*permet à l'utilisateur d'agrandir la case massage */
 }
 
+/* Bouton d'envoi du formulaire */
 input[type=submit] {
-background-color: var(--secondary-color);
-color: var(--light-bg);
-padding: 12px 20px;
-border: none;
+background-color: var(--secondary-color); /* Couleur secondaire */
+color: var(--light-bg); /* Texte clair */
+padding: 12px 20px; /* Taille du bouton */
+border: none; /* Pas de bordure */
 border-radius: 4px;
-cursor: url(../image/cursor2.PNG), pointer;
-display: block;
+cursor: url(../image/cursor2.PNG), pointer; /* Curseur personnalisé */
+display: block; /* Bloc centré */
 margin: auto;
 }
 
+/* Effet au survol du bouton */
 input[type=submit]:hover {
-  background-color: var(--primary-color);
+  background-color: var(--primary-color); /* Changement de couleur */
 }
 
+/* Conteneur global du formulaire */
 .formulaire {
 width: 80%;
 margin: auto;
 border-radius: 5px;
-background-color: #f2f2f2;
+background-color: #f2f2f2; /* Fond clair */
 padding: 5vh;
 }
 
 
-/* collab */
+/* Grille principale des collaborateurs */
 .collab-grid { 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 3vh; 
+    display: grid; /* Mise en page en grille */
+    grid-template-columns: repeat(3, 1fr); /* 3 colonnes de largeur égale */
+    gap: 3vh; /* Espacement entre les cartes */
     padding: 3vh;
     background-color: var(--light-bg);
 }
 
+/* Bloc principal de présentation d'une catégorie */
 .collab-master {
     width: 70%;
     height: auto;
@@ -580,16 +648,19 @@ padding: 5vh;
     background-color: var(--secondary-color); 
     color: var(--light-bg);
     text-align: center;
-    overflow: hidden;
+    overflow: hidden; /* Évite les débordements */
     border-radius: 1vh 1vh 1vh 1vh; 
     box-shadow: 1vh 1vh 1vh rgba(0,0,0,0.4);
 }
+
+/* Titre du bloc principal */
 .collab-master h2 {
     color: var(--light-bg);
     border-bottom: none;
     margin-bottom: 0;
 }
 
+/* Image principale du bloc */
 .collab-master img {
     width: 70%;
     height: auto;
@@ -598,31 +669,33 @@ padding: 5vh;
     border-radius: 15px;
 }
 
+/* Carte individuelle d'un collaborateur */
 .collab-detail {
     background-color: var(--accent-color);
     border-radius: 1vh;
     box-shadow: 1vh 1vh 1vh rgba(0,0,0,0.4);
     overflow: hidden;
     text-align: center;
-    transition: all 0.3s ease-in-out;
-    will-change: transform, box-shadow;
+    transition: all 0.3s ease-in-out; /* Animation fluide */
+    will-change: transform, box-shadow; /* Optimisation des animations */
 }
 
+/* Image du collaborateur */
 .collab-detail img {
     margin-top: 2vh;
     border-radius: 15px;
     height: 15vh; 
-    object-fit: cover;
+    object-fit: cover; /* Coupe proprement l'image */
 }
 
+/* Effet au survol d'une carte */
 .collab-detail:hover {
-    transform: translateY(-5px) scale(1.02);
+    transform: translateY(-5px) scale(1.02); /* Légère élévation */
     box-shadow: 1.2vh 1.2vh 1.2vh rgba(0, 0, 0, 0.5);
 }
 
 /* Gestion de l'audio page collaboration */
 #audio-control-btn {
-    /* ... (vos styles fixed, bottom, right) ... */
     width: 50px; /* Taille fixe */
     height: 50px;
     padding: 0;
@@ -630,20 +703,22 @@ padding: 5vh;
     position: fixed; /* Rend l'élément fixe par rapport à la fenêtre */
     bottom: 20px;    /* 20px du bas de l'écran */
     right: 20px;     /* 20px de la droite de l'écran */
-    z-index: 5500;
+    z-index: 5500; /* Priorité d'affichage */
     box-shadow: 0.6vh 0.6vh 0.6vh rgba(0, 0, 0, 0.4);
 }
 
+/* Icône du bouton audio */
 #audio-icon {
     font-size: 1.2em; /* Taille de l'icône */
 }
 
-
-/* galerie photo */
+/* Page galerie photo */
+/* Conteneur principal de la page galerie */
 .gallery-page-content {
     padding: 0 2vh 5vh 2vh;
 }
 
+/* Texte d’introduction centré sous le titre */
 .intro-text {
     max-width: 150vh;
     margin: auto; 
@@ -653,34 +728,34 @@ padding: 5vh;
     padding-bottom: 8vh;
 }
 
-/* --- MISE EN PAGE GRILLE 3xN --- */
+/* --- Mise en page grille 3xN --- */
 .photo-gallery {
     display: grid;
-    /* 3 colonnes égales (3xN) */
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr); /* Trois colonnes égales */
     gap: 3vh;
 }
 
+/* Carte individuelle d’une image */
 .gallery-item {
-    position: relative;
+    position: relative; /* Nécessaire pour les pseudo-éléments */
     border-radius: 2vh;
     overflow: hidden;
     box-shadow: 1.5vh 1.5vh 1.5vh rgba(0,0,0,0.4);
     cursor: url(../image/cursor2.PNG), pointer;
     background-color: #fff;
-    /* Force une hauteur uniforme pour toutes les images */
-    height: 35vh; 
+    height: 35vh; /* Force une hauteur uniforme pour toutes les images */
 }
 
+/* Image occupant toute la carte */
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Assure que toutes les images remplissent la zone */
+    object-fit: cover; /* Évite les déformations */
     display: block;
     transition: filter 0.4s ease;
 }
 
-/* --- flou pour l'anti spoil --- */
+/* --- Flou pour l'anti spoil --- */
 .spoiler-blur {
     text-align: center;
     background-color: var(--primary-color); /* Pour cacher les bords */
@@ -691,14 +766,13 @@ padding: 5vh;
 }
 
 .spoiler-blur::after {
-    /* Étiquette "Attention Spoil" */
-    content: "ATTENTION SPOIL : Cliquer pour découvrir";
+    content: "ATTENTION SPOIL : Cliquer pour découvrir"; /* Étiquette "Attention Spoil" */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    background-color: var(--primary-color)D9;
+    background-color: #3F5559D9;
     padding: 1vh 1vh;
     border-radius: 2vh;
     font-family: 'Cinzel Decorative', serif;
@@ -706,17 +780,17 @@ padding: 5vh;
     font-size: 1.5vh;
 }
 
-/* État Révélé (Ajouté par JS) */
+/* État Révélé (Ajouté par JS avec l'aide d'IA) */
 .revealed img {
     filter: none; 
 }
 
+/* Suppression du message spoil une fois révélé */
 .revealed::after {
     display: none; 
 }
 
-/* --- DESCRIPTION QUI APPARAIT AU SURVOL (LOGIQUE FINALE) --- */
-
+/* Description qui apparaît au survole */
 .gallery-caption-box {
     position: absolute;
     bottom: 0;
@@ -725,22 +799,22 @@ padding: 5vh;
     padding: 15px;
     background-color: rgba(0, 0, 0, 0.75);
     color: white;
-    transform: translateY(100%); /* Caché en bas par défaut pour TOUTES les images */
+    transform: translateY(100%); /* Caché en bas par défaut pour toutes les images */
     transition: transform 0.3s ease;
     z-index: 1000; 
 }
 
-/* Règle 1 : Description visible au survol UNIQUEMENT pour les images NON-SPOIL */
+/* Règle 1 : Description visible au survol uniquement pour les images NON-SPOIL */
 .gallery-item:not(.spoiler-blur):hover .gallery-caption-box {
     transform: translateY(0);
 }
 
-/* Règle 2 : Description visible au survol UNIQUEMENT après avoir cliqué sur l'image SPOIL */
+/* Règle 2 : Description visible au survol uniquement après avoir cliqué sur l'image SPOIL */
 .spoiler-blur.revealed:hover .gallery-caption-box {
     transform: translateY(0); 
 }
 
-
+/* Titre de la légende */
 .caption-title {
     font-family: 'Cormorant Garamond', serif;
     font-weight: bold;
@@ -749,6 +823,7 @@ padding: 5vh;
     padding: 0;
 }
 
+/* Description secondaire de la légende */
 .caption-desc {
     font-size: 0.9rem;
     color: var(--hover-color);
@@ -756,7 +831,8 @@ padding: 5vh;
     padding: 0;
 }
 
-/* galerie vidéo */
+/* Page galerie vidéo */
+/* Conteneur global de la page vidéo */
 .video-page-content {
     margin: auto;
     padding-top: 3vh;
@@ -772,11 +848,12 @@ padding: 5vh;
 
 }
 
+/* Bloc individuel d’une vidéo */
 .video-item {
     position: relative;
     box-shadow: 1vh 1vh 1vh rgba(0,0,0,0.15);
     border-radius: 2vh;
-    overflow: hidden;
+    overflow: hidden; /* Évite un débordement */
     background-color: #fff;
 }
 
@@ -784,10 +861,10 @@ padding: 5vh;
 .video-iframe-container {
     position: relative;
     width: 100%;
-    /* Ratio 16:9 (9 / 16 * 100) */
-    padding-top: 56.25%; 
+    padding-top: 56.25%; /* Ratio 16:9 (9 / 16 * 100) */
 }
 
+/* Iframe responsive */
 .video-iframe-container iframe {
     position: absolute;
     top: 0;
@@ -798,6 +875,7 @@ padding: 5vh;
     transition: filter 0.4s ease;
 }
 
+/* Texte descriptif sous la vidéo */
 .video-description {
     text-align: center;
     color: var(--primary-color);
@@ -807,23 +885,19 @@ padding: 5vh;
     background-color: var(--hover-color); /* Couleur de fond pour la description */
 }
 
-/* --- SYSTÈME ANTI-SPOIL VIDÉO --- */
-
-
-
+/* Système anti-spoil vidéo */
 .video-item.spoiler-blur iframe {
-    /* Application du flou sur l'iframe lui-même */
-    filter: blur(10px); 
+    filter: blur(10px); /* Application du flou sur l'iframe lui-même */
     cursor: default;
 }
 
+/* Message d’avertissement centré */
 .video-item.spoiler-blur::after {
-    /* Banderole d'avertissement au centre du conteneur 16:9 */
     content: "ATTENTION SPOIL VIDÉO : Cliquer pour voir";
     position: absolute;
     width: 30%;
     height: 30%; /* Couvre toute la zone de la vidéo */
-    background-color: var(--primary-color)66;
+    background-color: #03234066;
     color: white;
     font-family: 'Cinzel Decorative', serif;
     font-size: 2.5vh;
@@ -835,7 +909,7 @@ padding: 5vh;
     cursor: url(../image/cursor2.PNG), pointer;
 }
 
-/* État Révélé (Ajouté par JS) */
+/* État Révélé (Ajouté par JS avec l'aide d'une IA) */
 .video-item.revealed iframe {
     filter: none; /* Supprime le flou */
 }
@@ -844,12 +918,9 @@ padding: 5vh;
     display: none; /* Cache la banderole d'avertissement */
 }
 
-
-
-
-/* footer */
+/* Footer */
 footer {
-    background-color: #000;
+    background-color: #000; /* Fond noir pour rester discret */
     color: #555;
     text-align: center;
     padding: 10px 0;
@@ -864,89 +935,28 @@ footer p {
     max-width: 100%; /* On enlève la limite de largeur du p général */
 }
 
-
-
-
-/* --- Slide --- */
-.mySlides {
-    display: none; 
-    height: 100%;  
-    width: 100%;
-    align-items: center; 
-}
-
-/* --- BOUTONS SUIVANT / PRÉCÉDENT et slideshow --- */
-.prev, .next {
-  cursor: url(../image/cursor2.PNG), pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-  background-color: rgba(0,0,0,0.3); /* Un peu sombre pour qu'on les voit */
-}
-
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-.dot {
-    height: 10px;
-    width: 10px;
-    margin: 0 5px; /* Un peu d'espace entre les points */
-    background-color: #bbb; /* Gris clair par défaut */
-    border-radius: 50%; /* Rond */
-    display: inline-block;
-    transition: background-color 0.6s ease;
-    cursor: url(../image/cursor2.PNG), pointer; /* Pour montrer qu'on peut cliquer */
-}
-
-.active-dot {
-    background-color: var(--primary-color); /* Bleu nuit */
-    border: 1px solid #FFF; /* Petit contour blanc pour le style */
-}
-
-/* --- BOUTONS SUIVANT / PRÉCÉDENT et slideshow --- */
-
-
-.dots-container {
-    position: absolute;
-    bottom: 10px;      /* Les dots se placent en bas du conteneur */
-    width: 100%;
-    text-align: center;
-    z-index: 20;
-}
-
+/* Page filmographie */
 .section-background {
-  background-attachment: fixed;
+  background-attachment: fixed; /* Image fixe pour l'effet parallax */
   background-position: top center;
   background-size: cover;
-  height: 100vh;
+  height: 100vh; /* Section plein écran */
   width: 100%;
   color: #FFFFFF;
-  display: flex;
+  display: flex; /* Centrage du titre */
   justify-content: center;
   align-items: center;
 }
 
+/* Titre affiché sur l'image */
 .section-background h1 {
-    background-color: var(--secondary-color)66;
+    background-color: #3F555966; /* Fond semi-transparent */
     border-radius: 2vh;
     padding: 1vh 1vh 1vh 1vh;
     color: var(--hover-color);
 }
 
+/* Images de fond spécifiques à chaque film */
 .parallax {
   background-image: url("../image/inception_back.jpg"); 
 }
@@ -959,81 +969,82 @@ footer p {
 .parallax3 {
   background-image: url("../image/batman_back.jpg");
 }
+
+/* Bloc de texte entre deux sections parallax */
 .text-bloc {
     background-color: var(--secondary-color);
     height: auto;
-    display: flex;
+    display: flex; /* Centrage du contenu */
     align-items: center;
     justify-content: center;
-    text-align: justify;
+    text-align: justify; /* Lisibilité du texte */
     padding: 2vh 1vh 2vh 1vh;
 }
+
+/* Texte descriptif des films */
 .text-bloc p {
   font-size: 1.7em;
 }
 
-/* page de récompense */
+/* Page de récompense */
 .award-page-content {
-    width: 90%;
+    width: 90%; /* Largeur centrée */
     height: auto;
-    margin: auto;
-    padding: 1vh;
+    margin: auto; /* Centrage horizontal */
+    padding: 1vh; /* Marge interne légère */
 }
 
+/* Liste verticale des récompenses */
 .award-list {
     display: flex;
-    flex-direction: column;
-    gap: 5vh; 
+    flex-direction: column; /* Cartes empilées */
+    gap: 5vh; /* Espacement entre cartes */
 }
 
+/* Carte individuelle de récompense */
 .award-item {
     position: relative;
     border-radius: 10px;
-    box-shadow: 0 5px 15px var(--primary-color)66;
-    overflow: hidden;
+    box-shadow: 0 5px 15px #03234066;
+    overflow: hidden; /* Coupe les débordements */
     background-color: var(--hover-color); /* Fond de la carte */
     padding: 20px;
     transition: all 0.3s ease;
 }
 
-
-/* --- CONTENU FLOU (La carte elle-même) --- */
-
+/* Contenu flou sur la carte elle-même */
 /* Applique le flou à tout le contenu sauf l'indice */
 .award-item.spoiler-blur::before {
-    /* Cache TOUT le contenu lisible (titre, description, image) */
-    content: "";
+    content: "";    /* Cache tout le contenu lisible (titre, description, image) */
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--secondary-color)D9; /* Bleu nuit opaque */
+    background-color: #3F5559D9; /* Bleu nuit opaque */
     z-index: 15; /* Au-dessus de l'indice (z-index 10) */
     transition: opacity 0.4s ease;
     cursor: url(../image/cursor2.PNG), pointer;
 }
 
+/* Flou appliqué au contenu masqué */
 .award-item.spoiler-blur .award-content {
     filter: blur(8px);
     transition: filter 0.4s ease;
 }
 
+/* Suppression du masque une fois révélé */
 .award-item.revealed::before {
     display: none;
 }
 
-
+/* Ceci annule l'étiquette 'ATTENTION SPOIL : Cliquer pour découvrir' */
 .award-item.spoiler-blur::after {
-    /* Ceci annule l'étiquette 'ATTENTION SPOIL : Cliquer pour découvrir' 
-       qui est définie de manière trop générale dans la section Galerie Photo. */
     content: none;
     display: none;
 }
 
-
-/* --- INDICE TEXTUEL --- */
-
+/* Indice textuel */
 .award-hint {
     position: absolute;
     top: 50%;
@@ -1044,6 +1055,7 @@ footer p {
     z-index: 20; 
 }
 
+/* Texte d’indice */
 .hint-text {
     font-family: 'Lora', serif;
     font-size: 1.3rem;
@@ -1053,13 +1065,13 @@ footer p {
     border-radius: 5px;
 }
 
-/* --- CONTENU RÉVÉLÉ --- */
-
+/* Contenu Révélé */
+/* Le conteneur du titre/description/image */
 .award-content {
-    /* Le conteneur du titre/description/image */
     transition: filter 0.5s ease, opacity 0.5s ease;
 }
 
+/* Image de la récompense */
 .award-content img {
     display: block; 
     width: 40%; 
@@ -1070,6 +1082,7 @@ footer p {
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
+/* Titre de la récompense */
 .award-title {
     font-family: 'Cormorant Garamond', serif;
     color: var(--primary-color);
@@ -1077,6 +1090,7 @@ footer p {
     margin-bottom: 10px;
 }
 
+/* Description / contexte */
 .award-context {
     color: var(--secondary-color);
     font-size: 1.1rem;
@@ -1084,47 +1098,49 @@ footer p {
     padding: 0; 
 }
 
-/* --- ÉTAT RÉVÉLÉ --- */
-
-/* 1. Lève le flou et rend visible le contenu */
+/* État Révélé */
+/* Suppression du flou */
 .award-item.revealed .award-content {
     filter: none;
 }
 
-/* 2. Cache l'indice */
+/* Cache l’indice */
 .award-item.revealed .award-hint {
     display: none;
 }
 
-/* 3. Ramène la carte à son état de couleur normal */
+/* Retour au style normal */
 .award-item.revealed {
     background-color: var(--light-bg);
     color: var(--secondary-color);
 }
 
-/* 4. Pour s'assurer que le texte dans l'état révélé est bien visible */
+/* Texte lisible après révélation */
 .award-item.revealed .award-title, 
 .award-item.revealed .award-context {
     color: var(--primary-color); /* Texte bien sombre sur fond clair */
 }
 
-/* page de quiz */
+/* Page de quiz */
+/* Conteneur principal du quiz */
 .quiz-page-content {
     width: 65%;
     margin: auto;
     padding-bottom: 5vh;
 }
 
+/* Carte contenant une question */
 .quiz-card {
     background-color: var(--secondary-color); /* Couleur de fond sombre et élégante */
     color: var(--light-bg);
     padding: 2vh;
     border-radius: 2vh;
     box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.5);
-    border-left: 1vh solid var(--primary-color); /* Touche de couleur Nolan (Bleu nuit) */
+    border-left: 1vh solid var(--primary-color); /* Touche de Bleu nuit */
     transition: opacity 0.5s ease;
 }
 
+/* Titre de la question */
 .quiz-card h2 {
     font-family: 'Cinzel Decorative', serif;
     color: var(--hover-color);
@@ -1136,6 +1152,7 @@ footer p {
     width: 100%;
 }
 
+/* Texte de la question */
 .question-text {
     font-size: 1.1rem;
     margin-bottom: 2vh;
@@ -1143,6 +1160,7 @@ footer p {
     padding: 0;
 }
 
+/* Conteneur des réponses */
 .answers-container {
     display: flex;
     flex-direction: column;
@@ -1174,7 +1192,7 @@ footer p {
     height: 0px;
 }
 
-/* Style appliqué au LABEL LORSQUE l'INPUT FRÈRE est COCHÉ (SÉLECTION VISUELLE) */
+/* Style appliqué au LABEL Lorsque l'input frère est coché */
 .answers-container input[type="radio"]:checked + label {
     background-color: var(--accent-color); /* Couleur forte lors de la sélection (état temporaire avant validation) */
     color: var(--primary-color); 
@@ -1220,6 +1238,7 @@ footer p {
     margin-top: 10px;
 }
 
+/* Hover boutons */
 .check-btn:hover, .continue-btn:hover, #submit-quiz:hover {
     background-color: var(--accent-color);
     color: var(--primary-color);
@@ -1235,13 +1254,13 @@ footer p {
     display: none;
 }
 
-
 /* Style des résultats */
 .result-box h2 {
     color: var(--light-bg);
     border-bottom-color: var(--light-bg);
 }
 
+/* Score final */
 #score-display {
     font-size: 2rem;
     font-family: 'Cinzel Decorative', serif;
@@ -1250,6 +1269,7 @@ footer p {
     margin-bottom: 1.5vh;
 }
 
+/* Score final */
 #grade-message {
     font-style: italic;
     text-align: center;
@@ -1275,11 +1295,13 @@ footer p {
     box-shadow: 1vh 1vh 1vh rgba(0, 0, 0, 0.3);
 }
 
+/* Hover bouton recommencer */
 .result-box button:hover {
     background-color: #A64747;
     color: var(--light-bg);
 }
 
+/* Cache l’élément */
 .hidden {
     display: none;
 }
