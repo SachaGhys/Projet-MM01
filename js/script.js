@@ -9,10 +9,8 @@ if (burgerMenu && navMenu) {
     });
 }
 
-
 /* menu dropdown */
 const dropdownLinks = document.querySelectorAll('.dropdown > a');
-
 dropdownLinks.forEach(link => {
     link.addEventListener('click', function(e) {
         if (window.innerWidth <= 1024) {
@@ -42,17 +40,12 @@ document.addEventListener('click', function(e) {
     }
 });
 
-
-
 /* slide show */
 const slides = document.getElementsByClassName("mySlides");
 
 if (slides.length > 0) {
-    // === DÉBUT DU CODE DU DIAPORAMA SÉCURISÉ ===
-    
     let slideIndex = 1;
     showSlides(slideIndex);
-
     function plusSlides(n) {
         showSlides(slideIndex += n);
     }
@@ -83,12 +76,10 @@ if (slides.length > 0) {
         slides[slideIndex - 1].style.display = "flex";  
         slides[slideIndex - 1].classList.add("active-slide"); 
         
-        // Assurez-vous que les points existent avant de les manipuler
         if (dots.length > 0) {
              dots[slideIndex - 1].className += " active-dot";
         }
     }
-    // === FIN DU CODE DU DIAPORAMA SÉCURISÉ ===
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
@@ -101,8 +92,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const classPlay = 'fa-volume-mute';
     
     let isPlaying = false; 
-    
-    // --- NOUVELLE INITIALISATION AU DÉBUT ---
     // On s'assure que le bouton affiche l'icône PLAY au chargement (puisque l'autoplay est bloqué)
     icon.classList.remove(classMute); 
     icon.classList.add(classPlay);
@@ -119,7 +108,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         // Autoplay bloqué (fréquent), on reste en mode PLAY, isPlaying = false est déjà bon
         // Rien à faire ici, l'icône est déjà bien réglée ci-dessus.
     });
-
     btn.addEventListener('click', () => {
         if (isPlaying) {
             audio.pause();
@@ -140,16 +128,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 function toggleGalleryState(element) {
-    
     // Détection si nous sommes dans une zone considérée comme Mobile/Tablette (<= 1024px)
     // C'est le meilleur compromis pour synchroniser votre CSS responsive et le JS.
     const isMobileOrTabletView = window.matchMedia('(max-width: 1024px)').matches;
     const isSpoiler = element.classList.contains('spoiler-blur');
-
-    // --- CAS 1 : MODE DESKTOP (Écran > 1024px, la vue par défaut) ---
+    // CAS 1 : MODE DESKTOP (Écran > 1024px, la vue par défaut) 
     if (!isMobileOrTabletView) {
         
-        // Sur PC, le clic doit UNIQUEMENT gérer l'anti-spoil (flou)
+        // Sur PC, le clic doit uniquement gérer l'anti-spoil (flou)
         if (isSpoiler) {
             // Bascule simplement la classe 'revealed' (enlève le flou).
             // Le CSS :hover gère la description (qui doit être active en dehors des media queries).
@@ -158,15 +144,13 @@ function toggleGalleryState(element) {
         return; // Le travail est fait, on quitte la fonction.
     }
 
-    // --- CAS 2 : MODE MOBILE/TABLETTE (Écran <= 1024px, Logique Complexe) ---
+    // CAS 2 : MODE MOBILE/TABLETTE (Écran <= 1024px, Logique Complexe) 
 
     // Récupère l'état actuel de l'élément (initialisé à 0 si non défini)
     let clickCount = parseInt(element.getAttribute('data-click-count')) || 0;
     
     // Incrémente le compteur
     clickCount++; 
-
-    // --- LOGIQUE D'ÉTAT ---
 
     let maxClicks = isSpoiler ? 3 : 2; // Spoil = 3 étapes, Non-Spoil = 2 étapes
     
@@ -178,14 +162,14 @@ function toggleGalleryState(element) {
     // Définit le nouvel état
     element.setAttribute('data-click-count', clickCount);
 
-    // --- APPLICATION DE L'ÉTAT ACTUEL (Nettoyage et Ajout) ---
+    // Application de l'état actuel (Nettoyage et Ajout)
     
     // Nettoyage avant application :
     element.classList.remove('revealed'); 
     element.classList.remove('caption-visible'); 
 
     if (isSpoiler) {
-        // --- CAS SPOIL : 1=Flou, 2=Description, 3=Reset ---
+        // --- CAS spoil : 1=Flou, 2=Description, 3=Reset ---
         if (clickCount === 1) {
             element.classList.add('revealed'); // Enlève le flou (image visible)
         } else if (clickCount === 2) {
@@ -197,7 +181,7 @@ function toggleGalleryState(element) {
         }
         
     } else {
-        // --- CAS NON-SPOIL : 1=Description, 2=Reset ---
+        // --- CAS non-spoil : 1=Description, 2=Reset ---
         
         if (clickCount === 1) {
             element.classList.add('caption-visible'); // Affiche la description
@@ -216,7 +200,6 @@ function toggleVideoSpoiler(element) {
 document.addEventListener('DOMContentLoaded', () => {
     // Vérifie si l'élément loader existe (s'applique uniquement à index.html)
     const loader = document.getElementById('page-loader');
-
     if (loader) {
         // La fonction load est lancée lorsque TOUS les actifs sont prêts (images, iframes, etc.)
         window.addEventListener('load', () => {
@@ -236,10 +219,6 @@ function toggleSpoiler(element) {
             element.classList.toggle('revealed');
         }
 
-// =========================================
-// LOGIQUE DU QUIZ
-// =========================================
-
 document.addEventListener('DOMContentLoaded', () => {
     const quizForm = document.getElementById('nolan-quiz');
     
@@ -254,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
         q5: 'b'  // IMAX (70mm)
     };
     
-    // Fonction principale pour VÉRIFIER et afficher les couleurs
+    // Fonction principale pour vérifier et afficher les couleurs
     function checkAnswer(currentCard, currentId, nextId) {
         const questionName = currentId;
         const userAnswer = quizForm.elements[questionName].value;
@@ -275,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 2. Marquer la bonne réponse en VERT
                 label.classList.add('correct');
             } else if (input.value === userAnswer) {
-                // 3. Marquer la mauvaise réponse sélectionnée par l'utilisateur en ROUGE
+                // 3. Marquer la mauvaise réponse sélectionnée par l'utilisateur en rouge
                 label.classList.add('incorrect');
             }
         });

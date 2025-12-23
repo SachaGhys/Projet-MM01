@@ -197,6 +197,7 @@ main {
     max-height: 100px; 
     width: auto;
     display: block;
+    cursor: url(../image/cursor2.PNG), pointer;
 }
 
 /* Menu de navigation principal */
@@ -1306,39 +1307,41 @@ footer p {
     display: none;
 }
 
-/* --- 6. RESPONSIVE --- */
-/* cacher le titre en format ordi et tablette */
+/* Responsive */
+/* cacher le titre en format ordinateur et tablette */
 .mobile-header-title {
     display: none; 
 }
 
+/* Icône du menu burger (3 traits) */
 .burger-menu {
     display: none; /* Caché par défaut */
     cursor: url(../image/cursor2.PNG), pointer;
-    width: 30px;
+    width: 30px;  /* Taille globale du bouton */
     height: 25px;
-    position: relative;
+    position: relative; /* Nécessaire pour positionner les spans à l’intérieur */
     z-index: 4005; /* Toujours au-dessus du menu ouvert */
 }
 
+/* Les barres du burger */
 .burger-menu span {
-    display: block;
+    display: block; /* Chaque span est une barre */
     width: 100%;
     height: 3px;
     background-color: var(--hover-color); /* Couleur claire */
     margin: 5px 0;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; /* Animation fluide (utile pour animation croix plus tard) */
     border-radius: 2px;
 }
 
 @media (max-width: 1280px) {
+    /* Suppression des arrondis du header sur écrans plus petits */
     .main-header {
         border-radius: 0 0 0 0;
     }
 }
 
-
-/* TABLETTE - 768px */
+/* Tablette - 768px */
 @media (max-width: 768px) {
     .nav-btn {
         font-size: 1rem; /* Réduit un peu la taille */
@@ -1350,13 +1353,13 @@ footer p {
     }
 
     .main-header {
+        /* Header plus fin */
         padding: 5px 20px;
     }
     
-    
     .conteneur {
         width: 100%; /* Prend toute la largeur comme demandé */
-        border-radius: 0;
+        border-radius: 0; /* Suppression des arrondis */
     }
 
     .dropdown.active .submenu {
@@ -1364,8 +1367,7 @@ footer p {
     }
 
     .photo-gallery {
-        /* On passe à 2 colonnes égales */
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(2, 1fr); /* On passe à 2 colonnes égales */
         gap: 2vh; /* Réduction légère du gap sur tablette */
     }
     .gallery-item {
@@ -1386,41 +1388,38 @@ footer p {
     }
 
     .video-page-content {
-        max-width: 90%;
+        max-width: 90%; /* On limite la largeur maximum */
     }
 
     .text-bloc {
-        font-size: 0.7em;
+        font-size: 0.7em; /* Diminution de la taille de police d'écriture */
     }
 
     .quiz-page-content {
-    width: 90%;
+    width: 90%; /* On adapte la largeur du quiz */
     }
 
     .collab-master h2 {
-        font-size: 3rem;
+        font-size: 3rem; /* Diminution de la taille de police d'écriture */
     }
 
     .collab-detail p{
-        font-size: 0.9rem;
+        font-size: 0.9rem; /* Diminution de la taille de police d'écriture */
     }
     
     .conteneur-2-img {
-        gap: 10vh;
+        gap: 10vh; /* Réduction de l'espace entre les images */
     }
     .conteneur-2-img img {
-        width: 65%;
+        width: 65%; /* Largeur d'image fixée */
     }
     
     .credits h2 {
-        font-size: 2.5rem;
+        font-size: 2.5rem; /* Diminution de la taille de police d'écriture */
     }
 
-    @media (max-width: 768px) {
-    /* ... (vos autres styles tablette) ... */
     
-    /* --- TIMELINE TABLETTE (Branche à gauche) --- */
-    
+    /* Timeline (Branche à gauche) */
     .timeline::after {
         left: 30px; /* Déplace la ligne centrale vers la gauche (30px + 3px de margin-left) */
     }
@@ -1433,7 +1432,7 @@ footer p {
 
     /* Force tous les conteneurs à se comporter comme les éléments LEFT */
     .container.right { 
-        left: 0%; /* Annule le left: 50% du desktop */
+        left: 0%; /* Annule le left: 50% */
     }
 
     /* Cercle sur la ligne verticale */
@@ -1443,7 +1442,7 @@ footer p {
         top: 48px; /* Monte un peu le cercle pour un meilleur alignement */
     }
     
-    /* Triangle (flèche) - doit être à GAUCHE pour tous */
+    /* Triangle (flèche) - doit être à gauche pour tous */
     .container::before {
         left: 60px; /* Positionne la flèche à gauche du bloc de texte */
         border-width: 10px 10px 10px 0; /* Change la direction (pointe à droite) */
@@ -1455,15 +1454,11 @@ footer p {
     .right::before {
         left: 60px; /* S'assure que la flèche des anciens éléments "right" est aussi à gauche */
     }
-
 }
 
-}
-
+/* Tablette - 768px */
 @media (max-width:426px) {
-    
-
-    /* --- 1. HEADER & NAVIGATION --- */
+    /* Header et Navigation */
     .main-header {
         padding: 0 15px; /* Un peu moins de marge sur les côtés */
         height: 15vh;    /* Header plus fin sur mobile */
@@ -1482,20 +1477,17 @@ footer p {
 
     /* Le Titre "Christopher Nolan" au milieu */
     .mobile-header-title {
-        display: flex; /* On l'affiche ! */
+        display: flex; /* On l'affiche */
         flex-direction: column;
         align-items: center;
-        
-        /* Centrage absolu */
-        position: absolute;
+        position: absolute; /* Centrage absolu */
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        
         font-family: 'Cinzel Decorative', serif;
         color: var(--hover-color);
         font-weight: bold;
-        font-size: 1.5rem;
+        font-size: 1.5rem; /* Taille de police adapté aux smartphones */
         line-height: 1.1;
         text-align: center;
     }
@@ -1526,7 +1518,7 @@ footer p {
     }
 
     .nav-menu > ul {
-        flex-direction: column;
+        flex-direction: column; /* Dispostion en colonne */
         justify-content: flex-start;
         gap: 15px;
     }
@@ -1544,8 +1536,9 @@ footer p {
         border-radius: 0;
     }
     
+    /* Ici le hover représente un tapotement sur l'écran */
     .nav-btn:hover {
-        background-color: rgba(0,0,0,0.2);
+        background-color: rgba(0,0,0,0.2); 
         transform: none;
     }
 
@@ -1556,10 +1549,9 @@ footer p {
         transform: none;
         background-color: rgba(0,0,0,0.2);
         box-shadow: none;
-        display: flex; /* Si tu utilises le script JS de clic, ça marchera */
+        display: flex; 
     }
 
-/* contenu */
     .contenu {
         position: relative;
         height: 85vh;
@@ -1574,24 +1566,20 @@ footer p {
         display: none; 
     }
 
-    /* --- 3. LE CONTENEUR (SLIDESHOW MOBILE) --- */
+    /* Slide show mobile */
     .conteneur {
-        /* On le transforme en bloc simple */
-        display: block; 
+        display: block; /* On le transforme en bloc simple */
         width: 90%; /* Marges sur les côtés */
         height: auto; /* Hauteur libre selon le texte */
         min-height: 450px; /* Sécurité */
-        
-        /* Positionnement */
-        margin: 40px auto; /* Centré horizontalement + marges haut/bas */
-        
-        background-color: rgba(117, 117, 117, 0.8); /* Transparence demandée */
+        margin: 40px auto; /* Centré horizontalement + marges haut/bas */  
+        background-color: rgba(117, 117, 117, 0.8); 
         border-radius: 15px; /* Arrondi partout */
     }
 
     /* Les Slides */
     .mySlides {
-        flex-direction: column-reverse; /* Image en HAUT, Texte en BAS */
+        flex-direction: column-reverse; /* L'image en haut et le texte en bas */
         height: auto;
     }
     
@@ -1600,7 +1588,6 @@ footer p {
         display: flex !important; 
     }
 
-    /* L'Image */
     .conteneur-img {
         width: 100%;
         height: 200px; /* Hauteur fixe pour l'image */
@@ -1611,7 +1598,7 @@ footer p {
         border-radius: 15px 15px 0 0; /* Arrondi haut seulement */
     }
 
-    /* Le Texte */
+    /* Propriétés spécifiques pour dimension smartphone */
     .conteneur-text {
         width: 100%;
         padding: 5px;
@@ -1619,7 +1606,6 @@ footer p {
         padding-bottom: 20px; 
     }
 
-    /* --- 4. NAVIGATION SLIDESHOW --- */
     /* Les flèches au milieu de l'image */
     .prev, .next {
         top: 100px; /* Moitié de la hauteur de l'image (200px / 2) */
@@ -1627,8 +1613,14 @@ footer p {
         background-color: rgba(0,0,0,0.5);
     }
     
-    .prev { left: 0; border-radius: 0 5px 5px 0; }
-    .next { right: 0; border-radius: 5px 0 0 5px; }
+    .prev { 
+        left: 0;
+        border-radius: 0 5px 5px 0; 
+    }
+    .next { 
+        right: 0;
+        border-radius: 5px 0 0 5px; 
+    }
 
     /* Les points en bas du conteneur */
     .dots-container {
@@ -1638,7 +1630,7 @@ footer p {
         width: 100%;
     }
     
-    /* --- 5. FOOTER --- */
+    /* Modification footer */
     footer {
         height: 5vh;
         padding-bottom: 5vh;
@@ -1649,59 +1641,67 @@ footer p {
     }
 
     .photo-gallery {
-        /* On passe à 1 colonne */
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr; /* On passe à 1 colonne */
         gap: 1.5vh; /* Réduction du gap sur mobile */
         padding: 0 1vh; /* Réduction du padding horizontal si nécessaire */
     }
+
     .gallery-item {
         height: 25vh; /* Hauteur plus réduite pour les petits écrans */
     }
+
     .parallax1 {
-    background-position: top left;
+    background-position: top left; /* Pour montrer le contenu important de l'image */
     }
 
     .quiz-page-content {
-        width: 95%;
+        width: 95%; /* Agrandissement du quiz */
     }
 
     .quiz-card h2 {
-        font-size: 1rem;
+        font-size: 1rem; /* Diminution de la taille de police d'écriture */
     }
 
     .answers-container label {
-        font-size: 1rem;
+        font-size: 1rem; /* Diminution de la taille de police d'écriture */
     }
     .quiz-page-content h1 {
-        font-size: 1.6rem;
+        font-size: 1.6rem; /* Diminution de la taille de police d'écriture */
     }
 
     .question-text {
         font-size: 0.9rem;
-        padding-top: 1vh;
+        padding-top: 1vh; /* Diminution de la marge */
     }
 
     #score-display {
-        font-size: 1rem;
+        font-size: 1rem; /* Diminution de la taille de police d'écriture */
     }
 
     .collab-grid { 
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* Texte plus petit pour éviter les retours à la ligne excessifs */
+    }
+
+    /* Si le dernier élément est impair, on le centre (réalisé avec IA) */
+    .collab-grid > *:last-child:nth-child(odd) {
+        grid-column: 1 / -1; /* prend toute la largeur de la grille */
+        justify-self: center;
+        max-width: 70%; /* optionnel : évite qu’il soit trop large */
     }
 
     .collab-master h2 {
-        font-size: 2rem;
+        font-size: 2rem; /* Réduction du titre principal pour un affichage confortable sur petits écrans */
     }
 
     .collab-detail p{
-        font-size: 0.8rem;
+        font-size: 0.8rem;  /* Texte plus petit pour éviter les retours à la ligne excessifs */
     }
 
     .credits h2 {
-        font-size: 2rem;
+        font-size: 2rem; /* Harmonisation de la taille des titres sur mobile */
     }
     .conteneur-2-text {
-        font-size: 1.7rem;
+        font-size: 1.7rem;  /* Ajustement du texte central pour rester lisible sans dominer tout l’écran */
     }
 
     .timeline::after {
@@ -1715,16 +1715,13 @@ footer p {
     }
 
     /* Cache le cercle et la flèche sur TOUS les conteneurs */
-    .container::after,
-    .container::before,
-    .left::before,
-    .right::before {
+    .container::after, .container::before, .left::before, .right::before {
         display: none;
     }
 
     /* Le contenu (la date et le texte) doit être redessiné en bloc simple */
     .content {
-        padding-left: 2vh;
+        padding-left: 2vh; /* Marges internes adaptées au petit écran */
         padding-right: 2vh;
         text-align: left; /* Texte aligné à gauche */
     }
@@ -1738,10 +1735,8 @@ footer p {
     }
 
     .content p {
-        /* Règle à adapter si vous voulez que le texte soit de couleur différente
-           en mode mobile (actuellement en var(--light-bg), ce qui est clair) */
         color: var(--light-bg); 
-        padding: 0;
-        text-align: justify;
+        padding: 0; /* Pas de padding inutile */
+        text-align: justify; /* Justification pour un rendu plus “propre” sur mobile */
     }
 }
