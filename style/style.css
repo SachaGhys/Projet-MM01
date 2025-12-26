@@ -1606,10 +1606,12 @@ footer p {
 
     /* Propriétés spécifiques pour dimension smartphone */
     .conteneur-text {
+        margin: 0; 
         width: 100%;
         padding: 5px;
         font-size: 0.95rem;
         padding-bottom: 20px; 
+        text-align: left;
     }
 
     /* Les flèches au milieu de l'image */
